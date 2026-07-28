@@ -156,39 +156,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-
-        <aside className="signal-panel" aria-label="Selected production results">
-          <div className="company-proof">
-            <span>Experience across</span>
-            <div>
-              <strong>HP</strong>
-              <strong className="amazon">Amazon</strong>
-              <strong>BYJU&apos;S</strong>
-            </div>
-          </div>
-          <div className="signal-grid">
-            <article>
-              <strong>47</strong>
-              <span>Databricks pipelines</span>
-              <p>Agentic contract automation</p>
-            </article>
-            <article>
-              <strong>54</strong>
-              <span>Production pipelines</span>
-              <p>AI-powered operational support</p>
-            </article>
-            <article>
-              <strong>~75%</strong>
-              <span>Runtime reduction</span>
-              <p>Distributed processing</p>
-            </article>
-            <article>
-              <strong>21B → 400M</strong>
-              <span>Rows after deduplication</span>
-              <p>Scale and efficiency</p>
-            </article>
-          </div>
-        </aside>
       </section>
 
       <section className="impact-section" id="impact">

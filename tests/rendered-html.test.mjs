@@ -54,6 +54,8 @@ test("server-renders the finished Shivanand Kumar portfolio", async () => {
   assert.match(html, /IIT Patna/);
   assert.match(html, /iit-patna-logo\.png/);
   assert.match(html, /uiet-panjab-university-logo\.png/);
+  assert.doesNotMatch(html, /Experience across/);
+  assert.doesNotMatch(html, /Selected production results/);
   assert.doesNotMatch(html, /PyTorch/);
   assert.match(html, /Shivanand_Kumar_Senior_Data_Engineer_Resume\.pdf/);
   assert.match(html, /https:\/\/portfolio\.example\/og\.png/);
