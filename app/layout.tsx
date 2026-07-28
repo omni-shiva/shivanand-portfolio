@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = new URL(`${protocol}://${host}`);
   const title = "Shivanand Kumar | Senior Data Engineer & Agentic AI";
   const description =
-    "Senior Data Engineer building reliable data platforms and controlled Agentic AI automation with SQL, Python, Databricks and AWS.";
+    "Senior Data Engineer building reliable data platforms and controlled Agentic AI automation with SQL, Python, Databricks, PySpark and evaluation-first engineering.";
 
   return {
     metadataBase: baseUrl,
@@ -36,6 +36,8 @@ export async function generateMetadata(): Promise<Metadata> {
       "SQL",
       "Python",
       "PySpark",
+      "RAG",
+      "LLM Evaluation",
       "Data Platform Engineer",
     ],
     openGraph: {

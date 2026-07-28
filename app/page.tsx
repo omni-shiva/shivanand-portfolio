@@ -4,30 +4,39 @@ const caseStudies = [
     label: "Production case study",
     title: "AI-driven data-product contract automation",
     summary:
-      "Led the design and rollout of an agentic engineering workflow that turned authoritative pipeline context into structured, reviewable data-product contracts.",
-    outcomes: ["47 Databricks pipelines", "Days to hours", "Human approval retained"],
-    stack: ["Agent skills", "Structured generation", "Deterministic validation", "Databricks"],
+      "Led the end-to-end design and rollout of a five-phase agentic control loop that turned authoritative pipeline context into structured, reviewable data-product contracts.",
+    outcomes: ["47 Databricks pipelines", "20+ transformations", "Days to hours"],
+    stack: ["Agent skills", "Microsoft Waza evaluation", "Deterministic validation", "Human approval"],
   },
   {
     number: "02",
     label: "Production case study",
-    title: "Platform reliability and migration at scale",
+    title: "AI-powered operational support agent",
     summary:
-      "Built repeatable monitoring and migration patterns that improved operational visibility while reducing manual effort and production risk.",
-    outcomes: ["54 monitored pipelines", "40 migrated pipelines", "Zero migration-related failures"],
-    stack: ["Observability", "SLA monitoring", "Migration automation", "Data quality"],
+      "Built and deployed an agentic workflow that retrieves operational context, correlates failure signals, identifies likely root causes and recommends corrective actions.",
+    outcomes: ["54 production pipelines", "85–90% fewer manual checks", "Actionable failure context"],
+    stack: ["RAG", "Vector database", "Knowledge graph", "Agentic workflow"],
   },
   {
     number: "03",
     label: "Production case study",
-    title: "Distributed data optimization",
+    title: "Platform migration and observability",
     summary:
-      "Improved high-volume telemetry and lakehouse workloads through partitioning, join optimization, caching, and distributed deduplication.",
-    outcomes: ["~75% faster runtime", "21B → 400M rows", "~$1.55M savings contribution"],
-    stack: ["PySpark", "Spark", "Databricks", "Performance tuning"],
+      "Led logging standardization through a reusable migration framework while strengthening pipeline-health, SLA and incident-diagnosis visibility.",
+    outcomes: ["40 production pipelines", "Zero migration failures", "~$1.55M savings contribution"],
+    stack: ["Migration automation", "Observability", "SLA monitoring", "Incident diagnosis"],
   },
   {
     number: "04",
+    label: "Production case study",
+    title: "Distributed data optimization",
+    summary:
+      "Improved high-volume telemetry and lakehouse workloads through partitioning, join optimization, caching, and distributed deduplication.",
+    outcomes: ["~75% faster runtime", "21B → 400M rows", "Lower compute overhead"],
+    stack: ["PySpark", "Spark", "Databricks", "Performance tuning"],
+  },
+  {
+    number: "05",
     label: "Production case study",
     title: "SQL analytics automation",
     summary:
@@ -39,39 +48,39 @@ const caseStudies = [
 
 const services = [
   {
-    title: "Reliable data pipelines",
+    title: "Agentic engineering workflows",
+    copy: "RAG, structured generation, deterministic checks, evaluation sets and human-review controls for enterprise engineering automation.",
+  },
+  {
+    title: "Reliable data platforms",
     copy: "SQL, Python, Databricks and PySpark pipelines designed around clear grain, validation, recoverability and measurable outcomes.",
   },
   {
-    title: "Agentic engineering workflows",
-    copy: "Structured generation, deterministic checks, evaluation sets and human-review controls for enterprise engineering automation.",
+    title: "Evaluation & AI quality",
+    copy: "Microsoft Waza evaluation sets, LLM response evaluation, regression checks and approval gates that keep generated outputs reviewable.",
   },
   {
     title: "Platform reliability",
     copy: "Observability, migration frameworks, SLA monitoring, data-quality controls and performance diagnosis for production platforms.",
   },
-  {
-    title: "Analytics automation",
-    copy: "Operational metrics, BI-ready datasets and reporting workflows that replace repetitive manual work with trusted data products.",
-  },
 ];
 
 const skillGroups = [
   {
+    title: "Primary strengths",
+    skills: ["Agentic AI", "Advanced SQL", "Python", "Databricks"],
+  },
+  {
+    title: "AI systems & evaluation",
+    skills: ["Agent workflows", "RAG", "Vector databases", "Knowledge graphs", "Microsoft Waza evaluation", "LLM evaluation"],
+  },
+  {
     title: "Data engineering",
-    skills: ["Advanced SQL", "Python", "PySpark", "ETL / ELT", "Data modeling", "Data quality"],
+    skills: ["PySpark", "ETL / ELT", "Data modeling", "Data quality", "Delta Lake", "Unity Catalog"],
   },
   {
-    title: "Platforms & cloud",
-    skills: ["Databricks", "Delta Lake", "Unity Catalog", "Spark", "AWS S3", "Glue", "Redshift"],
-  },
-  {
-    title: "Agentic AI",
-    skills: ["Agent skills", "Structured outputs", "Context engineering", "Evaluation sets", "Human approval"],
-  },
-  {
-    title: "Reliability",
-    skills: ["Observability", "SLA monitoring", "Migration", "Performance tuning", "Incident diagnosis"],
+    title: "Platform & supporting cloud",
+    skills: ["Observability", "Migration", "Performance tuning", "AWS S3", "Glue", "Redshift"],
   },
 ];
 
@@ -81,7 +90,7 @@ const experience = [
     company: "HP",
     role: "Data Scientist II · Data Engineering & AI Platform Automation",
     detail:
-      "Enterprise Databricks pipelines, agentic contract automation, production monitoring, migration frameworks, observability and distributed optimization.",
+      "Owned agentic contract automation across 47 Databricks pipelines, an AI-powered operational support agent across 54 production pipelines, evaluation controls, migration frameworks, observability and distributed optimization.",
   },
   {
     years: "2022 — 2024",
@@ -118,6 +127,8 @@ export default function Home() {
       "SQL",
       "Python",
       "PySpark",
+      "RAG",
+      "LLM Evaluation",
       "Data Platform Automation",
     ],
   };
@@ -153,12 +164,12 @@ export default function Home() {
           </p>
           <h1>
             Reliable data platforms.
-            <span>Applied intelligence where it matters.</span>
+            <span>Agentic AI with control.</span>
           </h1>
           <p className="hero-role">Senior Data Engineer · Agentic AI & Data Platform Automation</p>
           <p className="hero-copy">
-            I build production data systems and controlled AI-assisted engineering workflows using SQL,
-            Python, Databricks and AWS—connecting reliability, automation and measurable business impact.
+            I build production data systems and controlled Agentic AI workflows using SQL, Python,
+            Databricks and PySpark—connecting reliability, evaluation and measurable business impact.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">
@@ -187,15 +198,15 @@ export default function Home() {
           <div className="signal-map">
             <div className="signal signal-a">
               <strong>47</strong>
-              <span>Databricks pipelines</span>
+              <span>Contract-automation pipelines</span>
             </div>
             <div className="signal signal-b">
               <strong>54</strong>
-              <span>Monitored pipelines</span>
+              <span>AI-agent pipeline coverage</span>
             </div>
             <div className="signal signal-c">
-              <strong>40</strong>
-              <span>Zero-failure migrations</span>
+              <strong>85–90%</strong>
+              <span>Fewer manual checks</span>
             </div>
             <div className="signal signal-d">
               <strong>~75%</strong>
@@ -215,8 +226,8 @@ export default function Home() {
         <div>
           <span>DATA PLATFORMS</span>
           <span>AGENTIC AUTOMATION</span>
-          <span>SQL & ANALYTICS</span>
-          <span>RELIABILITY</span>
+          <span>SQL · PYTHON · DATABRICKS</span>
+          <span>RAG & EVALUATION</span>
           <span>LLM EVALUATION</span>
           <span>DATA PLATFORMS</span>
         </div>
@@ -227,8 +238,8 @@ export default function Home() {
           <p className="section-kicker">What I build</p>
           <h2>Engineering work that survives the demo.</h2>
           <p>
-            A data-engineering foundation, with AI automation added through explicit context,
-            structured outputs, validation and human review.
+            Agentic AI and data-platform engineering connected through explicit context,
+            structured outputs, evaluation, validation and human review.
           </p>
         </div>
         <div className="services-grid">
@@ -285,9 +296,10 @@ export default function Home() {
             structured generation, citations, automated evaluation and human approval.
           </p>
           <div className="lab-boundary">
-            <strong>Capability boundary</strong>
+            <strong>Public project boundary</strong>
             <span>
-              This is a public portfolio project—not a claim of production RAG ownership.
+              This non-confidential project extends production Agentic AI and RAG experience
+              into a reusable portfolio architecture with separate retrieval and answer evaluation.
             </span>
           </div>
           <ul>
@@ -349,7 +361,7 @@ export default function Home() {
       <section className="section-shell experience-section">
         <div className="section-heading">
           <p className="section-kicker">Experience</p>
-          <h2>Five years across data, AI evaluation and operations.</h2>
+          <h2>Five years across data platforms, Agentic AI, evaluation and operations.</h2>
         </div>
         <div className="timeline">
           {experience.map((item) => (
@@ -387,10 +399,24 @@ export default function Home() {
       </section>
 
       <section className="section-shell education-section">
-        <div className="education-card">
-          <p className="section-kicker">Education</p>
-          <h2>M.Tech, AI & Data Science Engineering</h2>
-          <p>Indian Institute of Technology (IIT) Patna · July 2026 — Present</p>
+        <div className="education-card featured">
+          <a
+            className="education-logo"
+            href="https://www.iitp.ac.in/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Visit the official IIT Patna website"
+          >
+            <img src="/iit-patna-logo.png" alt="Indian Institute of Technology Patna emblem" />
+          </a>
+          <div>
+            <p className="section-kicker">Education · Current programme</p>
+            <h2>M.Tech, AI & Data Science Engineering</h2>
+            <p>Indian Institute of Technology (IIT) Patna · July 2026 — Present</p>
+            <span className="education-note">
+              Industry-integrated postgraduate study aligned with AI-ready data platforms.
+            </span>
+          </div>
         </div>
         <div className="education-card secondary">
           <p className="section-kicker">Foundation</p>
