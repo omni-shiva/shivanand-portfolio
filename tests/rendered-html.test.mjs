@@ -66,7 +66,6 @@ test("ships the public portfolio assets and removes starter dependencies", async
   await Promise.all([
     access(new URL("../public/og.png", import.meta.url)),
     access(new URL("../public/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf", import.meta.url)),
-    access(new URL("../public/Shivanand_Kumar_Freelance_Resume.pdf", import.meta.url)),
     access(new URL("../public/iit-patna-logo.png", import.meta.url)),
     access(new URL("../public/uiet-panjab-university-logo.png", import.meta.url)),
   ]);

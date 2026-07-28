@@ -302,7 +302,7 @@ export default function Home() {
           <div>
             <p className="section-kicker">Open to the right conversation</p>
             <h2>Senior Data Engineering · Data Platforms · Applied AI</h2>
-            <p>Remote-first or flexible roles, plus selected freelance engagements.</p>
+            <p>Open to remote-first or flexible permanent opportunities.</p>
           </div>
           <div className="contact-actions">
             <a className="button button-light" href="mailto:kumarshivanand7@gmail.com">
