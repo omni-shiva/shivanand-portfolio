@@ -68,7 +68,12 @@ export default function Home() {
       addressLocality: "Bengaluru",
       addressCountry: "IN",
     },
-    sameAs: ["https://linkedin.com/in/shivachauhan", "https://www.hackerrank.com/profile/krshivan"],
+    sameAs: [
+      "https://linkedin.com/in/shivachauhan",
+      "https://github.com/omni-shiva",
+      "https://www.hackerrank.com/profile/krshivan",
+      "https://www.instagram.com/kumarshivanand7/",
+    ],
     knowsAbout: [
       "Data Engineering",
       "Agentic AI",
@@ -173,11 +178,13 @@ export default function Home() {
               See production impact
             </a>
             <a
-              className="button button-secondary"
+              className="button button-secondary has-tooltip"
               href="/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf"
               download
+              data-tooltip="Latest one-page résumé · PDF"
+              aria-label="Download Shivanand Kumar's latest résumé as a PDF"
             >
-              Download résumé
+              Download résumé ↓
             </a>
           </div>
         </div>
@@ -297,11 +304,53 @@ export default function Home() {
             <p>Open to remote-first or flexible permanent opportunities.</p>
           </div>
           <div className="contact-actions">
-            <a className="button button-light" href="mailto:kumarshivanand7@gmail.com">
+            <a
+              className="button button-light has-tooltip"
+              href="mailto:kumarshivanand7@gmail.com"
+              data-tooltip="kumarshivanand7@gmail.com"
+            >
               Email Shivanand
             </a>
-            <a href="https://linkedin.com/in/shivachauhan">LinkedIn ↗</a>
-            <a href="https://www.hackerrank.com/profile/krshivan">HackerRank ↗</a>
+            <a
+              className="has-tooltip"
+              href="https://linkedin.com/in/shivachauhan"
+              target="_blank"
+              rel="noreferrer"
+              data-tooltip="linkedin.com/in/shivachauhan"
+              aria-label="LinkedIn profile, shivachauhan"
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              className="has-tooltip"
+              href="https://github.com/omni-shiva"
+              target="_blank"
+              rel="noreferrer"
+              data-tooltip="github.com/omni-shiva"
+              aria-label="GitHub profile, omni-shiva"
+            >
+              GitHub ↗
+            </a>
+            <a
+              className="has-tooltip"
+              href="https://www.hackerrank.com/profile/krshivan"
+              target="_blank"
+              rel="noreferrer"
+              data-tooltip="hackerrank.com/profile/krshivan"
+              aria-label="HackerRank profile, krshivan"
+            >
+              HackerRank ↗
+            </a>
+            <a
+              className="has-tooltip"
+              href="https://www.instagram.com/kumarshivanand7/"
+              target="_blank"
+              rel="noreferrer"
+              data-tooltip="instagram.com/kumarshivanand7"
+              aria-label="Instagram profile, kumarshivanand7"
+            >
+              Instagram ↗
+            </a>
           </div>
         </div>
       </section>
