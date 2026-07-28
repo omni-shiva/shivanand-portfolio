@@ -37,18 +37,20 @@ test("server-renders the finished Shivanand Kumar portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /Shivanand Kumar \| Senior Data Engineer &amp; Agentic AI/);
-  assert.match(html, /Reliable data platforms\./);
-  assert.match(html, /Agentic AI with control\./);
+  assert.match(html, /Senior Data Engineer building/);
+  assert.match(html, /reliable data platforms/);
+  assert.match(html, /controlled Agentic AI workflows/);
   assert.match(html, /Agentic AI &amp; Data Platform Automation/);
   assert.match(html, /AI-driven data-product contract automation/);
   assert.match(html, /47 Databricks pipelines/);
   assert.match(html, /AI-powered operational support agent/);
   assert.match(html, /85–90% fewer manual checks/);
-  assert.match(html, /Microsoft Waza evaluation/);
+  assert.match(html, /Waza evaluation/);
   assert.match(html, /Public lab · In development/);
   assert.match(html, /Public project boundary/);
   assert.match(html, /IIT Patna/);
   assert.match(html, /iit-patna-logo\.png/);
+  assert.match(html, /uiet-panjab-university-logo\.png/);
   assert.doesNotMatch(html, /PyTorch/);
   assert.match(html, /Shivanand_Kumar_Senior_Data_Engineer_Resume\.pdf/);
   assert.match(html, /https:\/\/portfolio\.example\/og\.png/);
@@ -63,6 +65,7 @@ test("ships the public portfolio assets and removes starter dependencies", async
     access(new URL("../public/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf", import.meta.url)),
     access(new URL("../public/Shivanand_Kumar_Freelance_Resume.pdf", import.meta.url)),
     access(new URL("../public/iit-patna-logo.png", import.meta.url)),
+    access(new URL("../public/uiet-panjab-university-logo.png", import.meta.url)),
   ]);
 
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
