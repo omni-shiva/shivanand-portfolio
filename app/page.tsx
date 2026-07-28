@@ -174,7 +174,7 @@ export default function Home() {
             </a>
             <a
               className="button button-secondary"
-              href="/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf"
+              href="/Shivanand_Kumar_%20Data_AI_Engineer_Resume.pdf"
               download
             >
               Download résumé
