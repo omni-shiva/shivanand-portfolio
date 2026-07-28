@@ -105,12 +105,37 @@ export default function Home() {
 
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
-        <img
-          className="hero-watermark"
-          src="/og.png"
-          alt=""
-          aria-hidden="true"
-        />
+        <div className="hero-visual" aria-hidden="true">
+          <div className="agent-flow">
+            <span className="flow-route" />
+            <span className="flow-signal" />
+            <div className="flow-node flow-context">
+              <span>01</span>
+              <strong>Context</strong>
+              <small>Pipeline configs · schemas</small>
+            </div>
+            <div className="flow-node flow-skills">
+              <span>02</span>
+              <strong>Extraction</strong>
+              <small>Deterministic context</small>
+            </div>
+            <div className="flow-core">
+              <span>AGENTIC</span>
+              <strong>Generation</strong>
+            </div>
+            <div className="flow-node flow-validation">
+              <span>04</span>
+              <strong>Validation</strong>
+              <small>DQ · Waza evaluation</small>
+            </div>
+            <div className="flow-node flow-approval">
+              <span>05</span>
+              <strong>Human review</strong>
+              <small>Approved artifacts</small>
+            </div>
+          </div>
+          <img className="hero-portrait" src="/shivanand-kumar-portrait.png" alt="" />
+        </div>
 
         <div className="hero-copy">
           <p className="eyebrow">

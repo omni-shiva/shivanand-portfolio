@@ -52,13 +52,17 @@ test("server-renders the finished Shivanand Kumar portfolio", async () => {
   assert.match(html, /Public build · In development/);
   assert.match(html, /AI-ready pipeline knowledge and evaluation platform/);
   assert.match(html, /IIT Patna/);
+  assert.match(html, /Deterministic context/);
+  assert.match(html, /Agentic/);
+  assert.match(html, /Human review/);
+  assert.match(html, /shivanand-kumar-portrait\.png/);
   assert.match(html, /iit-patna-logo\.png/);
   assert.match(html, /uiet-panjab-university-logo\.png/);
   assert.doesNotMatch(html, /Experience across/);
   assert.doesNotMatch(html, /Selected production results/);
   assert.doesNotMatch(html, /PyTorch/);
   assert.match(html, /Shivanand_Kumar_Senior_Data_Engineer_Resume\.pdf/);
-  assert.match(html, /https:\/\/portfolio\.example\/og\.png/);
+  assert.match(html, /https:\/\/portfolio\.example\/og-v2\.png/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Starter Project/);
 });
 
@@ -67,7 +71,9 @@ test("ships the public portfolio assets and removes starter dependencies", async
 
   await Promise.all([
     access(new URL("../public/og.png", import.meta.url)),
+    access(new URL("../public/og-v2.png", import.meta.url)),
     access(new URL("../public/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf", import.meta.url)),
+    access(new URL("../public/shivanand-kumar-portrait.png", import.meta.url)),
     access(new URL("../public/iit-patna-logo.png", import.meta.url)),
     access(new URL("../public/uiet-panjab-university-logo.png", import.meta.url)),
   ]);

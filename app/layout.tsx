@@ -45,13 +45,13 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       type: "website",
       url: baseUrl,
-      images: [{ url: new URL("/og.png", baseUrl).toString(), width: 1536, height: 1024 }],
+      images: [{ url: new URL("/og-v2.png", baseUrl).toString(), width: 1536, height: 1024 }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [new URL("/og.png", baseUrl).toString()],
+      images: [new URL("/og-v2.png", baseUrl).toString()],
     },
   };
 }
