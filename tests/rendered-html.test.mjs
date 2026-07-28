@@ -37,19 +37,20 @@ test("server-renders the finished Shivanand Kumar portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /Shivanand Kumar \| Senior Data Engineer &amp; Agentic AI/);
-  assert.match(html, /Senior Data Engineer for/);
+  assert.match(html, /Senior Data Engineer building/);
   assert.match(html, /reliable platforms/);
-  assert.match(html, /Agentic AI\./);
-  assert.match(html, /5 years across/);
+  assert.match(html, /controlled Agentic AI\./);
+  assert.match(html, /Five years of production engineering/);
   assert.match(html, /Amazon/);
   assert.match(html, /Agentic AI &amp; Data Platform Automation/);
-  assert.match(html, /AI-driven data-product contract automation/);
+  assert.match(html, /Data-product contracts, with controls/);
+  assert.match(html, /Three stories\. Measured outcomes\. No résumé repetition\./);
   assert.match(html, /47 Databricks pipelines/);
-  assert.match(html, /AI-powered operational support agent/);
-  assert.match(html, /85–90% fewer manual checks/);
+  assert.match(html, /Operational context, not another dashboard/);
+  assert.match(html, /85–90% fewer checks/);
   assert.match(html, /Waza evaluation/);
-  assert.match(html, /Public lab · In development/);
-  assert.match(html, /Public project boundary/);
+  assert.match(html, /Public build · In development/);
+  assert.match(html, /AI-ready pipeline knowledge and evaluation platform/);
   assert.match(html, /IIT Patna/);
   assert.match(html, /iit-patna-logo\.png/);
   assert.match(html, /uiet-panjab-university-logo\.png/);
