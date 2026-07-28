@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,48 +12,53 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
-  const baseUrl = new URL(`${protocol}://${host}`);
-  const title = "Shivanand Kumar | Senior Data Engineer & Agentic AI";
-  const description =
-    "Senior Data Engineer building reliable data platforms and controlled Agentic AI automation with SQL, Python, Databricks, PySpark and evaluation-first engineering.";
+const title = "Shivanand Kumar | Senior Data Engineer & Agentic AI";
+const description =
+  "Senior Data Engineer building reliable data platforms and controlled Agentic AI automation with SQL, Python, Databricks, PySpark and evaluation-first engineering.";
 
-  return {
-    metadataBase: baseUrl,
+export const metadata: Metadata = {
+  metadataBase: new URL("https://shivanandkumar.in"),
+  alternates: {
+    canonical: "/",
+  },
+  title,
+  description,
+  applicationName: "Shivanand Kumar Portfolio",
+  authors: [{ name: "Shivanand Kumar" }],
+  keywords: [
+    "Shivanand Kumar",
+    "Senior Data Engineer",
+    "Agentic AI",
+    "Databricks",
+    "SQL",
+    "Python",
+    "PySpark",
+    "RAG",
+    "LLM Evaluation",
+    "Data Platform Engineer",
+  ],
+  openGraph: {
     title,
     description,
-    applicationName: "Shivanand Kumar Portfolio",
-    authors: [{ name: "Shivanand Kumar" }],
-    keywords: [
-      "Shivanand Kumar",
-      "Senior Data Engineer",
-      "Agentic AI",
-      "Databricks",
-      "SQL",
-      "Python",
-      "PySpark",
-      "RAG",
-      "LLM Evaluation",
-      "Data Platform Engineer",
+    type: "website",
+    url: "https://shivanandkumar.in",
+    siteName: "Shivanand Kumar Portfolio",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Shivanand Kumar — Senior Data Engineer and Agentic AI",
+      },
     ],
-    openGraph: {
-      title,
-      description,
-      type: "website",
-      url: baseUrl,
-      images: [{ url: new URL("/og-v2.png", baseUrl).toString(), width: 1536, height: 1024 }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [new URL("/og-v2.png", baseUrl).toString()],
-    },
-  };
-}
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og.png"],
+  },
+};
 
 export default function RootLayout({
   children,

@@ -62,7 +62,10 @@ test("server-renders the finished Shivanand Kumar portfolio", async () => {
   assert.doesNotMatch(html, /Selected production results/);
   assert.doesNotMatch(html, /PyTorch/);
   assert.match(html, /Shivanand_Kumar_Senior_Data_Engineer_Resume\.pdf/);
-  assert.match(html, /https:\/\/portfolio\.example\/og-v2\.png/);
+  assert.match(html, /https:\/\/shivanandkumar\.in\/og\.png/);
+  assert.match(html, /Latest one-page résumé · PDF/);
+  assert.match(html, /github\.com\/omni-shiva/);
+  assert.match(html, /instagram\.com\/kumarshivanand7/);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Starter Project/);
 });
 
