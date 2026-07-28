@@ -6,7 +6,7 @@ data systems.
 
 ## Live portfolio
 
-[shivanand-kumar-portfolio.kumarshivanand7.chatgpt.site](https://shivanand-kumar-portfolio.kumarshivanand7.chatgpt.site/)
+[shivanandkumar.in](https://shivanandkumar.in/)
 
 ## Current site
 
