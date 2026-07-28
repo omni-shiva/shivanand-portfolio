@@ -141,12 +141,7 @@ export default function Home() {
 
       <section className="hero mature-hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-backdrop-words" aria-hidden="true">
-          <span>SQL</span>
-          <span>PYTHON</span>
-          <span>DATABRICKS</span>
-          <span>AGENTIC AI</span>
-        </div>
+        <img className="hero-poster-watermark" src="/og.png" alt="" aria-hidden="true" />
 
         <div className="hero-content">
           <p className="eyebrow">
@@ -169,18 +164,20 @@ export default function Home() {
           </a>
 
           <h1>
-            Senior Data Engineer building <span>reliable data platforms</span> and{" "}
-            <span>controlled Agentic AI workflows.</span>
+            Senior Data Engineer for <span>reliable platforms</span> and{" "}
+            <span>Agentic AI.</span>
           </h1>
 
           <p className="hero-role">
-            SQL · Python · Databricks <span>|</span> Production automation, evaluation and platform reliability
+            SQL · Python · Databricks · Agentic AI
           </p>
 
-          <p className="hero-copy">
-            Five years across HP, Amazon and BYJU&apos;S, connecting production engineering with
-            measurable business impact.
-          </p>
+          <div className="hero-career-proof" aria-label="Five years of experience across HP, Amazon and BYJU'S">
+            <span>5 years across</span>
+            <strong>HP</strong>
+            <strong className="amazon-proof">Amazon</strong>
+            <strong>BYJU&apos;S</strong>
+          </div>
 
           <div className="hero-actions">
             <a className="button button-primary" href="#work">

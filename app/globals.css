@@ -1279,8 +1279,8 @@ footer {
 /* Mature portfolio hierarchy */
 .mature-hero {
   display: block;
-  min-height: 720px;
-  padding-bottom: 96px;
+  min-height: 660px;
+  padding-bottom: 86px;
   padding-top: 92px;
 }
 
@@ -1340,7 +1340,7 @@ footer {
   font-size: clamp(50px, 5.3vw, 82px);
   letter-spacing: -0.058em;
   line-height: 0.99;
-  max-width: 1220px;
+  max-width: 980px;
 }
 
 .mature-hero h1 span {
@@ -1351,7 +1351,7 @@ footer {
 .mature-hero .hero-role {
   color: #205b8e;
   font-size: clamp(16px, 1.5vw, 20px);
-  margin-top: 30px;
+  margin-top: 26px;
 }
 
 .mature-hero .hero-role span {
@@ -1363,6 +1363,55 @@ footer {
   font-size: 16px;
   margin-top: 14px;
   max-width: 720px;
+}
+
+.hero-poster-watermark {
+  filter: saturate(0.55) contrast(0.9);
+  mask-image: linear-gradient(to right, transparent 4%, rgba(0, 0, 0, 0.78) 45%, black);
+  max-width: none;
+  opacity: 0.055;
+  pointer-events: none;
+  position: absolute;
+  right: -170px;
+  top: 104px;
+  width: min(900px, 62vw);
+  z-index: 0;
+}
+
+.hero-career-proof {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.hero-career-proof > span {
+  color: #64798b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-right: 4px;
+  text-transform: uppercase;
+}
+
+.hero-career-proof strong {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(7, 24, 40, 0.14);
+  border-radius: 999px;
+  color: #344d61;
+  font-size: 13px;
+  padding: 8px 13px;
+}
+
+.hero-career-proof .amazon-proof {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+  font-size: 15px;
+  padding-left: 17px;
+  padding-right: 17px;
 }
 
 .hero-backdrop-words {
@@ -1690,6 +1739,18 @@ footer {
 
   .hero-backdrop-words {
     opacity: 0.72;
+  }
+
+  .hero-poster-watermark {
+    opacity: 0.035;
+    right: -230px;
+    top: 180px;
+    width: 720px;
+  }
+
+  .hero-career-proof > span {
+    flex-basis: 100%;
+    margin-bottom: 2px;
   }
 
   .featured-case-grid {

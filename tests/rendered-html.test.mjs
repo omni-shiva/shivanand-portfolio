@@ -37,9 +37,11 @@ test("server-renders the finished Shivanand Kumar portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /Shivanand Kumar \| Senior Data Engineer &amp; Agentic AI/);
-  assert.match(html, /Senior Data Engineer building/);
-  assert.match(html, /reliable data platforms/);
-  assert.match(html, /controlled Agentic AI workflows/);
+  assert.match(html, /Senior Data Engineer for/);
+  assert.match(html, /reliable platforms/);
+  assert.match(html, /Agentic AI\./);
+  assert.match(html, /5 years across/);
+  assert.match(html, /Amazon/);
   assert.match(html, /Agentic AI &amp; Data Platform Automation/);
   assert.match(html, /AI-driven data-product contract automation/);
   assert.match(html, /47 Databricks pipelines/);
