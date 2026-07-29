@@ -32,7 +32,7 @@ test("exports the finished Shivanand Kumar portfolio for GitHub Pages", async ()
   assert.doesNotMatch(html, /Experience across/);
   assert.doesNotMatch(html, /Selected production results/);
   assert.doesNotMatch(html, /PyTorch/);
-  assert.match(html, /Shivanand_Kumar_Senior_Data_Engineer_Resume\.pdf/);
+  assert.match(html, /Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf/);
   assert.match(html, /https:\/\/shivanandkumar\.in\/og\.png/);
   assert.match(html, /Latest one-page résumé · PDF/);
   assert.match(html, /github\.com\/omni-shiva/);
@@ -47,7 +47,7 @@ test("ships the public portfolio assets and GitHub Pages controls", async () => 
   await Promise.all([
     access(new URL("../out/.nojekyll", import.meta.url)),
     access(new URL("../out/og.png", import.meta.url)),
-    access(new URL("../out/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf", import.meta.url)),
+    access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)),
     access(new URL("../out/shivanand-kumar-portrait.png", import.meta.url)),
     access(new URL("../out/iit-patna-logo.png", import.meta.url)),
     access(new URL("../out/uiet-panjab-university-logo.png", import.meta.url)),
