@@ -4,38 +4,9 @@ import test from "node:test";
 
 const root = new URL("../", import.meta.url);
 
-async function render() {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
-  const { default: worker } = await import(workerUrl.href);
+test("exports the finished Shivanand Kumar portfolio for GitHub Pages", async () => {
+  const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
 
-  return worker.fetch(
-    new Request("https://portfolio.example/", {
-      headers: {
-        accept: "text/html",
-        host: "portfolio.example",
-        "x-forwarded-host": "portfolio.example",
-        "x-forwarded-proto": "https",
-      },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
-}
-
-test("server-renders the finished Shivanand Kumar portfolio", async () => {
-  const response = await render();
-  assert.equal(response.status, 200);
-  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-
-  const html = await response.text();
   assert.match(html, /Shivanand Kumar \| Senior Data Engineer &amp; Agentic AI/);
   assert.match(html, /Senior Data Engineer building/);
   assert.match(html, /reliable platforms/);
@@ -69,20 +40,23 @@ test("server-renders the finished Shivanand Kumar portfolio", async () => {
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Starter Project/);
 });
 
-test("ships the public portfolio assets and removes starter dependencies", async () => {
+test("ships the public portfolio assets and GitHub Pages controls", async () => {
   const packageJson = await readFile(new URL("../package.json", import.meta.url), "utf8");
+  const cname = await readFile(new URL("../out/CNAME", import.meta.url), "utf8");
 
   await Promise.all([
-    access(new URL("../public/og.png", import.meta.url)),
-    access(new URL("../public/og-v2.png", import.meta.url)),
-    access(new URL("../public/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf", import.meta.url)),
-    access(new URL("../public/shivanand-kumar-portrait.png", import.meta.url)),
-    access(new URL("../public/iit-patna-logo.png", import.meta.url)),
-    access(new URL("../public/uiet-panjab-university-logo.png", import.meta.url)),
+    access(new URL("../out/.nojekyll", import.meta.url)),
+    access(new URL("../out/og.png", import.meta.url)),
+    access(new URL("../out/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf", import.meta.url)),
+    access(new URL("../out/shivanand-kumar-portrait.png", import.meta.url)),
+    access(new URL("../out/iit-patna-logo.png", import.meta.url)),
+    access(new URL("../out/uiet-panjab-university-logo.png", import.meta.url)),
+    access(new URL("../out/fonts/geist-sans-latin.woff2", import.meta.url)),
+    access(new URL("../out/fonts/geist-mono-latin.woff2", import.meta.url)),
   ]);
 
-  assert.doesNotMatch(packageJson, /react-loading-skeleton/);
-  await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
-  await assert.rejects(access(new URL("../app/_sites-preview/preview.css", import.meta.url)));
+  assert.equal(cname.trim(), "shivanandkumar.in");
+  assert.match(packageJson, /"build": "next build"/);
+  assert.doesNotMatch(packageJson, /"build": "[^"]*vinext/);
   assert.equal(root.pathname.endsWith("/portfolio/"), true);
 });
