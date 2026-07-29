@@ -179,7 +179,7 @@ export default function Home() {
             </a>
             <a
               className="button button-secondary has-tooltip"
-              href="/Shivanand_Kumar_Senior_Data_Engineer_Resume.pdf"
+              href="/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf"
               download
               data-tooltip="Latest one-page résumé · PDF"
               aria-label="Download Shivanand Kumar's latest résumé as a PDF"
