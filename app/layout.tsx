@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Shivanand Kumar | Senior Data Engineer & Agentic AI";
+const title = "Shivanand Kumar | Senior Data Engineer & Applied AI";
 const description =
-  "Senior Data Engineer building reliable data platforms and controlled Agentic AI automation with SQL, Python, Databricks, PySpark and evaluation-first engineering.";
+  "Senior Data Engineer building reliable data platforms and evaluation-driven Applied AI projects. Explore verified outputs, source code, tests and engineering decisions.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivanandkumar.in"),
@@ -25,6 +25,8 @@ export const metadata: Metadata = {
     "RAG",
     "LLM Evaluation",
     "Data Platform Engineer",
+    "Data Engineering Portfolio",
+    "Applied AI Projects",
   ],
   openGraph: {
     title,
@@ -34,10 +36,10 @@ export const metadata: Metadata = {
     siteName: "Shivanand Kumar Portfolio",
     images: [
       {
-        url: "/og.png",
+        url: "/og-projects.png",
         width: 1200,
         height: 630,
-        alt: "Shivanand Kumar — Senior Data Engineer and Agentic AI",
+        alt: "Shivanand Kumar — Senior Data Engineer with verified Applied AI projects",
       },
     ],
   },
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
+    images: ["/og-projects.png"],
   },
 };
 

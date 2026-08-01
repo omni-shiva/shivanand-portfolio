@@ -12,6 +12,8 @@ data systems.
 
 - Recruiter-focused one-page portfolio
 - Production-impact highlights from HP, Amazon, and BYJU'S
+- Two dedicated project case studies with verified output, validation evidence,
+  architecture notes, evaluation links, and GitHub source
 - Professional profile, core capabilities, education, and contact links
 - Downloadable Senior Data Engineer résumé
 - Responsive layout and social-sharing preview
@@ -42,8 +44,12 @@ pnpm run build
 node --test tests/rendered-html.test.mjs
 ```
 
-## Planned expansion
+## Public projects
 
-The same portfolio will later grow with dedicated material for projects,
-research, publications, education, résumé versions, and professional contact
-information.
+- Data Platform Reliability Agent
+- Synthetic Data and Print Recommendation Agent
+
+Both projects are independent portfolio implementations built with synthetic
+data. They are presented separately from production experience and link back to
+their source, tests, evaluation design, and passing CI in
+[`omni-shiva/shiva-applied-agentic`](https://github.com/omni-shiva/shiva-applied-agentic).
