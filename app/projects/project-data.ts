@@ -1,0 +1,151 @@
+const repositoryBase =
+  "https://github.com/omni-shiva/shiva-applied-agentic/tree/main/projects";
+const repositoryFileBase =
+  "https://github.com/omni-shiva/shiva-applied-agentic/blob/main/projects";
+
+export type PortfolioProject = {
+  slug: string;
+  cardLabel: string;
+  title: string;
+  summary: string;
+  outputHeadline: string;
+  lede: string;
+  problem: string;
+  role: string;
+  capabilities: string[];
+  architecture: string[];
+  metrics: Array<{ value: string; label: string }>;
+  output: string;
+  outputNote: string;
+  boundary: string;
+  repoUrl: string;
+  readmeUrl: string;
+  architectureUrl: string;
+  evaluationUrl: string;
+  ciUrl: string;
+  nextProject: { title: string; href: string };
+};
+
+export const projects: PortfolioProject[] = [
+  {
+    slug: "data-platform-reliability-agent",
+    cardLabel: "Data platform · Agentic AI",
+    title: "Data Platform Reliability Agent",
+    summary:
+      "Investigates synthetic pipeline incidents with tenant-safe tools, contract inspection and runbook retrieval—then proposes, but never executes, remediation.",
+    outputHeadline:
+      "Evidence-grounded incident diagnosis with citations, tool trace and an approval gate.",
+    lede:
+      "A reproducible reliability agent that turns pipeline events, data contracts and runbooks into a bounded diagnosis without pretending it can safely operate production.",
+    problem:
+      "Pipeline incidents are rarely solved by one error message. Engineers need run history, schema context, operating guidance and a clear line between diagnosis and execution.",
+    role:
+      "I designed and built the agent, API contracts, read-only tool layer, synthetic data, retrieval, safety controls, evaluation suite, tests and CI workflow.",
+    capabilities: [
+      "FastAPI and strict Pydantic request/response contracts",
+      "Tenant-scoped SQL events and cross-tenant negative tests",
+      "Contract comparison for missing and unexpected fields",
+      "Qdrant runbook retrieval with evidence and citations",
+      "Bounded tool loop with deterministic safety checks",
+      "Approval-only remediation previews with no execution path",
+    ],
+    architecture: [
+      "Validate the incident request and authorized tenant scope",
+      "Query synthetic pipeline events and inspect the expected contract",
+      "Retrieve the most relevant operational runbook",
+      "Synthesize evidence, likely causes, confidence and citations",
+      "Require human approval for any proposed state-changing action",
+    ],
+    metrics: [
+      { value: "25", label: "evaluation cases" },
+      { value: "11", label: "tests passed" },
+      { value: "97%", label: "test coverage" },
+    ],
+    output: `{
+  "severity": "high",
+  "issue_summary": "SCHEMA_MISMATCH",
+  "tools_used": [
+    "query_pipeline_events",
+    "inspect_pipeline_contract",
+    "search_runbooks"
+  ],
+  "approval_required": true,
+  "execution_performed": false
+}`,
+    outputNote:
+      "Abbreviated verified response from the schema-change test. The full response also includes direct evidence, citations, confidence, recommendations and the complete tool trace.",
+    boundary:
+      "This is an independent portfolio implementation built from public resume themes and entirely synthetic pipelines, tenants, events, contracts and runbooks. It is not employer production code or architecture.",
+    repoUrl: `${repositoryBase}/data-platform-reliability-agent`,
+    readmeUrl: `${repositoryFileBase}/data-platform-reliability-agent/README.md`,
+    architectureUrl: `${repositoryFileBase}/data-platform-reliability-agent/docs/architecture.md`,
+    evaluationUrl: `${repositoryFileBase}/data-platform-reliability-agent/docs/evaluation.md`,
+    ciUrl: "https://github.com/omni-shiva/shiva-applied-agentic/actions/workflows/ci.yml",
+    nextProject: {
+      title: "Synthetic Data and Print Recommendation Agent",
+      href: "/projects/synthetic-data-print-recommendation-agent/",
+    },
+  },
+  {
+    slug: "synthetic-data-print-recommendation-agent",
+    cardLabel: "Synthetic data · Decision support",
+    title: "Synthetic Data and Print Recommendation Agent",
+    summary:
+      "Measures data scarcity, generates controlled document variations and tests whether 1x, 10x and 100x scaling improves recommendations on an independent holdout set.",
+    outputHeadline:
+      "Structured print settings with confidence, evidence and a human-review decision.",
+    lede:
+      "An evaluation-first project for a data-scarcity problem: create useful variation without treating more synthetic rows as proof of better recommendations.",
+    problem:
+      "Limited labelled documents make it difficult to cover varied categories, layouts and quality needs. Naive generation can simply amplify bias or duplicate the generator's assumptions.",
+    role:
+      "I built the scarcity analysis, controlled generator, feature pipeline, local recommender, API, independent holdout evaluation, safety rules, tests and CI workflow.",
+    capabilities: [
+      "Coverage and rare-segment scarcity analysis",
+      "Deterministic controlled generation at 1x, 10x and 100x",
+      "Document feature engineering and structured recommendations",
+      "Independent holdout evaluation isolated from generation",
+      "Diversity, duplicate, rare-group and saturation checks",
+      "Human review for low-confidence and boundary cases",
+    ],
+    architecture: [
+      "Measure gaps in the small synthetic seed corpus",
+      "Generate controlled variations across missing document strata",
+      "Engineer bounded document and quality features",
+      "Recommend structured settings with evidence and confidence",
+      "Compare scales on an isolated labelled holdout set",
+    ],
+    metrics: [
+      { value: "1×–100×", label: "scales compared" },
+      { value: "9", label: "tests passed" },
+      { value: "96%", label: "test coverage" },
+    ],
+    output: `{
+  "document_id": "incoming_brochure_001",
+  "recommended_settings": {
+    "color_mode": "color",
+    "quality_mode": "high"
+  },
+  "evidence_document_ids": ["…"],
+  "confidence": "scored",
+  "execution_performed": false
+}`,
+    outputNote:
+      "Abbreviated verified response shape from the brochure test. Separate policy-boundary tests confirm that ambiguous inputs are held for human review and printing is never executed.",
+    boundary:
+      "Every document profile and label is synthetic. The repository contains no employer documents, print rules, source code or confidential architecture, and the service cannot operate a printer.",
+    repoUrl: `${repositoryBase}/synthetic-data-print-recommendation-agent`,
+    readmeUrl: `${repositoryFileBase}/synthetic-data-print-recommendation-agent/README.md`,
+    architectureUrl: `${repositoryFileBase}/synthetic-data-print-recommendation-agent/docs/architecture.md`,
+    evaluationUrl: `${repositoryFileBase}/synthetic-data-print-recommendation-agent/docs/evaluation.md`,
+    ciUrl: "https://github.com/omni-shiva/shiva-applied-agentic/actions/workflows/ci.yml",
+    nextProject: {
+      title: "Data Platform Reliability Agent",
+      href: "/projects/data-platform-reliability-agent/",
+    },
+  },
+];
+
+export const projectsBySlug = Object.fromEntries(
+  projects.map((project) => [project.slug, project]),
+) as Record<string, PortfolioProject>;

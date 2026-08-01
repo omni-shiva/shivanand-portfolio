@@ -1,18 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { projects } from "./projects/project-data";
+
 const impactStories = [
   {
-    label: "Agentic automation",
+    label: "AI-assisted automation",
     title: "Data-product contracts, with controls",
     description:
       "Owned a five-phase generation and validation loop for configurations, schemas, DDLs and 20+ transformations.",
     proof: ["47 Databricks pipelines", "Days → hours", "Waza evaluation"],
   },
   {
-    label: "Applied AI operations",
-    title: "Operational context, not another dashboard",
+    label: "Operational engineering",
+    title: "Faster issue triage, grounded in signals",
     description:
-      "Built and deployed a RAG-based support agent to retrieve context, correlate failure signals and recommend corrective actions.",
+      "Built operational tooling to bring pipeline context, failure signals and recommended next steps into a controlled support workflow.",
     proof: ["54 production pipelines", "85–90% fewer checks", "Human review"],
   },
   {
@@ -100,6 +102,7 @@ export default function Home() {
           <span>Shivanand Kumar</span>
         </a>
         <nav aria-label="Primary navigation">
+          <a href="#projects">Projects</a>
           <a href="#impact">Impact</a>
           <a href="#profile">Profile</a>
           <a className="nav-cta" href="#contact">
@@ -169,13 +172,17 @@ export default function Home() {
 
           <p className="hero-skills">SQL · Python · Databricks · Agentic AI</p>
           <p className="hero-summary">
-            Five years of production engineering, analytics and AI-automation experience across
-            HP, Amazon and BYJU&apos;S.
+            Five years of production data and analytics experience across HP, Amazon and
+            BYJU&apos;S. My public projects show how I apply that foundation to safe,
+            evaluation-driven AI systems.
           </p>
 
           <div className="hero-actions">
-            <a className="button button-primary" href="#impact">
-              See production impact
+            <a className="button button-primary" href="#projects">
+              See project outputs
+            </a>
+            <a className="button button-secondary" href="#impact">
+              Production impact
             </a>
             <a
               className="button button-secondary has-tooltip"
@@ -187,6 +194,63 @@ export default function Home() {
               Download résumé ↓
             </a>
           </div>
+        </div>
+      </section>
+
+      <section className="projects-section" id="projects">
+        <div className="section-shell">
+          <div className="section-intro">
+            <div>
+              <p className="section-kicker">Independent public builds</p>
+              <h2>Don&apos;t just read the claims. Inspect the work.</h2>
+            </div>
+            <p>
+              Two reproducible projects built with synthetic data, versioned evaluation and clear
+              human-approval boundaries. Each case study links to its output, source, tests and
+              design decisions.
+            </p>
+          </div>
+
+          <div className="project-grid">
+            {projects.map((project, index) => (
+              <article className="project-card" key={project.slug}>
+                <div className="project-card-meta">
+                  <span>0{index + 1}</span>
+                  <span>{project.cardLabel}</span>
+                </div>
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+
+                <div className="project-output-preview">
+                  <span>Verified output</span>
+                  <strong>{project.outputHeadline}</strong>
+                </div>
+
+                <div className="project-metrics" aria-label={`${project.title} evidence`}>
+                  {project.metrics.map((metric) => (
+                    <div key={metric.label}>
+                      <strong>{metric.value}</strong>
+                      <span>{metric.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="project-card-actions">
+                  <a className="button button-primary" href={`/projects/${project.slug}/`}>
+                    See output &amp; case study →
+                  </a>
+                  <a href={project.repoUrl} target="_blank" rel="noreferrer">
+                    Source on GitHub ↗
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p className="project-boundary-note">
+            These are independent portfolio implementations—not employer systems. They contain no
+            employer code, data, configuration or confidential architecture.
+          </p>
         </div>
       </section>
 
@@ -289,10 +353,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="project-note">
-            <span>Public build · In development</span>
-            <strong>AI-ready pipeline knowledge and evaluation platform</strong>
-          </div>
+          <a className="project-note" href="#projects">
+            <span>Public portfolio · 2 verified projects</span>
+            <strong>Open the case studies, outputs, tests and source →</strong>
+          </a>
         </aside>
       </section>
 
@@ -357,7 +421,7 @@ export default function Home() {
 
       <footer>
         <span>© 2026 Shivanand Kumar</span>
-        <span>Senior Data Engineer · Agentic AI & Data Platform Automation</span>
+        <span>Senior Data Engineer · Data Platforms · Applied AI Projects</span>
       </footer>
     </main>
   );
