@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Shivanand Kumar monogram</title>
+  <desc id="description">SK initials in cream on a navy rounded square with a cyan accent.</desc>
+  <rect width="64" height="64" rx="15" fill="#061A3D"/>
+  <rect x="6" y="6" width="52" height="52" rx="11" fill="none" stroke="#15A6C4" stroke-width="2" opacity="0.72"/>
+  <text
+    x="32"
+    y="42"
+    fill="#FFF7EA"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="31"
+    font-weight="800"
+    letter-spacing="-2"
+    text-anchor="middle"
+  >SK</text>
+  <path d="M20 49H44" stroke="#15A6C4" stroke-width="3" stroke-linecap="round"/>
+</svg>

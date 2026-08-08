@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   title,
   description,
   applicationName: "Shivanand Kumar Portfolio",
+  icons: {
+    icon: [
+      { url: "/sk-logo.svg", type: "image/svg+xml" },
+      { url: "/sk-logo-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/sk-logo.svg",
+    apple: [{ url: "/sk-logo-180.png", sizes: "180x180", type: "image/png" }],
+  },
   authors: [{ name: "Shivanand Kumar", url: "https://shivanandkumar.in/" }],
   keywords: [
     "Shivanand Kumar",
