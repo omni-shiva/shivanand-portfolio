@@ -4,25 +4,37 @@ import { projects } from "./projects/project-data";
 
 const impactStories = [
   {
+    label: "Production GenAI engineering",
+    title: "Failure analysis grounded in operational signals",
+    description:
+      "Built a graph-orchestrated workflow across 40 enterprise Databricks jobs to turn failure evidence into consistent, reviewable analysis.",
+    proof: [
+      "40 Databricks jobs",
+      "~70% less failure-investigation and remediation effort",
+      "Human-reviewed output",
+    ],
+  },
+  {
     label: "AI-assisted automation",
-    title: "Data-product contracts, with controls",
+    title: "Data-product contracts, generated with controls",
     description:
-      "Owned a five-phase generation and validation loop for configurations, schemas, DDLs and 20+ transformations.",
-    proof: ["47 Databricks pipelines", "Days → hours", "Waza evaluation"],
+      "Automated configurations, schemas, DDLs and 20+ transformations across a governed data-product workflow.",
+    proof: [
+      "47 Databricks pipelines",
+      "Documentation effort: days → hours",
+      "Validation before approval",
+    ],
   },
   {
-    label: "Operational engineering",
-    title: "Faster issue triage, grounded in signals",
+    label: "Platform reliability",
+    title: "Scale, observability and measurable efficiency",
     description:
-      "Built operational tooling to bring pipeline context, failure signals and recommended next steps into a controlled support workflow.",
-    proof: ["54 production pipelines", "85–90% fewer checks", "Human review"],
-  },
-  {
-    label: "Platform engineering",
-    title: "Scale, reliability and measurable efficiency",
-    description:
-      "Led migration, observability and distributed-processing improvements across high-volume enterprise workloads.",
-    proof: ["40 pipelines migrated", "Zero migration failures", "~75% faster"],
+      "Improved monitoring, migration and distributed-processing workflows across high-volume enterprise data platforms.",
+    proof: [
+      "54 production pipelines",
+      "85–90% fewer recurring manual checks",
+      "Observability automation",
+    ],
   },
 ];
 
@@ -30,31 +42,44 @@ const career = [
   {
     company: "HP",
     period: "2024 — Present",
-    role: "Data Scientist II",
-    detail: "Data Engineering & AI Platform Automation",
+    role: "Data Scientist II | Data & AI Platform Engineering",
+    detail: "Databricks platforms, production automation, observability and Applied AI workflows",
   },
   {
     company: "Amazon",
     period: "2022 — 2024",
-    role: "Business Analyst · ML Data Associate II",
-    detail: "SQL pipelines, analytics automation and LLM evaluation",
+    role: "ML Data Associate II → Business Analyst",
+    detail:
+      "SQL pipelines, analytics automation and LLM data and evaluation work · director-level recognition for automation impact",
   },
   {
     company: "BYJU’S",
     period: "2021 — 2022",
     role: "Centre Head · Operations",
-    detail: "16-member team leadership and SQL-led operating reviews",
+    detail: "16-member cross-functional operations team and SQL-led operating reviews",
   },
 ];
 
-const primarySkills = ["Agentic AI", "SQL", "Python", "Databricks", "PySpark", "LLM evaluation"];
+const primarySkills = [
+  "Generative AI",
+  "Agentic AI",
+  "Databricks",
+  "Spark & PySpark",
+  "SQL",
+  "Python",
+  "RAG & retrieval",
+  "LLM evaluation",
+];
 
 export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Shivanand Kumar",
-    jobTitle: "Senior Data Engineer",
+    url: "https://shivanandkumar.in/",
+    jobTitle: "Data & Applied AI Engineer",
+    description:
+      "Data & Applied AI Engineer specializing in Generative AI and Agentic AI, grounded in Databricks, Spark and production data engineering.",
     alumniOf: [
       {
         "@type": "CollegeOrUniversity",
@@ -74,18 +99,18 @@ export default function Home() {
       "https://linkedin.com/in/shivachauhan",
       "https://github.com/omni-shiva",
       "https://www.hackerrank.com/profile/krshivan",
-      "https://www.instagram.com/kumarshivanand7/",
     ],
     knowsAbout: [
       "Data Engineering",
+      "Generative AI",
       "Agentic AI",
       "Databricks",
+      "Apache Spark",
       "SQL",
       "Python",
-      "PySpark",
-      "RAG",
+      "Retrieval-Augmented Generation",
       "LLM Evaluation",
-      "Data Platform Automation",
+      "Data Platform Engineering",
     ],
   };
 
@@ -102,9 +127,11 @@ export default function Home() {
           <span>Shivanand Kumar</span>
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#projects">Projects</a>
           <a href="#impact">Impact</a>
-          <a href="#profile">Profile</a>
+          <a className="nav-mobile-link" href="#projects">
+            Projects
+          </a>
+          <a href="#profile">Experience</a>
           <a className="nav-cta" href="#contact">
             Contact
           </a>
@@ -120,35 +147,35 @@ export default function Home() {
             <div className="flow-node flow-context">
               <span>01</span>
               <strong>Context</strong>
-              <small>Pipeline configs · schemas</small>
+              <small>Data · contracts · signals</small>
             </div>
             <div className="flow-node flow-skills">
               <span>02</span>
-              <strong>Extraction</strong>
-              <small>Deterministic context</small>
+              <strong>Retrieval</strong>
+              <small>Grounded evidence</small>
             </div>
             <div className="flow-core">
               <span>AGENTIC</span>
-              <strong>Generation</strong>
+              <strong>Workflow</strong>
             </div>
             <div className="flow-node flow-validation">
               <span>04</span>
-              <strong>Validation</strong>
-              <small>DQ · Waza evaluation</small>
+              <strong>Evaluation</strong>
+              <small>Quality · safety · traces</small>
             </div>
             <div className="flow-node flow-approval">
               <span>05</span>
-              <strong>Human review</strong>
-              <small>Approved artifacts</small>
+              <strong>Human approval</strong>
+              <small>Controlled action</small>
             </div>
           </div>
-          <img className="hero-portrait" src="/shivanand-kumar-portrait.png" alt="" />
+          <img className="hero-portrait" src="/shivanand-kumar-portrait.jpg" alt="" />
         </div>
 
         <div className="hero-copy">
           <p className="eyebrow">
             <span className="status-dot" />
-            Bengaluru · Remote & flexible opportunities
+            Bengaluru · Open to remote and flexible opportunities
           </p>
 
           <a
@@ -165,34 +192,74 @@ export default function Home() {
             </span>
           </a>
 
-          <h1>
-            Senior Data Engineer building <span>reliable platforms</span> and{" "}
-            <span>controlled Agentic AI.</span>
-          </h1>
+          <h1>Data & Applied AI Engineer</h1>
 
-          <p className="hero-skills">SQL · Python · Databricks · Agentic AI</p>
+          <p className="hero-skills">
+            Generative AI · Agentic AI · Databricks · Spark
+          </p>
           <p className="hero-summary">
-            Five years of production data and analytics experience across HP, Amazon and
-            BYJU&apos;S. My public projects show how I apply that foundation to safe,
-            evaluation-driven AI systems.
+            I build reliable data and AI systems—from Databricks and Spark platforms to GenAI
+            automation, agentic workflows, retrieval and evaluation.
           </p>
 
           <div className="hero-actions">
-            <a className="button button-primary" href="#projects">
-              See project outputs
+            <a className="button button-primary" href="#impact">
+              See production impact
             </a>
-            <a className="button button-secondary" href="#impact">
-              Production impact
+            <a className="button button-secondary" href="#projects">
+              Inspect public projects
             </a>
             <a
               className="button button-secondary has-tooltip"
               href="/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf"
               download
-              data-tooltip="Latest one-page résumé · PDF"
-              aria-label="Download Shivanand Kumar's latest résumé as a PDF"
+              data-tooltip="Approved recruiter résumé · PDF"
+              aria-label="Download Shivanand Kumar's approved résumé as a PDF"
             >
               Download résumé ↓
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="impact-section" id="impact">
+        <div className="section-shell">
+          <div className="section-intro dark">
+            <div>
+              <p className="section-kicker">Selected production impact</p>
+              <p className="impact-source">HP · 2024 — Present · Public-safe summary</p>
+              <h2>Enterprise systems. Measurable outcomes.</h2>
+            </div>
+            <p>
+              A public-safe view of engineering ownership across data platforms and Applied AI.
+              Employer code, data and confidential architecture remain private.
+            </p>
+          </div>
+
+          <div className="impact-grid">
+            {impactStories.map((story, index) => (
+              <article className="impact-card" key={story.title}>
+                <div className="impact-meta">
+                  <span>0{index + 1}</span>
+                  <span>{story.label}</span>
+                </div>
+                <h3>{story.title}</h3>
+                <p>{story.description}</p>
+                <div className="proof-pills">
+                  {story.proof.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="impact-footnote">
+            <span>Additional scale</span>
+            <strong>Deduplication: 21B → 400M rows</strong>
+            <strong>~$1.55M annual savings contribution</strong>
+            <strong>PySpark workload · ~75% runtime reduction</strong>
+            <strong>40-pipeline migration · zero migration-related runtime failures</strong>
           </div>
         </div>
       </section>
@@ -206,8 +273,8 @@ export default function Home() {
             </div>
             <p>
               Two reproducible projects built with synthetic data, versioned evaluation and clear
-              human-approval boundaries. Each case study links to its output, source, tests and
-              design decisions.
+              human-review boundaries. Each case study links to output, source, tests,
+              architecture and disclosed limitations.
             </p>
           </div>
 
@@ -248,49 +315,9 @@ export default function Home() {
           </div>
 
           <p className="project-boundary-note">
-            These are independent portfolio implementations—not employer systems. They contain no
+            These are independent public implementations—not employer systems. They contain no
             employer code, data, configuration or confidential architecture.
           </p>
-        </div>
-      </section>
-
-      <section className="impact-section" id="impact">
-        <div className="section-shell">
-          <div className="section-intro dark">
-            <div>
-              <p className="section-kicker">Selected production impact</p>
-              <h2>Three stories. Measured outcomes. No résumé repetition.</h2>
-            </div>
-            <p>
-              A quick view of engineering ownership and outcomes, with confidential implementation
-              details intentionally omitted.
-            </p>
-          </div>
-
-          <div className="impact-grid">
-            {impactStories.map((story, index) => (
-              <article className="impact-card" key={story.title}>
-                <div className="impact-meta">
-                  <span>0{index + 1}</span>
-                  <span>{story.label}</span>
-                </div>
-                <h3>{story.title}</h3>
-                <p>{story.description}</p>
-                <div className="proof-pills">
-                  {story.proof.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="impact-footnote">
-            <span>Also delivered</span>
-            <strong>~$1.55M annual savings contribution</strong>
-            <strong>~70% less recurring reporting effort</strong>
-            <strong>15M+ users supported</strong>
-          </div>
         </div>
       </section>
 
@@ -298,12 +325,12 @@ export default function Home() {
         <div className="profile-main">
           <div className="section-intro">
             <div>
-              <p className="section-kicker">Career snapshot</p>
-              <h2>Data foundations. AI direction.</h2>
+              <p className="section-kicker">Experience and approach</p>
+              <h2>Production foundation. Applied AI systems.</h2>
             </div>
             <p>
-              Production data engineering remains the foundation; Agentic AI and evaluation are
-              the direction of growth.
+              I work where data systems meet Applied AI: reliable inputs, measurable evaluation,
+              controlled actions and clear operator handoffs.
             </p>
           </div>
 
@@ -318,6 +345,14 @@ export default function Home() {
                 <p>{item.detail}</p>
               </article>
             ))}
+          </div>
+
+          <div className="leadership-note">
+            <span>Leadership and operating judgment</span>
+            <p>
+              Led a 16-member operations team at BYJU&apos;S and now bring the same emphasis on
+              accountability, measurable outcomes and clear handoffs to engineering work.
+            </p>
           </div>
         </div>
 
@@ -340,7 +375,7 @@ export default function Home() {
             />
             <p>
               <strong>B.E. Mechanical Engineering</strong>
-              UIET, Panjab University · 2016 — 2020
+              UIET, Panjab University · 2016 — 2021
             </p>
           </div>
 
@@ -364,8 +399,8 @@ export default function Home() {
         <div className="section-shell contact-inner">
           <div>
             <p className="section-kicker">Open to the right conversation</p>
-            <h2>Senior Data Engineering · Data Platforms · Applied AI</h2>
-            <p>Open to remote-first or flexible permanent opportunities.</p>
+            <h2>Data & AI engineering for real systems.</h2>
+            <p>Applied AI, GenAI, Agentic AI and Data & AI engineering opportunities.</p>
           </div>
           <div className="contact-actions">
             <a
@@ -405,23 +440,13 @@ export default function Home() {
             >
               HackerRank ↗
             </a>
-            <a
-              className="has-tooltip"
-              href="https://www.instagram.com/kumarshivanand7/"
-              target="_blank"
-              rel="noreferrer"
-              data-tooltip="instagram.com/kumarshivanand7"
-              aria-label="Instagram profile, kumarshivanand7"
-            >
-              Instagram ↗
-            </a>
           </div>
         </div>
       </section>
 
       <footer>
         <span>© 2026 Shivanand Kumar</span>
-        <span>Senior Data Engineer · Data Platforms · Applied AI Projects</span>
+        <span>Data & Applied AI Engineer · GenAI & Agentic AI · Data Engineering Foundation</span>
       </footer>
     </main>
   );

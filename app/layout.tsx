@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Shivanand Kumar | Senior Data Engineer & Applied AI";
+const title = "Shivanand Kumar | Data & Applied AI Engineer";
 const description =
-  "Senior Data Engineer building reliable data platforms and evaluation-driven Applied AI projects. Explore verified outputs, source code, tests and engineering decisions.";
+  "Data & Applied AI Engineer specializing in Generative AI and Agentic AI, grounded in Databricks, Spark, Python, SQL and production data engineering.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivanandkumar.in"),
@@ -13,20 +13,26 @@ export const metadata: Metadata = {
   title,
   description,
   applicationName: "Shivanand Kumar Portfolio",
-  authors: [{ name: "Shivanand Kumar" }],
+  authors: [{ name: "Shivanand Kumar", url: "https://shivanandkumar.in/" }],
   keywords: [
     "Shivanand Kumar",
-    "Senior Data Engineer",
+    "Data and Applied AI Engineer",
+    "Applied AI Engineer",
+    "Generative AI Engineer",
+    "GenAI Engineer",
+    "Agentic AI Engineer",
+    "Data and AI Engineer",
+    "Generative AI",
     "Agentic AI",
     "Databricks",
+    "Apache Spark",
     "SQL",
     "Python",
     "PySpark",
     "RAG",
     "LLM Evaluation",
-    "Data Platform Engineer",
-    "Data Engineering Portfolio",
-    "Applied AI Projects",
+    "Data Engineering",
+    "Bengaluru India",
   ],
   openGraph: {
     title,
@@ -36,10 +42,10 @@ export const metadata: Metadata = {
     siteName: "Shivanand Kumar Portfolio",
     images: [
       {
-        url: "/og-projects.png",
+        url: "/og-data-applied-ai.png",
         width: 1200,
         height: 630,
-        alt: "Shivanand Kumar — Senior Data Engineer with verified Applied AI projects",
+        alt: "Shivanand Kumar, Data and Applied AI Engineer specializing in GenAI and Agentic AI",
       },
     ],
   },
@@ -47,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-projects.png"],
+    images: ["/og-data-applied-ai.png"],
   },
 };
 
