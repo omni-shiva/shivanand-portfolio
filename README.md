@@ -1,8 +1,8 @@
 # Shivanand Kumar — Portfolio
 
-Personal portfolio for Shivanand Kumar, a Senior Data Engineer focused on
-reliable data platforms, AI-driven engineering automation, and enterprise-scale
-data systems.
+Personal portfolio for Shivanand Kumar, a Data & Applied AI Engineer focused on
+Generative AI, Agentic AI and reliable enterprise data platforms built with
+Databricks, Spark, Python and SQL.
 
 ## Live portfolio
 
@@ -10,22 +10,22 @@ data systems.
 
 ## Current site
 
-- Recruiter-focused one-page portfolio
-- Production-impact highlights from HP, Amazon, and BYJU'S
+- Recruiter-focused portfolio aligned to Data & Applied AI Engineering
+- Production impact from HP and an experience snapshot spanning HP, Amazon, and BYJU'S
 - Two dedicated project case studies with verified output, validation evidence,
-  architecture notes, evaluation links, and GitHub source
+  architecture notes, evaluation links, disclosed limitations, and GitHub source
 - Professional profile, core capabilities, education, and contact links
-- Downloadable Senior Data Engineer résumé
-- Responsive layout and social-sharing preview
+- Downloadable approved recruiter résumé
+- Responsive layout, structured data, sitemap, robots controls and social-sharing preview
 
-The portfolio keeps production Data Engineering experience separate from
-Applied AI learning and project capability.
+The portfolio keeps employer production experience separate from independent
+public project capability. The public projects use synthetic data and do not
+contain employer code, data, configuration or confidential architecture.
 
 ## Technology
 
 - Next.js and React
 - TypeScript
-- vinext and Cloudflare Workers-compatible output
 - pnpm
 
 ## Run locally

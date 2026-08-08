@@ -2,8 +2,27 @@ import Link from "next/link";
 import type { PortfolioProject } from "./project-data";
 
 export default function ProjectDetail({ project }: { project: PortfolioProject }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    name: project.title,
+    description: project.lede,
+    url: `https://shivanandkumar.in/projects/${project.slug}/`,
+    codeRepository: project.repoUrl,
+    programmingLanguage: "Python",
+    creator: {
+      "@type": "Person",
+      name: "Shivanand Kumar",
+      url: "https://shivanandkumar.in/",
+    },
+  };
+
   return (
     <main className="project-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <header className="site-header project-site-header">
         <Link className="brand" href="/" aria-label="Shivanand Kumar portfolio home">
           <span className="brand-mark">SK</span>
@@ -54,8 +73,8 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
             </div>
           ))}
           <div>
-            <strong>Human</strong>
-            <span>approval boundary</span>
+            <strong>{project.boundaryMetric.value}</strong>
+            <span>{project.boundaryMetric.label}</span>
           </div>
         </div>
       </section>
@@ -133,6 +152,18 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
             ))}
           </ol>
         </div>
+      </section>
+
+      <section className="project-limitations section-shell">
+        <div>
+          <p className="section-kicker">Limits and next validation</p>
+          <h2>What this project does not prove—yet.</h2>
+        </div>
+        <ul>
+          {project.limitations.map((limitation) => (
+            <li key={limitation}>{limitation}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="project-boundary-section">
