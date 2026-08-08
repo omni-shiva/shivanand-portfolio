@@ -173,9 +173,7 @@ export default function Home() {
         </div>
 
         <div className="hero-copy">
-          <p className="eyebrow">
-            Bengaluru, India
-          </p>
+          <p className="eyebrow">Bengaluru, India</p>
 
           <a
             className="iit-chip"
@@ -212,10 +210,10 @@ export default function Home() {
               className="button button-secondary has-tooltip"
               href="/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf"
               download
-              data-tooltip="Approved recruiter résumé · PDF"
-              aria-label="Download Shivanand Kumar's approved résumé as a PDF"
+              data-tooltip="Resume · PDF"
+              aria-label="Download Shivanand Kumar's resume as a PDF"
             >
-              Download résumé ↓
+              Download Resume ↓
             </a>
           </div>
         </div>
@@ -397,9 +395,9 @@ export default function Home() {
       <section className="contact-section" id="contact">
         <div className="section-shell contact-inner">
           <div>
-            <p className="section-kicker">Open to the right conversation</p>
-            <h2>Data & AI engineering for real systems.</h2>
-            <p>Applied AI, GenAI, Agentic AI and Data & AI engineering opportunities.</p>
+            <p className="section-kicker">Professional contact</p>
+            <h2>Let&apos;s connect around data & AI systems.</h2>
+            <p>Applied AI, GenAI, Agentic AI and Data & AI engineering.</p>
           </div>
           <div className="contact-actions">
             <a
