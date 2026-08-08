@@ -174,8 +174,7 @@ export default function Home() {
 
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="status-dot" />
-            Bengaluru · Open to remote and flexible opportunities
+            Bengaluru, India
           </p>
 
           <a
