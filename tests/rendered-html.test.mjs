@@ -26,7 +26,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /See output &amp; case study/);
   assert.match(html, /Data Scientist II \| Data &amp; AI Platform Engineering/);
   assert.match(html, /UIET, Panjab University · 2016 — 2021/);
-  assert.match(html, /Approved recruiter résumé · PDF/);
+  assert.match(html, /Download Resume ↓/);
+  assert.match(html, /Resume · PDF/);
+  assert.match(html, /Professional contact/);
+  assert.match(html, /Let&#x27;s connect around data &amp; AI systems\./);
   assert.match(html, /Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf/);
   assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026\.png/);
   assert.match(html, /href="\/shivanand-logo-48\.png"/);
@@ -40,7 +43,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.doesNotMatch(html, /2016 — 2020/);
   assert.doesNotMatch(html, /Waza evaluation/);
   assert.doesNotMatch(html, /five-phase/);
-  assert.doesNotMatch(html, /Latest one-page résumé/);
+  assert.doesNotMatch(
+    html,
+    /Latest one-page résumé|Approved recruiter résumé|Open to the right conversation|engineering opportunities|open to remote|open to work/i,
+  );
   assert.doesNotMatch(html, /instagram\.com/);
   assert.doesNotMatch(html, /transitioning into AI|direction of growth/i);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Starter Project/);
