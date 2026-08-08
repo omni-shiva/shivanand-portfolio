@@ -15,9 +15,11 @@ export type PortfolioProject = {
   capabilities: string[];
   architecture: string[];
   metrics: Array<{ value: string; label: string }>;
+  boundaryMetric: { value: string; label: string };
   output: string;
   outputNote: string;
   boundary: string;
+  limitations: string[];
   repoUrl: string;
   readmeUrl: string;
   architectureUrl: string;
@@ -32,11 +34,11 @@ export const projects: PortfolioProject[] = [
     cardLabel: "Data platform · Agentic AI",
     title: "Data Platform Reliability Agent",
     summary:
-      "Investigates synthetic pipeline incidents with tenant-safe tools, contract inspection and runbook retrieval—then proposes, but never executes, remediation.",
+      "A tool-using reliability agent with an optional OpenAI planner that investigates synthetic pipeline incidents and proposes, but never executes, remediation.",
     outputHeadline:
       "Evidence-grounded incident diagnosis with citations, tool trace and an approval gate.",
     lede:
-      "A reproducible reliability agent that turns pipeline events, data contracts and runbooks into a bounded diagnosis without pretending it can safely operate production.",
+      "A reproducible, deterministic-first reliability agent that turns synthetic events, contracts and runbooks into a bounded diagnosis; the optional LLM planner is not part of the current evaluation.",
     problem:
       "Pipeline incidents are rarely solved by one error message. Engineers need run history, schema context, operating guidance and a clear line between diagnosis and execution.",
     role:
@@ -46,7 +48,7 @@ export const projects: PortfolioProject[] = [
       "Tenant-scoped SQL events and cross-tenant negative tests",
       "Contract comparison for missing and unexpected fields",
       "Qdrant runbook retrieval with evidence and citations",
-      "Bounded tool loop with deterministic safety checks",
+      "Bounded planner rounds with deterministic final safety checks",
       "Approval-only remediation previews with no execution path",
     ],
     architecture: [
@@ -57,10 +59,11 @@ export const projects: PortfolioProject[] = [
       "Require human approval for any proposed state-changing action",
     ],
     metrics: [
-      { value: "25", label: "evaluation cases" },
+      { value: "25/25", label: "offline regression cases passed" },
       { value: "11", label: "tests passed" },
       { value: "97%", label: "test coverage" },
     ],
+    boundaryMetric: { value: "Human", label: "approval boundary" },
     output: `{
   "severity": "high",
   "issue_summary": "SCHEMA_MISMATCH",
@@ -75,7 +78,14 @@ export const projects: PortfolioProject[] = [
     outputNote:
       "Abbreviated verified response from the schema-change test. The full response also includes direct evidence, citations, confidence, recommendations and the complete tool trace.",
     boundary:
-      "This is an independent portfolio implementation built from public resume themes and entirely synthetic pipelines, tenants, events, contracts and runbooks. It is not employer production code or architecture.",
+      "This is an independent portfolio implementation built from public career themes and entirely synthetic pipelines, tenants, events, contracts and runbooks. It is not employer production code or architecture.",
+    limitations: [
+      "The 25-case suite is a deterministic offline application-regression gate. It does not evaluate the optional LLM planner, model prompts or tool-call quality.",
+      "Required-tool checks confirm trace contents, and evidence-grounded checks confirm non-empty evidence and citations; they do not establish planner-selection quality, retrieval correctness or citation faithfulness.",
+      "The default feature-hash embeddings are deterministic and reproducible, but they are not evidence of production-grade semantic retrieval quality.",
+      "The demo accepts tenant scope in the request; a real service must derive authorization from verified identity and policy controls.",
+      "The repository is a local, read-only demonstration using synthetic data. It does not execute remediation or claim production deployment.",
+    ],
     repoUrl: `${repositoryBase}/data-platform-reliability-agent`,
     readmeUrl: `${repositoryFileBase}/data-platform-reliability-agent/README.md`,
     architectureUrl: `${repositoryFileBase}/data-platform-reliability-agent/docs/architecture.md`,
@@ -91,7 +101,7 @@ export const projects: PortfolioProject[] = [
     cardLabel: "Synthetic data · Decision support",
     title: "Synthetic Data and Print Recommendation Agent",
     summary:
-      "Measures data scarcity, generates controlled document variations and tests whether 1x, 10x and 100x scaling improves recommendations on an independent holdout set.",
+      "Measures data scarcity, generates controlled document variations and compares 1x, 10x and 100x scaling on a separately versioned synthetic holdout with disjoint IDs.",
     outputHeadline:
       "Structured print settings with confidence, evidence and a human-review decision.",
     lede:
@@ -99,12 +109,12 @@ export const projects: PortfolioProject[] = [
     problem:
       "Limited labelled documents make it difficult to cover varied categories, layouts and quality needs. Naive generation can simply amplify bias or duplicate the generator's assumptions.",
     role:
-      "I built the scarcity analysis, controlled generator, feature pipeline, local recommender, API, independent holdout evaluation, safety rules, tests and CI workflow.",
+      "I built the scarcity analysis, controlled generator, feature pipeline, local recommender, API, synthetic holdout evaluation, safety rules, tests and CI workflow.",
     capabilities: [
       "Coverage and rare-segment scarcity analysis",
       "Deterministic controlled generation at 1x, 10x and 100x",
       "Document feature engineering and structured recommendations",
-      "Independent holdout evaluation isolated from generation",
+      "Synthetic holdout evaluation isolated by document ID",
       "Diversity, duplicate, rare-group and saturation checks",
       "Human review for low-confidence and boundary cases",
     ],
@@ -113,13 +123,14 @@ export const projects: PortfolioProject[] = [
       "Generate controlled variations across missing document strata",
       "Engineer bounded document and quality features",
       "Recommend structured settings with evidence and confidence",
-      "Compare scales on an isolated labelled holdout set",
+      "Compare scales on a separately versioned synthetic holdout with disjoint IDs",
     ],
     metrics: [
-      { value: "1×–100×", label: "scales compared" },
-      { value: "9", label: "tests passed" },
-      { value: "96%", label: "test coverage" },
+      { value: "12", label: "synthetic holdout cases" },
+      { value: "10×", label: "best evaluated scale" },
+      { value: "100×", label: "saturation detected" },
     ],
+    boundaryMetric: { value: "Human", label: "review-required flag" },
     output: `{
   "document_id": "incoming_brochure_001",
   "recommended_settings": {
@@ -134,6 +145,12 @@ export const projects: PortfolioProject[] = [
       "Abbreviated verified response shape from the brochure test. Separate policy-boundary tests confirm that ambiguous inputs are held for human review and printing is never executed.",
     boundary:
       "Every document profile and label is synthetic. The repository contains no employer documents, print rules, source code or confidential architecture, and the service cannot operate a printer.",
+    limitations: [
+      "The 12 holdout records use disjoint IDs, but their expected settings come from the same documented synthetic policy world. Results test controlled scale and saturation, not out-of-policy or expert-labelled generalization.",
+      "Synthetic holdout performance does not establish real-world print quality or business outcomes.",
+      "The service uses structured document metadata rather than raw PDF rendering or printer telemetry.",
+      "A real deployment would require expert-labelled data, printer constraints, user feedback and drift monitoring.",
+    ],
     repoUrl: `${repositoryBase}/synthetic-data-print-recommendation-agent`,
     readmeUrl: `${repositoryFileBase}/synthetic-data-print-recommendation-agent/README.md`,
     architectureUrl: `${repositoryFileBase}/synthetic-data-print-recommendation-agent/docs/architecture.md`,
