@@ -29,9 +29,9 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /Approved recruiter résumé · PDF/);
   assert.match(html, /Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf/);
   assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026\.png/);
-  assert.match(html, /href="\/sk-logo\.svg"/);
-  assert.match(html, /href="\/sk-logo-32\.png"/);
-  assert.match(html, /href="\/sk-logo-180\.png"/);
+  assert.match(html, /href="\/shivanand-logo-48\.png"/);
+  assert.match(html, /href="\/shivanand-logo-32\.png"/);
+  assert.match(html, /href="\/shivanand-logo-180\.png"/);
   assert.match(html, /"jobTitle":"Data & Applied AI Engineer"/);
   assert.match(html, /github\.com\/omni-shiva/);
 

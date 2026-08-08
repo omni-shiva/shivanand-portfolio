@@ -123,7 +123,7 @@ export default function Home() {
 
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Shivanand Kumar, back to top">
-          <span className="brand-mark">SK</span>
+          <img className="brand-mark" src="/shivanand-logo-180.png" alt="" />
           <span>Shivanand Kumar</span>
         </a>
         <nav aria-label="Primary navigation">

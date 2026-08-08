@@ -94,15 +94,8 @@ a:focus-visible {
 }
 
 .brand-mark {
-  align-items: center;
-  background: var(--ink);
-  border-radius: 50%;
-  color: var(--white);
-  display: inline-flex;
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 11px;
   height: 34px;
-  justify-content: center;
+  object-fit: contain;
   width: 34px;
 }
 
