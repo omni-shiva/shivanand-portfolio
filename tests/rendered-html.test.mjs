@@ -28,7 +28,7 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /UIET, Panjab University · 2016 — 2021/);
   assert.match(html, /Approved recruiter résumé · PDF/);
   assert.match(html, /Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf/);
-  assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai\.png/);
+  assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026\.png/);
   assert.match(html, /"jobTitle":"Data & Applied AI Engineer"/);
   assert.match(html, /github\.com\/omni-shiva/);
 
@@ -94,7 +94,7 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
 
   await Promise.all([
     access(new URL("../out/.nojekyll", import.meta.url)),
-    access(new URL("../out/og-data-applied-ai.png", import.meta.url)),
+    access(new URL("../out/og-data-applied-ai-2026.png", import.meta.url)),
     access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)),
     access(new URL("../out/shivanand-kumar-portrait.jpg", import.meta.url)),
     access(new URL("../out/iit-patna-logo.png", import.meta.url)),
