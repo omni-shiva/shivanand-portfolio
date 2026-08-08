@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Shivanand Kumar Portfolio",
     images: [
       {
-        url: "/og-data-applied-ai.png",
+        url: "/og-data-applied-ai-2026.png",
         width: 1200,
         height: 630,
         alt: "Shivanand Kumar, Data and Applied AI Engineer specializing in GenAI and Agentic AI",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-data-applied-ai.png"],
+    images: ["/og-data-applied-ai-2026.png"],
   },
 };
 
