@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/shivanand-logo-180.png", sizes: "180x180", type: "image/png" }],
   },
   authors: [{ name: "Shivanand Kumar", url: "https://shivanandkumar.in/" }],
+  verification: {
+    google: "o0qvKwbp99kYmQG3wkL8xT5ofg_MDeba9eRAPCvGZtg",
+  },
   keywords: [
     "Shivanand Kumar",
     "Data and Applied AI Engineer",

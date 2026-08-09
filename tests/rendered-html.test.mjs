@@ -35,6 +35,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /href="\/shivanand-logo-48\.png"/);
   assert.match(html, /href="\/shivanand-logo-32\.png"/);
   assert.match(html, /href="\/shivanand-logo-180\.png"/);
+  assert.match(
+    html,
+    /name="google-site-verification" content="o0qvKwbp99kYmQG3wkL8xT5ofg_MDeba9eRAPCvGZtg"/,
+  );
   assert.match(html, /"jobTitle":"Data & Applied AI Engineer"/);
   assert.match(html, /github\.com\/omni-shiva/);
 
