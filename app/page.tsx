@@ -206,15 +206,6 @@ export default function Home() {
             <a className="button button-secondary" href="#projects">
               Inspect public projects
             </a>
-            <a
-              className="button button-secondary has-tooltip"
-              href="/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf"
-              download
-              data-tooltip="Resume · PDF"
-              aria-label="Download Shivanand Kumar's resume as a PDF"
-            >
-              Download Resume ↓
-            </a>
           </div>
         </div>
       </section>
@@ -329,6 +320,18 @@ export default function Home() {
               I work where data systems meet Applied AI: reliable inputs, measurable evaluation,
               controlled actions and clear operator handoffs.
             </p>
+          </div>
+
+          <div className="journey-note">
+            <span>Engineering journey</span>
+            <div>
+              <h3>From mechanical systems to intelligent systems.</h3>
+              <p>
+                Mechanical engineering shaped my systems mindset. I carried it into data
+                platforms and now into production-focused Generative and Agentic AI—building
+                dependable foundations and evaluation-driven, human-accountable AI workflows.
+              </p>
+            </div>
           </div>
 
           <div className="career-grid">

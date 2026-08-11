@@ -26,11 +26,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /See output &amp; case study/);
   assert.match(html, /Data Scientist II \| Data &amp; AI Platform Engineering/);
   assert.match(html, /UIET, Panjab University · 2016 — 2021/);
-  assert.match(html, /Download Resume ↓/);
-  assert.match(html, /Resume · PDF/);
+  assert.match(html, /From mechanical systems to intelligent systems\./);
+  assert.match(html, /Mechanical engineering shaped my systems mindset\./);
   assert.match(html, /Professional contact/);
   assert.match(html, /Let&#x27;s connect around data &amp; AI systems\./);
-  assert.match(html, /Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf/);
   assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026\.png/);
   assert.match(html, /href="\/shivanand-logo-48\.png"/);
   assert.match(html, /href="\/shivanand-logo-32\.png"/);
@@ -52,6 +51,8 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
     /Latest one-page résumé|Approved recruiter résumé|Open to the right conversation|engineering opportunities|open to remote|open to work/i,
   );
   assert.doesNotMatch(html, /instagram\.com/);
+  assert.doesNotMatch(html, /Download Resume|Resume · PDF|Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf/i);
+  assert.doesNotMatch(html, /href="tel:|aria-label="[^"]*phone/i);
   assert.doesNotMatch(html, /transitioning into AI|direction of growth/i);
   assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Starter Project/);
 });
@@ -111,13 +112,16 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
     access(new URL("../out/sk-logo.svg", import.meta.url)),
     access(new URL("../out/sk-logo-32.png", import.meta.url)),
     access(new URL("../out/sk-logo-180.png", import.meta.url)),
-    access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)),
     access(new URL("../out/shivanand-kumar-portrait.jpg", import.meta.url)),
     access(new URL("../out/iit-patna-logo.png", import.meta.url)),
     access(new URL("../out/uiet-panjab-university-logo.png", import.meta.url)),
     access(new URL("../out/fonts/geist-sans-latin.woff2", import.meta.url)),
     access(new URL("../out/fonts/geist-mono-latin.woff2", import.meta.url)),
   ]);
+
+  await assert.rejects(
+    access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)),
+  );
 
   assert.equal(cname.trim(), "shivanandkumar.in");
   assert.match(robots, /Allow: \//);

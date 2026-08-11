@@ -15,7 +15,7 @@ Databricks, Spark, Python and SQL.
 - Two dedicated project case studies with verified output, validation evidence,
   architecture notes, evaluation links, disclosed limitations, and GitHub source
 - Professional profile, core capabilities, education, and contact links
-- Downloadable approved recruiter résumé
+- A concise engineering journey from mechanical systems to data platforms and Applied AI
 - Responsive layout, structured data, sitemap, robots controls and social-sharing preview
 
 The portfolio keeps employer production experience separate from independent
