@@ -745,6 +745,39 @@ nav a {
   grid-template-columns: 1.1fr 0.9fr;
 }
 
+.journey-note {
+  align-items: start;
+  background: linear-gradient(135deg, rgba(0, 163, 208, 0.08), rgba(5, 45, 85, 0.04));
+  border: 1px solid rgba(0, 123, 167, 0.2);
+  border-radius: 16px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(130px, 0.35fr) 1fr;
+  margin-top: 28px;
+  padding: 20px;
+}
+
+.journey-note > span {
+  color: #547086;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.journey-note h3 {
+  font-size: 24px;
+  letter-spacing: -0.035em;
+  margin: 0;
+}
+
+.journey-note p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 9px 0 0;
+}
+
 .career-grid {
   border-top: 1px solid var(--line);
   display: grid;
@@ -1609,6 +1642,11 @@ footer {
 
   .section-intro h2 {
     font-size: 38px;
+  }
+
+  .journey-note {
+    gap: 10px;
+    grid-template-columns: 1fr;
   }
 
   .impact-grid,
