@@ -260,8 +260,8 @@ export default function Home() {
               <h2>Don&apos;t just read the claims. Inspect the work.</h2>
             </div>
             <p>
-              Two reproducible projects built with synthetic data, versioned evaluation and clear
-              human-review boundaries. Each case study links to output, source, tests,
+              Three reproducible projects built with synthetic data, versioned evaluation and clear
+              scope boundaries. Each case study links to output, source, tests,
               architecture and disclosed limitations.
             </p>
           </div>
@@ -303,7 +303,7 @@ export default function Home() {
           </div>
 
           <p className="project-boundary-note">
-            These are independent public implementations—not employer systems. They contain no
+            These are independent public implementations, not employer systems. They contain no
             employer code, data, configuration or confidential architecture.
           </p>
         </div>
@@ -389,7 +389,7 @@ export default function Home() {
           </div>
 
           <a className="project-note" href="#projects">
-            <span>Public portfolio · 2 verified projects</span>
+            <span>Public portfolio · 3 verified projects</span>
             <strong>Open the case studies, outputs, tests and source →</strong>
           </a>
         </aside>

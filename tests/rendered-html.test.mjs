@@ -23,6 +23,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /Independent public builds/);
   assert.match(html, /Data Platform Reliability Agent/);
   assert.match(html, /Synthetic Data and Print Recommendation Agent/);
+  assert.match(html, /Constraint-Aware Coding Agent Evaluation Lab/);
+  assert.match(html, /Three reproducible projects/);
+  assert.match(html, /3 verified projects/);
+  assert.match(html, /66\.7 pp/);
   assert.match(html, /See output &amp; case study/);
   assert.match(html, /Data Scientist II \| Data &amp; AI Platform Engineering/);
   assert.match(html, /UIET, Panjab University · 2016 — 2021/);
@@ -69,6 +73,10 @@ test("exports dedicated project evidence, limitations and source schema", async 
     ),
     "utf8",
   );
+  const constraintEvaluation = await readFile(
+    new URL("../out/projects/constraint-aware-coding-agent-evals/index.html", import.meta.url),
+    "utf8",
+  );
 
   assert.match(reliability, /Concrete behavior, not a concept slide\./);
   assert.match(reliability, /SCHEMA_MISMATCH/);
@@ -96,6 +104,37 @@ test("exports dedicated project evidence, limitations and source schema", async 
   assert.match(
     printRecommendation,
     /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/synthetic-data-print-recommendation-agent\/"/,
+  );
+
+  assert.match(constraintEvaluation, /Independent Open-Source Project/);
+  assert.match(constraintEvaluation, /Fully synthetic/);
+  assert.match(constraintEvaluation, /functional_tests/);
+  assert.match(constraintEvaluation, /constraint_compliance/);
+  assert.match(constraintEvaluation, /6\/6/);
+  assert.match(constraintEvaluation, /2\/6/);
+  assert.match(constraintEvaluation, /66\.7 percentage points/);
+  assert.match(constraintEvaluation, /16<\/strong><span>project tests passed/);
+  assert.match(constraintEvaluation, /45<\/strong><span>evaluator checks passed/);
+  assert.match(constraintEvaluation, /84-file SHA-256 manifest/);
+  assert.match(constraintEvaluation, /not a production deployment/);
+  assert.match(constraintEvaluation, /not a production benchmark/);
+  assert.match(
+    constraintEvaluation,
+    /github\.com\/omni-shiva\/constraint-aware-coding-agent-evals/,
+  );
+  assert.match(constraintEvaluation, /Verified report/);
+  assert.match(constraintEvaluation, /reports\/example\/report\.md/);
+  assert.match(constraintEvaluation, /src="\/shivanand-logo-180\.png"/);
+  assert.match(constraintEvaluation, /SoftwareSourceCode/);
+  assert.match(
+    constraintEvaluation,
+    /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/constraint-aware-coding-agent-evals\/"/,
+  );
+  assert.doesNotMatch(constraintEvaluation, /og-data-applied-ai-2026\.png/);
+  assert.doesNotMatch(constraintEvaluation, /open-source contribution/i);
+  assert.doesNotMatch(
+    constraintEvaluation,
+    /employer or client work[^<]*(?:built|owned)|commercial model performance/i,
   );
 });
 
@@ -128,6 +167,7 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
   assert.match(robots, /https:\/\/shivanandkumar\.in\/sitemap\.xml/);
   assert.match(sitemap, /data-platform-reliability-agent/);
   assert.match(sitemap, /synthetic-data-print-recommendation-agent/);
+  assert.match(sitemap, /constraint-aware-coding-agent-evals/);
   assert.match(notFound, /This route is not part of the portfolio/);
   assert.match(packageJson, /"build": "next build"/);
   assert.doesNotMatch(packageJson, /"build": "[^"]*vinext/);

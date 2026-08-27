@@ -42,6 +42,8 @@ export const metadata: Metadata = {
     "PySpark",
     "RAG",
     "LLM Evaluation",
+    "AI Evaluation",
+    "Coding Agent Evaluation",
     "Data Engineering",
     "Bengaluru India",
   ],
