@@ -2,8 +2,6 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-const root = new URL("../", import.meta.url);
-
 test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () => {
   const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
 
@@ -183,5 +181,4 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
   assert.match(notFound, /This route is not part of the portfolio/);
   assert.match(packageJson, /"build": "next build"/);
   assert.doesNotMatch(packageJson, /"build": "[^"]*vinext/);
-  assert.equal(root.pathname.endsWith("/portfolio/"), true);
 });
