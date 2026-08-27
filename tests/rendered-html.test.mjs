@@ -34,7 +34,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /Mechanical engineering shaped my systems mindset\./);
   assert.match(html, /Professional contact/);
   assert.match(html, /Let&#x27;s connect around data &amp; AI systems\./);
-  assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026\.png/);
+  assert.match(
+    html,
+    /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026-3-projects\.png/,
+  );
   assert.match(html, /href="\/shivanand-logo-48\.png"/);
   assert.match(html, /href="\/shivanand-logo-32\.png"/);
   assert.match(html, /href="\/shivanand-logo-180\.png"/);
@@ -91,6 +94,7 @@ test("exports dedicated project evidence, limitations and source schema", async 
     reliability,
     /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/data-platform-reliability-agent\/"/,
   );
+  assert.doesNotMatch(reliability, /og-data-applied-ai-2026-3-projects\.png/);
 
   assert.match(printRecommendation, /incoming_brochure_001/);
   assert.match(printRecommendation, /color_mode/);
@@ -105,6 +109,7 @@ test("exports dedicated project evidence, limitations and source schema", async 
     printRecommendation,
     /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/synthetic-data-print-recommendation-agent\/"/,
   );
+  assert.doesNotMatch(printRecommendation, /og-data-applied-ai-2026-3-projects\.png/);
 
   assert.match(constraintEvaluation, /Independent Open-Source Project/);
   assert.match(constraintEvaluation, /Fully synthetic/);
@@ -130,7 +135,7 @@ test("exports dedicated project evidence, limitations and source schema", async 
     constraintEvaluation,
     /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/constraint-aware-coding-agent-evals\/"/,
   );
-  assert.doesNotMatch(constraintEvaluation, /og-data-applied-ai-2026\.png/);
+  assert.doesNotMatch(constraintEvaluation, /og-data-applied-ai-2026-3-projects\.png/);
   assert.doesNotMatch(constraintEvaluation, /open-source contribution/i);
   assert.doesNotMatch(
     constraintEvaluation,
@@ -144,10 +149,13 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
   const robots = await readFile(new URL("../out/robots.txt", import.meta.url), "utf8");
   const sitemap = await readFile(new URL("../out/sitemap.xml", import.meta.url), "utf8");
   const notFound = await readFile(new URL("../out/404.html", import.meta.url), "utf8");
+  const socialCard = await readFile(
+    new URL("../out/og-data-applied-ai-2026-3-projects.png", import.meta.url),
+  );
 
   await Promise.all([
     access(new URL("../out/.nojekyll", import.meta.url)),
-    access(new URL("../out/og-data-applied-ai-2026.png", import.meta.url)),
+    access(new URL("../out/og-data-applied-ai-2026-3-projects.png", import.meta.url)),
     access(new URL("../out/sk-logo.svg", import.meta.url)),
     access(new URL("../out/sk-logo-32.png", import.meta.url)),
     access(new URL("../out/sk-logo-180.png", import.meta.url)),
@@ -157,6 +165,10 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
     access(new URL("../out/fonts/geist-sans-latin.woff2", import.meta.url)),
     access(new URL("../out/fonts/geist-mono-latin.woff2", import.meta.url)),
   ]);
+
+  assert.equal(socialCard.toString("ascii", 12, 16), "IHDR");
+  assert.equal(socialCard.readUInt32BE(16), 1200);
+  assert.equal(socialCard.readUInt32BE(20), 630);
 
   await assert.rejects(
     access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)),

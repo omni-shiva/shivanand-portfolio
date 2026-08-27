@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     description: metaDescription,
     url: `https://shivanandkumar.in/projects/${project.slug}/`,
     type: "website",
-    images: ["/og-data-applied-ai-2026.png"],
+    images: [],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: `${project.title} | Shivanand Kumar`,
     description: metaDescription,
-    images: ["/og-data-applied-ai-2026.png"],
+    images: [],
   },
 };
 
