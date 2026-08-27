@@ -23,6 +23,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /Independent public builds/);
   assert.match(html, /Data Platform Reliability Agent/);
   assert.match(html, /Synthetic Data and Print Recommendation Agent/);
+  assert.match(html, /Constraint-Aware Coding Agent Evaluation Lab/);
+  assert.match(html, /Three reproducible projects/);
+  assert.match(html, /3 verified projects/);
+  assert.match(html, /66\.7 pp/);
   assert.match(html, /See output &amp; case study/);
   assert.match(html, /Data Scientist II \| Data &amp; AI Platform Engineering/);
   assert.match(html, /UIET, Panjab University · 2016 — 2021/);
@@ -30,7 +34,10 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /Mechanical engineering shaped my systems mindset\./);
   assert.match(html, /Professional contact/);
   assert.match(html, /Let&#x27;s connect around data &amp; AI systems\./);
-  assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026\.png/);
+  assert.match(
+    html,
+    /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026-3-projects\.png/,
+  );
   assert.match(html, /href="\/shivanand-logo-48\.png"/);
   assert.match(html, /href="\/shivanand-logo-32\.png"/);
   assert.match(html, /href="\/shivanand-logo-180\.png"/);
@@ -69,6 +76,10 @@ test("exports dedicated project evidence, limitations and source schema", async 
     ),
     "utf8",
   );
+  const constraintEvaluation = await readFile(
+    new URL("../out/projects/constraint-aware-coding-agent-evals/index.html", import.meta.url),
+    "utf8",
+  );
 
   assert.match(reliability, /Concrete behavior, not a concept slide\./);
   assert.match(reliability, /SCHEMA_MISMATCH/);
@@ -83,6 +94,7 @@ test("exports dedicated project evidence, limitations and source schema", async 
     reliability,
     /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/data-platform-reliability-agent\/"/,
   );
+  assert.doesNotMatch(reliability, /og-data-applied-ai-2026-3-projects\.png/);
 
   assert.match(printRecommendation, /incoming_brochure_001/);
   assert.match(printRecommendation, /color_mode/);
@@ -97,6 +109,38 @@ test("exports dedicated project evidence, limitations and source schema", async 
     printRecommendation,
     /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/synthetic-data-print-recommendation-agent\/"/,
   );
+  assert.doesNotMatch(printRecommendation, /og-data-applied-ai-2026-3-projects\.png/);
+
+  assert.match(constraintEvaluation, /Independent Open-Source Project/);
+  assert.match(constraintEvaluation, /Fully synthetic/);
+  assert.match(constraintEvaluation, /functional_tests/);
+  assert.match(constraintEvaluation, /constraint_compliance/);
+  assert.match(constraintEvaluation, /6\/6/);
+  assert.match(constraintEvaluation, /2\/6/);
+  assert.match(constraintEvaluation, /66\.7 percentage points/);
+  assert.match(constraintEvaluation, /16<\/strong><span>project tests passed/);
+  assert.match(constraintEvaluation, /45<\/strong><span>evaluator checks passed/);
+  assert.match(constraintEvaluation, /84-file SHA-256 manifest/);
+  assert.match(constraintEvaluation, /not a production deployment/);
+  assert.match(constraintEvaluation, /not a production benchmark/);
+  assert.match(
+    constraintEvaluation,
+    /github\.com\/omni-shiva\/constraint-aware-coding-agent-evals/,
+  );
+  assert.match(constraintEvaluation, /Verified report/);
+  assert.match(constraintEvaluation, /reports\/example\/report\.md/);
+  assert.match(constraintEvaluation, /src="\/shivanand-logo-180\.png"/);
+  assert.match(constraintEvaluation, /SoftwareSourceCode/);
+  assert.match(
+    constraintEvaluation,
+    /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/constraint-aware-coding-agent-evals\/"/,
+  );
+  assert.doesNotMatch(constraintEvaluation, /og-data-applied-ai-2026-3-projects\.png/);
+  assert.doesNotMatch(constraintEvaluation, /open-source contribution/i);
+  assert.doesNotMatch(
+    constraintEvaluation,
+    /employer or client work[^<]*(?:built|owned)|commercial model performance/i,
+  );
 });
 
 test("ships recruiter, search and GitHub Pages controls", async () => {
@@ -105,10 +149,13 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
   const robots = await readFile(new URL("../out/robots.txt", import.meta.url), "utf8");
   const sitemap = await readFile(new URL("../out/sitemap.xml", import.meta.url), "utf8");
   const notFound = await readFile(new URL("../out/404.html", import.meta.url), "utf8");
+  const socialCard = await readFile(
+    new URL("../out/og-data-applied-ai-2026-3-projects.png", import.meta.url),
+  );
 
   await Promise.all([
     access(new URL("../out/.nojekyll", import.meta.url)),
-    access(new URL("../out/og-data-applied-ai-2026.png", import.meta.url)),
+    access(new URL("../out/og-data-applied-ai-2026-3-projects.png", import.meta.url)),
     access(new URL("../out/sk-logo.svg", import.meta.url)),
     access(new URL("../out/sk-logo-32.png", import.meta.url)),
     access(new URL("../out/sk-logo-180.png", import.meta.url)),
@@ -119,6 +166,10 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
     access(new URL("../out/fonts/geist-mono-latin.woff2", import.meta.url)),
   ]);
 
+  assert.equal(socialCard.toString("ascii", 12, 16), "IHDR");
+  assert.equal(socialCard.readUInt32BE(16), 1200);
+  assert.equal(socialCard.readUInt32BE(20), 630);
+
   await assert.rejects(
     access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)),
   );
@@ -128,6 +179,7 @@ test("ships recruiter, search and GitHub Pages controls", async () => {
   assert.match(robots, /https:\/\/shivanandkumar\.in\/sitemap\.xml/);
   assert.match(sitemap, /data-platform-reliability-agent/);
   assert.match(sitemap, /synthetic-data-print-recommendation-agent/);
+  assert.match(sitemap, /constraint-aware-coding-agent-evals/);
   assert.match(notFound, /This route is not part of the portfolio/);
   assert.match(packageJson, /"build": "next build"/);
   assert.doesNotMatch(packageJson, /"build": "[^"]*vinext/);

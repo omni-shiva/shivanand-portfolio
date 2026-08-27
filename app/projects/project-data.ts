@@ -2,10 +2,13 @@ const repositoryBase =
   "https://github.com/omni-shiva/shiva-applied-agentic/tree/main/projects";
 const repositoryFileBase =
   "https://github.com/omni-shiva/shiva-applied-agentic/blob/main/projects";
+const constraintEvalRepository =
+  "https://github.com/omni-shiva/constraint-aware-coding-agent-evals";
 
 export type PortfolioProject = {
   slug: string;
   cardLabel: string;
+  statusLabel: string;
   title: string;
   summary: string;
   outputHeadline: string;
@@ -24,6 +27,7 @@ export type PortfolioProject = {
   readmeUrl: string;
   architectureUrl: string;
   evaluationUrl: string;
+  reportUrl?: string;
   ciUrl: string;
   nextProject: { title: string; href: string };
 };
@@ -32,6 +36,7 @@ export const projects: PortfolioProject[] = [
   {
     slug: "data-platform-reliability-agent",
     cardLabel: "Data platform · Agentic AI",
+    statusLabel: "Independent build · Synthetic data · CI passing",
     title: "Data Platform Reliability Agent",
     summary:
       "A tool-using reliability agent with an optional OpenAI planner that investigates synthetic pipeline incidents and proposes, but never executes, remediation.",
@@ -99,6 +104,7 @@ export const projects: PortfolioProject[] = [
   {
     slug: "synthetic-data-print-recommendation-agent",
     cardLabel: "Synthetic data · Decision support",
+    statusLabel: "Independent build · Synthetic data · CI passing",
     title: "Synthetic Data and Print Recommendation Agent",
     summary:
       "Measures data scarcity, generates controlled document variations and compares 1x, 10x and 100x scaling on a separately versioned synthetic holdout with disjoint IDs.",
@@ -156,6 +162,74 @@ export const projects: PortfolioProject[] = [
     architectureUrl: `${repositoryFileBase}/synthetic-data-print-recommendation-agent/docs/architecture.md`,
     evaluationUrl: `${repositoryFileBase}/synthetic-data-print-recommendation-agent/docs/evaluation.md`,
     ciUrl: "https://github.com/omni-shiva/shiva-applied-agentic/actions/workflows/ci.yml",
+    nextProject: {
+      title: "Constraint-Aware Coding Agent Evaluation Lab",
+      href: "/projects/constraint-aware-coding-agent-evals/",
+    },
+  },
+  {
+    slug: "constraint-aware-coding-agent-evals",
+    cardLabel: "Independent Open-Source Project",
+    statusLabel: "Independent Open-Source Project · Fully synthetic · CI passing",
+    title: "Constraint-Aware Coding Agent Evaluation Lab",
+    summary:
+      "A fully synthetic Python lab that separates ordinary functional correctness from six independently observed runtime behavior constraints.",
+    outputHeadline:
+      "Both synthetic candidates pass ordinary tests; focused probes separate 6/6 from 2/6 compliance.",
+    lede:
+      "A reproducible evaluation-engineering project that tests returned product values and implementation behavior as separate axes, using only independently authored synthetic scenarios, candidates and evidence.",
+    problem:
+      "Passing ordinary tests proves selected outputs, but it may miss unsafe behavior around one-shot iterables, object identity, input mutation, time snapshots, injected dependencies and stable ordering.",
+    role:
+      "I designed and built the scenario format, standard-library evaluator, focused runtime probes, accepted and adversarial validation fixtures, dual-axis grading, reproducible reports, release scanner, manifest checks, tests and CI.",
+    capabilities: [
+      "Python 3.11+ standard-library evaluation runtime and command-line interface",
+      "Six independently evaluated runtime behavior constraints",
+      "Fourteen accepted and twelve isolated adversarial implementation fixtures",
+      "Nineteen functional expectation checks and two decoupling fixtures",
+      "Byte-reproducible JSON and Markdown comparison reports",
+      "Public-release scanning and an 84-file SHA-256 manifest",
+    ],
+    architecture: [
+      "Validate the fully synthetic scenario, paths and evidence map",
+      "Materialize each authored candidate in a temporary workspace",
+      "Run the same ordinary functional tests for both candidates",
+      "Observe six behavior constraints through focused runtime probes",
+      "Grade both axes independently and generate reproducible evidence",
+    ],
+    metrics: [
+      { value: "16", label: "project tests passed" },
+      { value: "45", label: "evaluator checks passed" },
+      { value: "66.7 pp", label: "compliance separation" },
+    ],
+    boundaryMetric: { value: "6/6 vs 2/6", label: "synthetic constraint results" },
+    output: `{
+  "synthetic_reference": {
+    "functional_tests": "PASS",
+    "constraint_compliance": "6/6"
+  },
+  "synthetic_comparison": {
+    "functional_tests": "PASS",
+    "constraint_compliance": "2/6"
+  },
+  "compliance_separation": "66.7 percentage points"
+}`,
+    outputNote:
+      "Abbreviated verified result derived from the reproducible example report. Both authored candidates pass the same ordinary functional tests; the focused probes expose four behavior violations in the comparison candidate.",
+    boundary:
+      "Independent Open-Source Project. It is fully synthetic and independently authored, with no employer or client work, confidential tasks, prompts, tests, trajectories or datasets. It is not a production deployment, a real benchmark submission, an accepted third-party contribution or evidence about any commercial model.",
+    limitations: [
+      "This is a small deterministic teaching example, not a production benchmark or a claim about real-world model performance.",
+      "The candidates were authored to exercise evaluation paths; results must not be generalized to external repositories, agents or models.",
+      "Temporary workspaces provide file separation, not a security sandbox. Only trusted synthetic fixtures should be evaluated.",
+      "The release scanner checks configured patterns in publishable text files; it does not replace credential rotation or repository-host history cleanup after an accidental disclosure.",
+    ],
+    repoUrl: constraintEvalRepository,
+    readmeUrl: `${constraintEvalRepository}/blob/main/README.md`,
+    architectureUrl: `${constraintEvalRepository}/blob/main/docs/architecture.md`,
+    evaluationUrl: `${constraintEvalRepository}/blob/main/docs/methodology.md`,
+    reportUrl: `${constraintEvalRepository}/blob/main/reports/example/report.md`,
+    ciUrl: `${constraintEvalRepository}/actions/workflows/tests.yml`,
     nextProject: {
       title: "Data Platform Reliability Agent",
       href: "/projects/data-platform-reliability-agent/",

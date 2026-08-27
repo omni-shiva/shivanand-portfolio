@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import Link from "next/link";
 import type { PortfolioProject } from "./project-data";
 
@@ -25,7 +27,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
       />
       <header className="site-header project-site-header">
         <Link className="brand" href="/" aria-label="Shivanand Kumar portfolio home">
-          <span className="brand-mark">SK</span>
+          <img className="brand-mark" src="/shivanand-logo-180.png" alt="" />
           <span>Shivanand Kumar</span>
         </Link>
         <nav aria-label="Project navigation">
@@ -43,7 +45,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
             ← Back to public work
           </Link>
           <p className="project-status">
-            <span /> Independent build · Synthetic data · CI passing
+            <span /> {project.statusLabel}
           </p>
           <p className="section-kicker">{project.cardLabel}</p>
           <h1>{project.title}</h1>
@@ -109,6 +111,11 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
               <a href={project.evaluationUrl} target="_blank" rel="noreferrer">
                 Evaluation design ↗
               </a>
+              {project.reportUrl ? (
+                <a href={project.reportUrl} target="_blank" rel="noreferrer">
+                  Verified report ↗
+                </a>
+              ) : null}
               <a href={project.ciUrl} target="_blank" rel="noreferrer">
                 Passing CI ↗
               </a>

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ProjectDetail from "../ProjectDetail";
 import { projectsBySlug } from "../project-data";
 
-const project = projectsBySlug["data-platform-reliability-agent"];
+const project = projectsBySlug["constraint-aware-coding-agent-evals"];
 const metaDescription =
-  "Independent reliability agent using FastAPI, Qdrant retrieval, tenant-scoped tools, 25 deterministic offline evaluation cases and approval-only remediation.";
+  "Independent Open-Source Project: a fully synthetic Python evaluation lab separating functional correctness from six runtime behavior constraints with reproducible evidence.";
 
 export const metadata: Metadata = {
   title: `${project.title} | Shivanand Kumar`,
@@ -25,6 +25,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DataPlatformReliabilityAgentPage() {
+export default function ConstraintAwareCodingAgentEvalsPage() {
   return <ProjectDetail project={project} />;
 }
