@@ -123,6 +123,10 @@ test("exports dedicated project evidence, limitations and source schema", async 
   assert.match(constraintEvaluation, /not a production benchmark/);
   assert.match(
     constraintEvaluation,
+    /github\.com\/omni-shiva\/shiva-applied-agentic\/tree\/main\/projects\/constraint-aware-coding-agent-evals/,
+  );
+  assert.doesNotMatch(
+    constraintEvaluation,
     /github\.com\/omni-shiva\/constraint-aware-coding-agent-evals/,
   );
   assert.match(constraintEvaluation, /Verified report/);
