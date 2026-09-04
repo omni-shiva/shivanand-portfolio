@@ -53,6 +53,4 @@ node --test tests/rendered-html.test.mjs
 All three projects are independent public implementations built with synthetic
 data. They are presented separately from production experience and link back to
 their source, tests, evaluation design and passing CI in
-[`omni-shiva/shiva-applied-agentic`](https://github.com/omni-shiva/shiva-applied-agentic)
-and
-[`omni-shiva/constraint-aware-coding-agent-evals`](https://github.com/omni-shiva/constraint-aware-coding-agent-evals).
+[`omni-shiva/shiva-applied-agentic`](https://github.com/omni-shiva/shiva-applied-agentic).

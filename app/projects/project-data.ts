@@ -3,7 +3,9 @@ const repositoryBase =
 const repositoryFileBase =
   "https://github.com/omni-shiva/shiva-applied-agentic/blob/main/projects";
 const constraintEvalRepository =
-  "https://github.com/omni-shiva/constraint-aware-coding-agent-evals";
+  `${repositoryBase}/constraint-aware-coding-agent-evals`;
+const constraintEvalFileBase =
+  `${repositoryFileBase}/constraint-aware-coding-agent-evals`;
 
 export type PortfolioProject = {
   slug: string;
@@ -225,11 +227,11 @@ export const projects: PortfolioProject[] = [
       "The release scanner checks configured patterns in publishable text files; it does not replace credential rotation or repository-host history cleanup after an accidental disclosure.",
     ],
     repoUrl: constraintEvalRepository,
-    readmeUrl: `${constraintEvalRepository}/blob/main/README.md`,
-    architectureUrl: `${constraintEvalRepository}/blob/main/docs/architecture.md`,
-    evaluationUrl: `${constraintEvalRepository}/blob/main/docs/methodology.md`,
-    reportUrl: `${constraintEvalRepository}/blob/main/reports/example/report.md`,
-    ciUrl: `${constraintEvalRepository}/actions/workflows/tests.yml`,
+    readmeUrl: `${constraintEvalFileBase}/README.md`,
+    architectureUrl: `${constraintEvalFileBase}/docs/architecture.md`,
+    evaluationUrl: `${constraintEvalFileBase}/docs/methodology.md`,
+    reportUrl: `${constraintEvalFileBase}/reports/example/report.md`,
+    ciUrl: "https://github.com/omni-shiva/shiva-applied-agentic/actions/workflows/ci.yml",
     nextProject: {
       title: "Data Platform Reliability Agent",
       href: "/projects/data-platform-reliability-agent/",
