@@ -364,7 +364,7 @@ export default function Home() {
             />
             <div>
               <span>Current education</span>
-              <strong>M.Tech · AI & Data Science Engineering</strong>
+              <strong>M.Tech (Online) · AI & Data Science Engineering</strong>
               <p>IIT Patna · Jul 2026 — Present</p>
             </div>
           </div>
@@ -375,7 +375,7 @@ export default function Home() {
             />
             <p>
               <strong>B.E. Mechanical Engineering</strong>
-              UIET, Panjab University · 2016 — 2021
+              UIET, Panjab University · 2016 — 2020
             </p>
           </div>
 

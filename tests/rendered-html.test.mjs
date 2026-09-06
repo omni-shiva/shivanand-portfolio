@@ -27,7 +27,7 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
   assert.match(html, /66\.7 pp/);
   assert.match(html, /See output &amp; case study/);
   assert.match(html, /Data Scientist II \| Data &amp; AI Platform Engineering/);
-  assert.match(html, /UIET, Panjab University · 2016 — 2021/);
+  assert.match(html, /UIET, Panjab University · 2016 — 2020/);
   assert.match(html, /From mechanical systems to intelligent systems\./);
   assert.match(html, /Mechanical engineering shaped my systems mindset\./);
   assert.match(html, /Professional contact/);
@@ -48,7 +48,7 @@ test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () 
 
   assert.doesNotMatch(html, /Senior Data Engineer building/);
   assert.doesNotMatch(html, /Data Engineering &amp; AI Platform Automation/);
-  assert.doesNotMatch(html, /2016 — 2020/);
+  assert.doesNotMatch(html, /2016 — 2021/);
   assert.doesNotMatch(html, /Waza evaluation/);
   assert.doesNotMatch(html, /five-phase/);
   assert.doesNotMatch(
