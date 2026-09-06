@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { projects } from "./projects/project-data";
+import LearningProjects from "./projects/LearningProjects";
 
 const impactStories = [
   {
@@ -266,6 +267,10 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="project-collection-heading">
+            <h3>Flagship projects</h3>
+            <a href="#learning-projects">Explore learning projects ↓</a>
+          </div>
           <div className="project-grid">
             {projects.map((project, index) => (
               <article className="project-card" key={project.slug}>
@@ -306,6 +311,7 @@ export default function Home() {
             These are independent public implementations, not employer systems. They contain no
             employer code, data, configuration or confidential architecture.
           </p>
+          <LearningProjects />
         </div>
       </section>
 

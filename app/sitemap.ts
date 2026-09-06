@@ -15,5 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    {
+      url: "https://shivanandkumar.in/learning/pii-masking-lab/",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
   ];
 }

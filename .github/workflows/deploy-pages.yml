@@ -40,6 +40,9 @@ jobs:
       - name: Build static portfolio
         run: pnpm run build
 
+      - name: Verify exported pages and learning projects
+        run: node --experimental-strip-types --test tests/*.test.mjs
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

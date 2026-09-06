@@ -41,7 +41,7 @@ Validate a production build:
 
 ```bash
 pnpm run build
-node --test tests/rendered-html.test.mjs
+node --experimental-strip-types --test tests/*.test.mjs
 ```
 
 ## Public projects
@@ -54,3 +54,18 @@ All three projects are independent public implementations built with synthetic
 data. They are presented separately from production experience and link back to
 their source, tests, evaluation design and passing CI in
 [`omni-shiva/shiva-applied-agentic`](https://github.com/omni-shiva/shiva-applied-agentic).
+
+## Learning projects
+
+Focused learning experiments are shown in a separate, manually navigated
+carousel below the three flagship projects.
+
+- [PII Masking Lab](https://shivanandkumar.in/learning/pii-masking-lab/):
+  a downloadable notebook and synthetic CSV, five entity definitions,
+  candidate validation, deterministic masking and measured rule-based failures.
+  Live LLM evaluation and learner practice remain pending; this is not a
+  production privacy filter or a privacy certification.
+- Browser Summary remains work in progress, with no claimed completed release.
+
+The deployment workflow checks the exported portfolio, learning-page metadata,
+downloads, content boundaries and carousel navigation logic before publishing.
