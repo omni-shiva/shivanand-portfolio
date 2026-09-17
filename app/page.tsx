@@ -2,6 +2,7 @@
 
 import { projects } from "./projects/project-data";
 import LearningProjects from "./projects/LearningProjects";
+import Certifications from "./Certifications";
 
 const impactStories = [
   {
@@ -400,6 +401,8 @@ export default function Home() {
           </a>
         </aside>
       </section>
+
+      <Certifications />
 
       <section className="contact-section" id="contact">
         <div className="section-shell contact-inner">

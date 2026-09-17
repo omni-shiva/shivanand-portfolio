@@ -1889,6 +1889,53 @@ footer {
   }
 }
 
+.credentials-section {
+  padding-top: 52px;
+  padding-bottom: 64px;
+  scroll-margin-top: 84px;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 16px;
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+}
+
+.credentials-grid li {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 22px;
+}
+
+.credentials-grid .credential-meta {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.credentials-grid h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  overflow-wrap: anywhere;
+}
+
+.credentials-grid a {
+  font-size: 0.9375rem;
+  font-weight: 650;
+  margin-top: auto;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
