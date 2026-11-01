@@ -6,58 +6,67 @@ import Certifications from "./Certifications";
 
 const impactStories = [
   {
+    label: "AI-assisted modernisation",
+    title: "Legacy pipelines, modernised with review controls",
+    description:
+      "Modernised 50+ legacy enterprise Databricks pipelines using GPT and Claude Opus/Sonnet. Built a contract-driven ODPS migration framework with nine reusable Copilot skills, YAML data contracts and shared-runtime Python utilities.",
+    proof: ["50+ pipelines modernised", "Nine reusable Copilot skills", "Source-backed reviews · output-parity checks · developer approval"],
+  },
+  {
+    label: "Production data protection",
+    title: "PII masking and encryption in production",
+    description:
+      "Built and deployed PII-masking and encryption workflows using Microsoft Presidio, spaCy, domain-specific detection rules and PGPy/OpenPGP.",
+    proof: ["Microsoft Presidio & spaCy", "Domain-specific detection", "PGPy / OpenPGP encryption"],
+  },
+  {
+    label: "Data-aware AI workflows",
+    title: "Richer datasets and engineering context",
+    description:
+      "Enriched Databricks datasets with LLM-generated case-note summaries. Integrated OntoBricks with the lakehouse, exposing ontology and knowledge-graph context through MCP to GitHub Copilot in VS Code.",
+    proof: ["LLM-generated columns", "OntoBricks knowledge-graph context", "MCP → GitHub Copilot"],
+  },
+  {
     label: "Production GenAI engineering",
-    title: "Failure analysis grounded in operational signals",
+    title: "Operational evidence, retrieval and controlled recovery",
     description:
-      "Built a graph-orchestrated workflow across 40 enterprise Databricks jobs to turn failure evidence into consistent, reviewable analysis.",
-    proof: [
-      "40 Databricks jobs",
-      "~70% less failure-investigation and remediation effort",
-      "Human-reviewed output",
-    ],
+      "Built a production operations agent using LangGraph and Claude Sonnet for 40 Databricks jobs, combining historical-resolution retrieval, MLflow tracing and controlled Jobs API retriggers.",
+    proof: ["40 Databricks jobs", "~70% less investigation and remediation effort", "LangGraph · Claude Sonnet · MLflow"],
   },
   {
-    label: "AI-assisted automation",
-    title: "Data-product contracts, generated with controls",
+    label: "Migration and monitoring",
+    title: "Reusable frameworks for reliable platform operations",
     description:
-      "Automated configurations, schemas, DDLs and 20+ transformations across a governed data-product workflow.",
-    proof: [
-      "47 Databricks pipelines",
-      "Documentation effort: days → hours",
-      "Validation before approval",
-    ],
+      "Migrated and deployed 40+ enterprise production pipelines with a reusable logging and refactoring framework. Automated monitoring across 54 pipelines.",
+    proof: ["~90% less manual migration effort", "54 pipelines monitored", "85–90% fewer routine manual checks"],
   },
   {
-    label: "Platform reliability",
-    title: "Scale, observability and measurable efficiency",
+    label: "Distributed-processing efficiency",
+    title: "Spark optimisation with measurable scale",
     description:
-      "Improved monitoring, migration and distributed-processing workflows across high-volume enterprise data platforms.",
-    proof: [
-      "54 production pipelines",
-      "85–90% fewer recurring manual checks",
-      "Observability automation",
-    ],
+      "Optimised PySpark partitioning, joins and caching; implemented Spark deduplication at billion-record scale. Developed lakehouse observability and SLA/incident-diagnosis capabilities.",
+    proof: ["~75% pipeline runtime reduction", "21B → 400M records", "~$1.55M annual infrastructure savings contribution"],
   },
 ];
 
 const career = [
   {
-    company: "HP",
-    period: "2024 — Present",
+    company: "HP Inc.",
+    period: "Jun 2024 - Present",
     role: "Data Scientist II | Data & AI Platform Engineering",
     detail: "Databricks platforms, production automation, observability and Applied AI workflows",
   },
   {
     company: "Amazon",
-    period: "2022 — 2024",
-    role: "ML Data Associate II → Business Analyst",
+    period: "Oct 2022 - Jun 2024",
+    role: "Business Analyst | SSD/AMXL - India Supply Chain Analytics",
     detail:
-      "SQL pipelines, analytics automation and LLM data and evaluation work · director-level recognition for automation impact",
+      "SQL pipelines and BI datasets for supply-chain reporting; SQL/Python reporting automation reduced manual effort by ~70%, and CPT query optimisation cut runtime by ~30%. Director-level Minesweeper and Automation Expert awards.",
   },
   {
     company: "BYJU’S",
-    period: "2021 — 2022",
-    role: "Centre Head · Operations",
+    period: "Oct 2021 - Oct 2022",
+    role: "Centre Head - Operations",
     detail: "16-member cross-functional operations team and SQL-led operating reviews",
   },
 ];
@@ -85,13 +94,17 @@ export default function Home() {
     alumniOf: [
       {
         "@type": "CollegeOrUniversity",
-        name: "Indian Institute of Technology Patna",
-      },
-      {
-        "@type": "CollegeOrUniversity",
         name: "University Institute of Engineering and Technology, Panjab University",
       },
     ],
+    memberOf: {
+      "@type": "OrganizationRole",
+      roleName: "M.Tech student, AI & Data Science Engineering (Online), Jul 2026 - Present",
+      memberOf: {
+        "@type": "CollegeOrUniversity",
+        name: "Indian Institute of Technology Patna",
+      },
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Bengaluru",
@@ -187,7 +200,7 @@ export default function Home() {
             <img src="/iit-patna-logo.png" alt="" />
             <span>
               <strong>IIT Patna</strong>
-              M.Tech · AI & Data Science Engineering
+              M.Tech (Online) · AI & Data Science Engineering · Ongoing
             </span>
           </a>
 
@@ -197,8 +210,9 @@ export default function Home() {
             Generative AI · Agentic AI · Databricks · Spark
           </p>
           <p className="hero-summary">
-            I build reliable data and AI systems—from Databricks and Spark platforms to GenAI
-            automation, agentic workflows, retrieval and evaluation.
+            I build reliable data platforms and controlled AI workflows: Databricks and PySpark
+            optimisation, pipeline migration and observability, alongside LangGraph and Claude
+            operations automation.
           </p>
 
           <div className="hero-actions">
@@ -206,7 +220,7 @@ export default function Home() {
               See production impact
             </a>
             <a className="button button-secondary" href="#projects">
-              Inspect public projects
+              Inspect the flagship project
             </a>
           </div>
         </div>
@@ -216,13 +230,13 @@ export default function Home() {
         <div className="section-shell">
           <div className="section-intro dark">
             <div>
-              <p className="section-kicker">Selected production impact</p>
-              <p className="impact-source">HP · 2024 — Present · Public-safe summary</p>
+              <p className="section-kicker">HP engineering impact</p>
+              <p className="impact-source">HP Inc. · Jun 2024 - Present · Data & AI Platform Engineering</p>
               <h2>Enterprise systems. Measurable outcomes.</h2>
             </div>
             <p>
-              A public-safe view of engineering ownership across data platforms and Applied AI.
-              Employer code, data and confidential architecture remain private.
+              Production operations, data protection and platform engineering, alongside
+              contract-driven migration tooling with source reviews and developer approval gates.
             </p>
           </div>
 
@@ -245,11 +259,10 @@ export default function Home() {
           </div>
 
           <div className="impact-footnote">
-            <span>Additional scale</span>
-            <strong>Deduplication: 21B → 400M rows</strong>
-            <strong>~$1.55M annual savings contribution</strong>
-            <strong>PySpark workload · ~75% runtime reduction</strong>
-            <strong>40-pipeline migration · zero migration-related runtime failures</strong>
+            <span>Engineering controls</span>
+            <strong>Read-only output-parity checks</strong>
+            <strong>Developer approval for CI/CD handoff</strong>
+            <strong>Shared-runtime contracts and utilities</strong>
           </div>
         </div>
       </section>
@@ -262,17 +275,17 @@ export default function Home() {
               <h2>Don&apos;t just read the claims. Inspect the work.</h2>
             </div>
             <p>
-              Three reproducible projects built with synthetic data, versioned evaluation and clear
-              scope boundaries. Each case study links to output, source, tests,
-              architecture and disclosed limitations.
+              One independent flagship built with synthetic data: a read-only incident-diagnosis
+              service with runbook retrieval, tenant-scoped SQL and approval-ready recovery previews.
+              Inspect the source, offline regression cases and implementation limits.
             </p>
           </div>
 
           <div className="project-collection-heading">
-            <h3>Flagship projects</h3>
+            <h3>Flagship project</h3>
             <a href="#learning-projects">Explore learning projects ↓</a>
           </div>
-          <div className="project-grid">
+          <div className="project-grid" style={{ gridTemplateColumns: "minmax(0, 1fr)", maxWidth: 820 }}>
             {projects.map((project, index) => (
               <article className="project-card" key={project.slug}>
                 <div className="project-card-meta">
@@ -309,8 +322,8 @@ export default function Home() {
           </div>
 
           <p className="project-boundary-note">
-            These are independent public implementations, not employer systems. They contain no
-            employer code, data, configuration or confidential architecture.
+            This independent implementation uses synthetic data and read-only decision support.
+            Employer code, data, configuration and confidential architecture remain private.
           </p>
           <LearningProjects />
         </div>
@@ -335,8 +348,8 @@ export default function Home() {
               <h3>From mechanical systems to intelligent systems.</h3>
               <p>
                 Mechanical engineering shaped my systems mindset. I carried it into data
-                platforms and now into production-focused Generative and Agentic AI—building
-                dependable foundations and evaluation-driven, human-accountable AI workflows.
+                platforms and controlled Applied AI workflows, with dependable foundations,
+                measurable outcomes and clear operator handoffs.
               </p>
             </div>
           </div>
@@ -396,8 +409,8 @@ export default function Home() {
           </div>
 
           <a className="project-note" href="#projects">
-            <span>Public portfolio · 3 verified projects</span>
-            <strong>Open the case studies, outputs, tests and source →</strong>
+            <span>Public portfolio · One flagship project</span>
+            <strong>Inspect the diagnosis service, regression cases and source →</strong>
           </a>
         </aside>
       </section>

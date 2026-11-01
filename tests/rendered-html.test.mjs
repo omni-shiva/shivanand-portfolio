@@ -2,187 +2,91 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-test("exports the aligned Shivanand Kumar portfolio for GitHub Pages", async () => {
-  const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
+const exported = (path) => readFile(new URL(`../out/${path}`, import.meta.url), "utf8");
+const removedSlugs = ["synthetic-data-print-recommendation-agent", "constraint-aware-coding-agent-evals"];
 
-  assert.match(html, /Shivanand Kumar \| Data &amp; Applied AI Engineer/);
-  assert.match(html, /Data &amp; Applied AI Engineer/);
-  assert.match(html, /Generative AI · Agentic AI · Databricks · Spark/);
-  assert.match(html, /I build reliable data and AI systems/);
-  assert.match(html, /Enterprise systems\. Measurable outcomes\./);
-  assert.match(html, /Production GenAI engineering/);
-  assert.match(html, /40 Databricks jobs/);
-  assert.match(html, /47 Databricks pipelines/);
-  assert.match(html, /54 production pipelines/);
-  assert.match(html, /Deduplication: 21B → 400M rows/);
-  assert.match(html, /PySpark workload · ~75% runtime reduction/);
-  assert.match(html, /zero migration-related runtime failures/);
-  assert.match(html, /\$1\.55M annual savings contribution/);
-  assert.match(html, /Independent public builds/);
+test("exported homepage matches the approved experience and current education", async () => {
+  const html = await exported("index.html");
+  for (const phrase of [
+    /Shivanand Kumar \| Data &amp; Applied AI Engineer/,
+    /Data Scientist II \| Data &amp; AI Platform Engineering/,
+    /Jun 2024 - Present/,
+    /50\+ legacy enterprise Databricks pipelines/,
+    /nine reusable Copilot skills/,
+    /source reviews and developer approval gates/,
+    /Microsoft Presidio/,
+    /spaCy/,
+    /PGPy\/OpenPGP/,
+    /LLM-generated case-note summaries/,
+    /OntoBricks/,
+    /MCP/,
+    /40 Databricks jobs/,
+    /~70% less investigation and remediation effort/,
+    /40\+ enterprise production pipelines/,
+    /~90% less manual migration effort/,
+    /54 pipelines monitored/,
+    /85–90% fewer routine manual checks/,
+    /21B → 400M records/,
+    /~75% pipeline runtime reduction/,
+    /~\$1\.55M annual infrastructure savings contribution/,
+    /Business Analyst \| SSD\/AMXL - India Supply Chain Analytics/,
+    /Oct 2022 - Jun 2024/,
+    /~30%/,
+    /Minesweeper and Automation Expert/,
+    /M.Tech \(Online\) · AI &amp; Data Science Engineering · Ongoing/,
+    /IIT Patna · Jul 2026 — Present/,
+    /UIET, Panjab University · 2016 — 2020/,
+  ]) assert.match(html, phrase);
+  assert.doesNotMatch(html, /ML Data Associate|47 Databricks pipelines|zero migration-related runtime failures|Browser Summary/);
+  const person = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(person.jobTitle, "Data & Applied AI Engineer");
+  assert.deepEqual(person.alumniOf.map((school) => school.name), ["University Institute of Engineering and Technology, Panjab University"]);
+  assert.match(person.memberOf.roleName, /student.*Jul 2026 - Present/);
+  assert.equal(person.memberOf.memberOf.name, "Indian Institute of Technology Patna");
+  assert.doesNotMatch(html, /Latest one-page résumé|Download Resume|Resume · PDF|Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf|href="tel:|instagram\.com|open to work/i);
+});
+
+test("one flagship and separate learning notebook replace the old public catalogue", async () => {
+  const html = await exported("index.html");
+  const sitemap = await exported("sitemap.xml");
+  assert.equal((html.match(/class="project-card"/g) || []).length, 1);
+  assert.match(html, /One flagship project/);
   assert.match(html, /Data Platform Reliability Agent/);
-  assert.match(html, /Synthetic Data and Print Recommendation Agent/);
-  assert.match(html, /Constraint-Aware Coding Agent Evaluation Lab/);
-  assert.match(html, /Three reproducible projects/);
-  assert.match(html, /3 verified projects/);
-  assert.match(html, /66\.7 pp/);
-  assert.match(html, /See output &amp; case study/);
-  assert.match(html, /Data Scientist II \| Data &amp; AI Platform Engineering/);
-  assert.match(html, /UIET, Panjab University · 2016 — 2020/);
-  assert.match(html, /From mechanical systems to intelligent systems\./);
-  assert.match(html, /Mechanical engineering shaped my systems mindset\./);
-  assert.match(html, /Professional contact/);
-  assert.match(html, /Let&#x27;s connect around data &amp; AI systems\./);
-  assert.match(
-    html,
-    /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026-3-projects\.png/,
-  );
-  assert.match(html, /href="\/shivanand-logo-48\.png"/);
-  assert.match(html, /href="\/shivanand-logo-32\.png"/);
-  assert.match(html, /href="\/shivanand-logo-180\.png"/);
-  assert.match(
-    html,
-    /name="google-site-verification" content="o0qvKwbp99kYmQG3wkL8xT5ofg_MDeba9eRAPCvGZtg"/,
-  );
-  assert.match(html, /"jobTitle":"Data & Applied AI Engineer"/);
-  assert.match(html, /github\.com\/omni-shiva/);
-
-  assert.doesNotMatch(html, /Senior Data Engineer building/);
-  assert.doesNotMatch(html, /Data Engineering &amp; AI Platform Automation/);
-  assert.doesNotMatch(html, /2016 — 2021/);
-  assert.doesNotMatch(html, /Waza evaluation/);
-  assert.doesNotMatch(html, /five-phase/);
-  assert.doesNotMatch(
-    html,
-    /Latest one-page résumé|Approved recruiter résumé|Open to the right conversation|engineering opportunities|open to remote|open to work/i,
-  );
-  assert.doesNotMatch(html, /instagram\.com/);
-  assert.doesNotMatch(html, /Download Resume|Resume · PDF|Shivanand_Kumar_Data_AI_Engineer_Resume\.pdf/i);
-  assert.doesNotMatch(html, /href="tel:|aria-label="[^"]*phone/i);
-  assert.doesNotMatch(html, /transitioning into AI|direction of growth/i);
-  assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Starter Project/);
+  assert.match(html, /PII Masking Lab/);
+  assert.doesNotMatch(html, /Three reproducible|3 verified|Synthetic Data and Print Recommendation Agent|Constraint-Aware Coding Agent Evaluation Lab/);
+  for (const slug of removedSlugs) {
+    assert.doesNotMatch(html, new RegExp(slug));
+    assert.doesNotMatch(sitemap, new RegExp(slug));
+    await assert.rejects(access(new URL(`../out/projects/${slug}/index.html`, import.meta.url)));
+  }
+  assert.match(sitemap, /data-platform-reliability-agent/);
+  assert.match(sitemap, /learning\/pii-masking-lab/);
 });
 
-test("exports dedicated project evidence, limitations and source schema", async () => {
-  const reliability = await readFile(
-    new URL("../out/projects/data-platform-reliability-agent/index.html", import.meta.url),
-    "utf8",
-  );
-  const printRecommendation = await readFile(
-    new URL(
-      "../out/projects/synthetic-data-print-recommendation-agent/index.html",
-      import.meta.url,
-    ),
-    "utf8",
-  );
-  const constraintEvaluation = await readFile(
-    new URL("../out/projects/constraint-aware-coding-agent-evals/index.html", import.meta.url),
-    "utf8",
-  );
-
-  assert.match(reliability, /Concrete behavior, not a concept slide\./);
-  assert.match(reliability, /SCHEMA_MISMATCH/);
-  assert.match(reliability, /approval_required/);
-  assert.match(reliability, /execution_performed/);
-  assert.match(reliability, /25\/25/);
-  assert.match(reliability, /97%/);
-  assert.match(reliability, /What this project does not prove—yet\./);
-  assert.match(reliability, /production-grade semantic retrieval quality/);
-  assert.match(reliability, /SoftwareSourceCode/);
-  assert.match(
-    reliability,
-    /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/data-platform-reliability-agent\/"/,
-  );
-  assert.doesNotMatch(reliability, /og-data-applied-ai-2026-3-projects\.png/);
-
-  assert.match(printRecommendation, /incoming_brochure_001/);
-  assert.match(printRecommendation, /color_mode/);
-  assert.match(printRecommendation, /quality_mode/);
-  assert.match(printRecommendation, /12/);
-  assert.match(printRecommendation, /10×/);
-  assert.match(printRecommendation, /100×/);
-  assert.match(printRecommendation, /Synthetic holdout performance/);
-  assert.match(printRecommendation, /cannot operate a printer/);
-  assert.match(printRecommendation, /SoftwareSourceCode/);
-  assert.match(
-    printRecommendation,
-    /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/synthetic-data-print-recommendation-agent\/"/,
-  );
-  assert.doesNotMatch(printRecommendation, /og-data-applied-ai-2026-3-projects\.png/);
-
-  assert.match(constraintEvaluation, /Independent Open-Source Project/);
-  assert.match(constraintEvaluation, /Fully synthetic/);
-  assert.match(constraintEvaluation, /functional_tests/);
-  assert.match(constraintEvaluation, /constraint_compliance/);
-  assert.match(constraintEvaluation, /6\/6/);
-  assert.match(constraintEvaluation, /2\/6/);
-  assert.match(constraintEvaluation, /66\.7 percentage points/);
-  assert.match(constraintEvaluation, /16<\/strong><span>project tests passed/);
-  assert.match(constraintEvaluation, /45<\/strong><span>evaluator checks passed/);
-  assert.match(constraintEvaluation, /84-file SHA-256 manifest/);
-  assert.match(constraintEvaluation, /not a production deployment/);
-  assert.match(constraintEvaluation, /not a production benchmark/);
-  assert.match(
-    constraintEvaluation,
-    /github\.com\/omni-shiva\/shiva-applied-agentic\/tree\/main\/projects\/constraint-aware-coding-agent-evals/,
-  );
-  assert.doesNotMatch(
-    constraintEvaluation,
-    /github\.com\/omni-shiva\/constraint-aware-coding-agent-evals/,
-  );
-  assert.match(constraintEvaluation, /Verified report/);
-  assert.match(constraintEvaluation, /reports\/example\/report\.md/);
-  assert.match(constraintEvaluation, /src="\/shivanand-logo-180\.png"/);
-  assert.match(constraintEvaluation, /SoftwareSourceCode/);
-  assert.match(
-    constraintEvaluation,
-    /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/constraint-aware-coding-agent-evals\/"/,
-  );
-  assert.doesNotMatch(constraintEvaluation, /og-data-applied-ai-2026-3-projects\.png/);
-  assert.doesNotMatch(constraintEvaluation, /open-source contribution/i);
-  assert.doesNotMatch(
-    constraintEvaluation,
-    /employer or client work[^<]*(?:built|owned)|commercial model performance/i,
-  );
+test("flagship preserves read-only scope, retrieval design and offline evaluation boundary", async () => {
+  const html = await exported("projects/data-platform-reliability-agent/index.html");
+  for (const phrase of [/SCHEMA_MISMATCH/, /approval_required/, /execution_performed/, /25\/25/, /256/, /feature-hashed embeddings/, /Cosine-similarity/, /keyword-based rescoring/, /OpenAI Responses API/, /deterministic fallback/, /not evaluate the optional LLM planner/, /does not execute remediation/, /SoftwareSourceCode/]) assert.match(html, phrase);
+  assert.match(html, /href="\/learning\/pii-masking-lab\/"/);
+  assert.match(html, /property="og:url" content="https:\/\/shivanandkumar\.in\/projects\/data-platform-reliability-agent\/"/);
+  for (const slug of removedSlugs) assert.doesNotMatch(html, new RegExp(slug));
 });
 
-test("ships recruiter, search and GitHub Pages controls", async () => {
-  const packageJson = await readFile(new URL("../package.json", import.meta.url), "utf8");
-  const cname = await readFile(new URL("../out/CNAME", import.meta.url), "utf8");
-  const robots = await readFile(new URL("../out/robots.txt", import.meta.url), "utf8");
-  const sitemap = await readFile(new URL("../out/sitemap.xml", import.meta.url), "utf8");
-  const notFound = await readFile(new URL("../out/404.html", import.meta.url), "utf8");
-  const socialCard = await readFile(
-    new URL("../out/og-data-applied-ai-2026-3-projects.png", import.meta.url),
-  );
-
-  await Promise.all([
-    access(new URL("../out/.nojekyll", import.meta.url)),
-    access(new URL("../out/og-data-applied-ai-2026-3-projects.png", import.meta.url)),
-    access(new URL("../out/sk-logo.svg", import.meta.url)),
-    access(new URL("../out/sk-logo-32.png", import.meta.url)),
-    access(new URL("../out/sk-logo-180.png", import.meta.url)),
-    access(new URL("../out/shivanand-kumar-portrait.jpg", import.meta.url)),
-    access(new URL("../out/iit-patna-logo.png", import.meta.url)),
-    access(new URL("../out/uiet-panjab-university-logo.png", import.meta.url)),
-    access(new URL("../out/fonts/geist-sans-latin.woff2", import.meta.url)),
-    access(new URL("../out/fonts/geist-mono-latin.woff2", import.meta.url)),
-  ]);
-
+test("search metadata, social preview and static hosting controls are intact", async () => {
+  const html = await exported("index.html");
+  const cname = await exported("CNAME");
+  const robots = await exported("robots.txt");
+  const notFound = await exported("404.html");
+  const socialCard = await readFile(new URL("../out/og-data-applied-ai-2026-11.png", import.meta.url));
   assert.equal(socialCard.toString("ascii", 12, 16), "IHDR");
   assert.equal(socialCard.readUInt32BE(16), 1200);
   assert.equal(socialCard.readUInt32BE(20), 630);
-
-  await assert.rejects(
-    access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)),
-  );
-
+  assert.match(html, /https:\/\/shivanandkumar\.in\/og-data-applied-ai-2026-11\.png/);
+  assert.doesNotMatch(html, /og-data-applied-ai-2026-3-projects\.png/);
+  assert.match(html, /name="google-site-verification" content="o0qvKwbp99kYmQG3wkL8xT5ofg_MDeba9eRAPCvGZtg"/);
   assert.equal(cname.trim(), "shivanandkumar.in");
   assert.match(robots, /Allow: \//);
   assert.match(robots, /https:\/\/shivanandkumar\.in\/sitemap\.xml/);
-  assert.match(sitemap, /data-platform-reliability-agent/);
-  assert.match(sitemap, /synthetic-data-print-recommendation-agent/);
-  assert.match(sitemap, /constraint-aware-coding-agent-evals/);
   assert.match(notFound, /This route is not part of the portfolio/);
-  assert.match(packageJson, /"build": "next build"/);
-  assert.doesNotMatch(packageJson, /"build": "[^"]*vinext/);
+  for (const path of [".nojekyll", "shivanand-logo-48.png", "shivanand-kumar-portrait.jpg", "iit-patna-logo.png", "uiet-panjab-university-logo.png", "fonts/geist-sans-latin.woff2"]) await access(new URL(`../out/${path}`, import.meta.url));
+  await assert.rejects(access(new URL("../out/Shivanand_Kumar_Data_AI_Engineer_Resume.pdf", import.meta.url)));
 });

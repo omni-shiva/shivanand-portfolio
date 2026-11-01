@@ -19,25 +19,23 @@ test("manual navigation handles 2, 3, 4 and 5 projects without hardcoded limits"
 });
 
 test("only real or explicitly in-progress learning entries are included", () => {
-  assert.deepEqual(learningProjects.map((p) => p.slug), ["pii-masking-lab", "browser-summary"]);
+  assert.deepEqual(learningProjects.map((p) => p.slug), ["pii-masking-lab"]);
   assert.match(learningProjects[0].status, /Practice pending/);
   assert.match(learningProjects[0].note, /Live LLM evaluation.*pending/);
-  assert.match(learningProjects[1].status, /In progress.*Repository pending/);
   assert.equal(new Set(learningProjects.map((p) => p.slug)).size, learningProjects.length);
 });
 
 test("export separates flagship and learning projects and provides accessible controls", async () => {
   const html = await readFile(new URL("../out/index.html", import.meta.url), "utf8");
-  assert.equal((html.match(/class="project-card"/g) || []).length, 3);
-  assert.match(html, /Flagship projects/);
+  assert.equal((html.match(/class="project-card"/g) || []).length, 1);
+  assert.match(html, /Flagship project/);
   assert.match(html, /id="learning-projects"/);
   assert.match(html, /aria-roledescription="carousel"/);
-  assert.match(html, /aria-label="Previous learning project"/);
-  assert.match(html, /aria-label="Next learning project"/);
-  assert.match(html, /aria-live="polite"/);
-  assert.match(html, /class="learning-slide" hidden="" role="group"/);
+  assert.doesNotMatch(html, /aria-label="Previous learning project"/);
+  assert.doesNotMatch(html, /aria-label="Next learning project"/);
+  assert.doesNotMatch(html, /Browser Summary|Repository pending/);
+  assert.match(html, /class="learning-slide" role="group"/);
   assert.match(html, /Local notebook · Practice pending/);
-  assert.match(html, /In progress · Repository pending/);
   assert.match(html, /Measured rule-based result, not an LLM score/);
   assert.match(html, /href="\/learning\/pii-masking-lab.zip" download=""/);
   assert.match(html, /href="\/learning\/pii-masking-lab\/"/);
@@ -95,4 +93,7 @@ test("PII table has four distinct columns and no unpractised platform comparison
   assert.match(css, /\.learning-mask-token/);
   assert.match(css, /\.learning-type-table/);
   assert.match(css, /\.learning-detail-shell/);
+  // Mobile header navigation must not hide breadcrumb links and orphan separators.
+  assert.match(css, /\.site-header nav>a:not\(\.nav-cta\):not\(\.nav-mobile-link\)/);
+  assert.doesNotMatch(css, /(?:^|[},])nav>a:not\(\.nav-cta\):not\(\.nav-mobile-link\)/);
 });

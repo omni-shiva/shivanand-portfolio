@@ -31,7 +31,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
           <span>Shivanand Kumar</span>
         </Link>
         <nav aria-label="Project navigation">
-          <Link href="/#projects">All projects</Link>
+          <Link href="/#projects">Flagship project</Link>
           <a className="nav-cta" href={project.repoUrl} target="_blank" rel="noreferrer">
             GitHub source ↗
           </a>
@@ -186,7 +186,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
       <section className="next-project section-shell">
         <p className="section-kicker">Continue exploring</p>
         <Link href={project.nextProject.href}>
-          <span>Next project</span>
+          <span>Learning notebook</span>
           <strong>{project.nextProject.title}</strong>
           <b>→</b>
         </Link>
