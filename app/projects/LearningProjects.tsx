@@ -31,7 +31,7 @@ export default function LearningProjects() {
           <h3 id="learning-heading">Learning projects</h3>
           <p>Focused experiments, working notes and what still needs testing.</p>
         </div>
-        <div className="learning-controls" aria-label="Learning project navigation">
+        {count > 1 && <div className="learning-controls" aria-label="Learning project navigation">
           <span className="learning-count" aria-live="polite" aria-atomic="true">
             {active + 1} / {count}
             <span className="learning-sr-only">: {learningProjects[active].title}</span>
@@ -54,7 +54,7 @@ export default function LearningProjects() {
           >
             <span aria-hidden="true">→</span>
           </button>
-        </div>
+        </div>}
       </div>
 
       <div id="learning-slides">
@@ -75,20 +75,15 @@ export default function LearningProjects() {
               <ul className="learning-skills" aria-label="Topics explored">
                 {project.skills.map((skill) => <li key={skill}>{skill}</li>)}
               </ul>
-              {project.slug === "pii-masking-lab" ? (
-                <div className="learning-actions">
-                  <a className="button button-primary" href={project.href}>
-                    Open learning notebook →
-                  </a>
-                  <a href="/learning/pii-masking-lab.zip" download>Download code ↓</a>
-                </div>
-              ) : (
-                <p className="learning-pending">Notebook and source link coming after review.</p>
-              )}
+              <div className="learning-actions">
+                <a className="button button-primary" href={project.href}>
+                  Open learning notebook →
+                </a>
+                <a href="/learning/pii-masking-lab.zip" download>Download code ↓</a>
+              </div>
               <p className="learning-note">{project.note}</p>
             </div>
 
-            {project.slug === "pii-masking-lab" ? (
               <aside className="learning-evidence" aria-label="PII masking example and measured limitation">
                 <p className="learning-panel-label">Inside the notebook</p>
                 <div className="learning-example">
@@ -108,21 +103,11 @@ export default function LearningProjects() {
                 </div>
                 <p className="learning-caveat">Measured rule-based result, not an LLM score. Masking is not encryption.</p>
               </aside>
-            ) : (
-              <aside className="learning-evidence learning-evidence-pending" aria-label="Browser Summary completion checklist">
-                <p className="learning-panel-label">Before this becomes a finished build</p>
-                <ol className="learning-checklist">
-                  <li><span>01</span><div><strong>Complete the notebook</strong><p>Run the end-to-end summary workflow.</p></div></li>
-                  <li><span>02</span><div><strong>Inspect the output</strong><p>Check the summary against the source page.</p></div></li>
-                  <li><span>03</span><div><strong>Share reproducible evidence</strong><p>Add reviewed source and an example result.</p></div></li>
-                </ol>
-                <p className="learning-caveat">No live demo or performance result is claimed yet.</p>
-              </aside>
-            )}
+
           </div>
         ))}
       </div>
-      <div className="learning-pagination" aria-label="Choose a learning project">
+      {count > 1 && <div className="learning-pagination" aria-label="Choose a learning project">
         {learningProjects.map((project, index) => (
           <button
             key={project.slug}
@@ -132,7 +117,7 @@ export default function LearningProjects() {
             onClick={() => setActive(index)}
           ><span aria-hidden="true" /></button>
         ))}
-      </div>
+      </div>}
     </section>
   );
 }

@@ -102,7 +102,7 @@ const card = h(
             letterSpacing: ".3px",
           },
         },
-        "3 VERIFIED PUBLIC PROJECTS",
+        "DATA PLATFORMS · APPLIED AI",
       ),
     ),
   ),
@@ -149,6 +149,6 @@ const response = new ImageResponse(card, {
 });
 
 await writeFile(
-  join(root, "public/og-data-applied-ai-2026-3-projects.png"),
+  join(root, "public/og-data-applied-ai-2026-11.png"),
   Buffer.from(await response.arrayBuffer()),
 );

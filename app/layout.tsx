@@ -3,7 +3,7 @@ import "./globals.css";
 
 const title = "Shivanand Kumar | Data & Applied AI Engineer";
 const description =
-  "Data & Applied AI Engineer specializing in Generative AI and Agentic AI, grounded in Databricks, Spark, Python, SQL and production data engineering.";
+  "Data & Applied AI Engineer building reliable data platforms and controlled AI workflows with Databricks, PySpark, LangGraph and Claude.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivanandkumar.in"),
@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     "RAG",
     "LLM Evaluation",
     "AI Evaluation",
-    "Coding Agent Evaluation",
     "Data Engineering",
     "Bengaluru India",
   ],
@@ -55,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "Shivanand Kumar Portfolio",
     images: [
       {
-        url: "/og-data-applied-ai-2026-3-projects.png",
+        url: "/og-data-applied-ai-2026-11.png",
         width: 1200,
         height: 630,
         alt: "Shivanand Kumar, Data and Applied AI Engineer specializing in GenAI and Agentic AI",
@@ -66,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-data-applied-ai-2026-3-projects.png"],
+    images: ["/og-data-applied-ai-2026-11.png"],
   },
 };
 
