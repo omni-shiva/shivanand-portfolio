@@ -4,7 +4,7 @@ import { projectsBySlug } from "../project-data";
 
 const project = projectsBySlug["data-platform-reliability-agent"];
 const metaDescription =
-  "Independent reliability agent using FastAPI, Qdrant retrieval, tenant-scoped tools, 25 deterministic offline evaluation cases and approval-only remediation.";
+  "AI-assisted independent reliability project using FastAPI, Qdrant retrieval, tenant-scoped SQL, 25 offline regression cases and read-only recovery previews.";
 
 export const metadata: Metadata = {
   title: `${project.title} | Shivanand Kumar`,

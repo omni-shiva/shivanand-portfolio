@@ -31,7 +31,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
           <span>Shivanand Kumar</span>
         </Link>
         <nav aria-label="Project navigation">
-          <Link href="/#projects">Flagship project</Link>
+          <a className="nav-mobile-link" href="mailto:kumarshivanand7@gmail.com">Email</a>
           <a className="nav-cta" href={project.repoUrl} target="_blank" rel="noreferrer">
             GitHub source ↗
           </a>
@@ -52,7 +52,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
           <p className="project-lede">{project.lede}</p>
           <div className="project-hero-actions">
             <a className="button button-project-primary" href="#output">
-              See verified output
+              See example output
             </a>
             <a
               className="button button-project-secondary"
@@ -83,7 +83,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
 
       <section className="project-story section-shell">
         <div className="project-story-copy">
-          <p className="section-kicker">Problem and ownership</p>
+          <p className="section-kicker">Problem and contribution</p>
           <h2>A real engineering question, built to be inspected.</h2>
         </div>
         <div className="project-story-columns">
@@ -101,7 +101,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
       <section className="project-output-section" id="output">
         <div className="section-shell project-output-grid">
           <div className="project-output-copy">
-            <p className="section-kicker">Verified output</p>
+            <p className="section-kicker">Example output</p>
             <h2>Concrete behavior, not a concept slide.</h2>
             <p>{project.outputNote}</p>
             <div className="project-resource-links">
@@ -117,7 +117,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
                 </a>
               ) : null}
               <a href={project.ciUrl} target="_blank" rel="noreferrer">
-                Passing CI ↗
+                CI workflow ↗
               </a>
             </div>
           </div>
@@ -164,7 +164,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
       <section className="project-limitations section-shell">
         <div>
           <p className="section-kicker">Limits and next validation</p>
-          <h2>What this project does not prove—yet.</h2>
+          <h2>Limits and validation still needed.</h2>
         </div>
         <ul>
           {project.limitations.map((limitation) => (
@@ -184,12 +184,12 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
       </section>
 
       <section className="next-project section-shell">
-        <p className="section-kicker">Continue exploring</p>
-        <Link href={project.nextProject.href}>
-          <span>Learning notebook</span>
+        <p className="section-kicker">Professional contact</p>
+        <a href={project.nextProject.href}>
+          <span>Contact by email</span>
           <strong>{project.nextProject.title}</strong>
           <b>→</b>
-        </Link>
+        </a>
       </section>
 
       <footer>

@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og.js";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, copyFile } from "node:fs/promises";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const require = createRequire(import.meta.url);
@@ -68,7 +68,7 @@ const card = h(
     h(
       "div",
       { style: { display: "flex", fontSize: 30, fontWeight: 700, marginTop: 18 } },
-      "DATA & APPLIED AI ENGINEER",
+      "DATA & ANALYTICS ENGINEER",
     ),
     h(
       "div",
@@ -82,7 +82,7 @@ const card = h(
           marginTop: 22,
         },
       },
-      line("GENAI", dot(), "AGENTIC AI", dot(), "DATA PLATFORMS"),
+      line("DATA ENGINEERING", dot(), "ANALYTICS"),
       line("DATABRICKS", dot(), "SPARK", dot(), "SQL", dot(), "PYTHON"),
     ),
     h(
@@ -102,7 +102,7 @@ const card = h(
             letterSpacing: ".3px",
           },
         },
-        "DATA PLATFORMS · APPLIED AI",
+        "APPLIED AI",
       ),
     ),
   ),
@@ -149,6 +149,10 @@ const response = new ImageResponse(card, {
 });
 
 await writeFile(
-  join(root, "public/og-data-applied-ai-2026-11.png"),
+  join(root, "public/og-data-engineer-2026-11.png"),
   Buffer.from(await response.arrayBuffer()),
 );
+
+for (const alias of ["og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) {
+  await copyFile(join(root, "public/og-data-engineer-2026-11.png"), join(root, "public", alias));
+}

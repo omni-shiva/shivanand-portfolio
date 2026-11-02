@@ -379,6 +379,7 @@ nav a {
 
 .hero h1 span {
   color: #425d73;
+  display: inline-block;
 }
 
 .hero-skills {
@@ -1936,6 +1937,11 @@ footer {
   text-underline-offset: 4px;
 }
 
+.data-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.single-project-grid { grid-template-columns: 1fr; max-width: 840px; }
+.tooling-note { color: #b3c7d4; font-size: 14px; line-height: 1.7; margin-top: 28px; }
+.tooling-note a { color: var(--cyan); text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 720px) { .data-work-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

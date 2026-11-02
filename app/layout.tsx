@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Shivanand Kumar | Data & Applied AI Engineer";
+const title = "Shivanand Kumar | Data & Analytics Engineer | Applied AI";
 const description =
-  "Data & Applied AI Engineer building reliable data platforms and controlled AI workflows with Databricks, PySpark, LangGraph and Claude.";
+  "Data & Analytics Engineer working across Databricks platforms, SQL analytics, Python, PySpark, data quality and practical Applied AI.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivanandkumar.in"),
@@ -25,27 +25,7 @@ export const metadata: Metadata = {
   verification: {
     google: "o0qvKwbp99kYmQG3wkL8xT5ofg_MDeba9eRAPCvGZtg",
   },
-  keywords: [
-    "Shivanand Kumar",
-    "Data and Applied AI Engineer",
-    "Applied AI Engineer",
-    "Generative AI Engineer",
-    "GenAI Engineer",
-    "Agentic AI Engineer",
-    "Data and AI Engineer",
-    "Generative AI",
-    "Agentic AI",
-    "Databricks",
-    "Apache Spark",
-    "SQL",
-    "Python",
-    "PySpark",
-    "RAG",
-    "LLM Evaluation",
-    "AI Evaluation",
-    "Data Engineering",
-    "Bengaluru India",
-  ],
+  keywords: ["Shivanand Kumar", "Data and Analytics Engineer", "Data Engineer", "Analytics", "Business Analysis", "Databricks", "SQL", "Python", "Pandas", "PySpark", "Data Quality", "Applied AI"],
   openGraph: {
     title,
     description,
@@ -54,10 +34,10 @@ export const metadata: Metadata = {
     siteName: "Shivanand Kumar Portfolio",
     images: [
       {
-        url: "/og-data-applied-ai-2026-11.png",
+        url: "/og-data-engineer-2026-11.png",
         width: 1200,
         height: 630,
-        alt: "Shivanand Kumar, Data and Applied AI Engineer specializing in GenAI and Agentic AI",
+        alt: "Shivanand Kumar, Data and Analytics Engineer, Applied AI",
       },
     ],
   },
@@ -65,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-data-applied-ai-2026-11.png"],
+    images: ["/og-data-engineer-2026-11.png"],
   },
 };
 
