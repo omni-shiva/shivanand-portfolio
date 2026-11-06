@@ -68,7 +68,7 @@ const card = h(
     h(
       "div",
       { style: { display: "flex", fontSize: 30, fontWeight: 700, marginTop: 18 } },
-      "DATA & ANALYTICS ENGINEER",
+      "DATA & AI ENGINEER",
     ),
     h(
       "div",

@@ -21,7 +21,7 @@ const work = [
 export default function Home() {
   const person = {
     "@context": "https://schema.org", "@type": "Person", name: identity.name,
-    url: "https://shivanandkumar.in/", jobTitle: "Data & Analytics Engineer | Applied AI", description: "Data and analytics engineering across enterprise Databricks platforms and supply-chain analytics, with practical Applied AI.",
+    url: "https://shivanandkumar.in/", jobTitle: "Data & AI Engineer", description: "Data and analytics engineering across enterprise Databricks platforms and supply-chain analytics, with practical Applied AI.",
     alumniOf: [{ "@type": "CollegeOrUniversity", name: "University Institute of Engineering and Technology, Panjab University" }],
     memberOf: { "@type": "OrganizationRole", roleName: "M.Tech student, AI & Data Science Engineering (Online), Jul 2026 - Present", memberOf: { "@type": "CollegeOrUniversity", name: "Indian Institute of Technology Patna" } },
     address: { "@type": "PostalAddress", addressLocality: "Bengaluru", addressCountry: "IN" },
@@ -48,8 +48,8 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">{identity.location}</p>
           <a className="iit-chip" href="https://www.iitp.ac.in/" target="_blank" rel="noreferrer" aria-label="IIT Patna M.Tech programme, ongoing"><img src="/iit-patna-logo.png" alt="" /><span><strong>IIT Patna</strong>M.Tech · AI &amp; Data Science Engineering · Ongoing</span></a>
-          <h1>Data &amp; Analytics Engineer <span>| Applied AI</span></h1><p className="hero-skills">Databricks · SQL · Python · PySpark · Analytics</p>
-          <p className="hero-summary">I build and improve SQL, Python and PySpark workflows for pipeline modernisation, data quality, performance and observability, with practical AI applications for contract automation, PII protection and data enrichment.</p>
+          <h1>Data &amp; AI Engineer</h1><p className="hero-skills">Data Engineering · BI &amp; Analytics · Applied AI</p>
+          <p className="hero-summary">At HP, I build and improve Databricks jobs for data quality, performance and reliability. At Amazon, I built BI datasets and automated supply-chain reporting with SQL and Python. My independent work explores retrieval-augmented generation (RAG) for runbook-based incident diagnosis.</p>
           <div className="hero-actions"><a className="button button-primary" href="#work">Explore my work</a><a className="button button-secondary" href="#projects">View project</a></div>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function Home() {
         <div className="project-grid single-project-grid">{projects.map(project => <article className="project-card" key={project.slug}><div className="project-card-meta"><span>Synthetic data</span><span>AI-assisted build</span></div><h3>{project.title}</h3><p>{project.summary}</p><div className="project-output-preview"><span>Decision support</span><strong>{project.outputHeadline}</strong></div><div className="project-card-actions"><Link className="button button-primary" href={"/projects/" + project.slug + "/"}>Read case study →</Link><a href={project.repoUrl} target="_blank" rel="noreferrer">Source on GitHub ↗</a></div></article>)}</div>
       </div></section>
       <section className="contact-section" id="contact"><div className="section-shell contact-inner"><div><p className="section-kicker">Professional contact</p><h2>Let&apos;s connect around data.</h2><p>Data engineering, analytics and practical Applied AI.</p></div><div className="contact-actions"><a className="button button-light" href={"mailto:" + identity.email}>Email Shivanand</a></div></div></section>
-      <footer><span>© 2026 {identity.name}</span><span>Data &amp; Analytics Engineer | Applied AI</span></footer>
+      <footer><span>© 2026 {identity.name}</span><span>Data &amp; AI Engineer</span></footer>
     </main>
   );
 }

@@ -1,7 +1,7 @@
 # Shivanand Kumar - Portfolio
 
 Source for the existing portfolio at [shivanandkumar.in](https://shivanandkumar.in/).
-Data & Analytics Engineer | Applied AI. Data engineering and analytics lead the presentation, with practical Applied AI
+Data & AI Engineer. Data engineering and analytics lead the presentation, with practical Applied AI
 as an additional capability. Employer experience and the AI-assisted independent
 project are presented separately.
 The work section links to the public Codex activity profile as a tooling reference.
