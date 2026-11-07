@@ -67,8 +67,8 @@ const card = h(
     }),
     h(
       "div",
-      { style: { display: "flex", fontSize: 30, fontWeight: 700, marginTop: 18 } },
-      "DATA & AI ENGINEER",
+      { style: { display: "flex", fontSize: 28, fontWeight: 700, marginTop: 18 } },
+      "DATA & APPLIED AI ENGINEER",
     ),
     h(
       "div",
