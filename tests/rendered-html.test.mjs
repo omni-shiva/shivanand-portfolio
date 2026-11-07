@@ -7,13 +7,13 @@ const text = path => readFile(file(path), "utf8");
 
 test("public pages lead with data engineering and omit disputed claims", async () => {
   const pages = await Promise.all(["index.html", "projects/data-platform-reliability-agent/index.html"].map(text));
-  assert.match(pages[0], /<h1>Data &amp; AI Engineer<\/h1>/);
+  assert.match(pages[0], /<h1>Data &amp; Applied AI Engineer<\/h1>/);
   assert.match(pages[0], /Data Engineering · BI &amp; Analytics · Applied AI/);
   assert.match(pages[0], /href="#work"/);
   assert.equal((pages[0].match(/href="https:\/\/chatgpt.com\/u\/kumarshivanand7"/g) || []).length, 1);
   assert.match(pages[0], /AI development tools: GitHub Copilot · Claude/);
   const person = JSON.parse(pages[0].match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
-  assert.equal(person.jobTitle, "Data & AI Engineer");
+  assert.equal(person.jobTitle, "Data & Applied AI Engineer");
   const expectedSequence = ["Pipeline modernisation", "PII protection and enrichment", "Data-aware engineering", "Pipeline migration", "Processing optimisation", "Pipeline monitoring", "Lakehouse observability"];
   const positions = expectedSequence.map(label => pages[0].indexOf(label));
   assert.ok(positions.every((position, index) => position >= 0 && (!index || position > positions[index - 1])));
