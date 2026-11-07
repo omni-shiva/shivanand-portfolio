@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const title = "Shivanand Kumar | Data & AI Engineer";
+const title = "Shivanand Kumar | Data & Applied AI Engineer";
 const description =
-  "Data & AI Engineer working across Databricks platforms, data engineering, BI, analytics and applied AI.";
+  "Data & Applied AI Engineer with HP and Amazon experience in Databricks pipelines, BI, knowledge graphs, GraphRAG and data platform reliability.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivanandkumar.in"),
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   verification: {
     google: "o0qvKwbp99kYmQG3wkL8xT5ofg_MDeba9eRAPCvGZtg",
   },
-  keywords: ["Shivanand Kumar", "Data and AI Engineer", "Data Engineer", "Analytics", "Business Analysis", "Databricks", "SQL", "Python", "Pandas", "PySpark", "Data Quality", "Applied AI"],
+  keywords: ["Shivanand Kumar", "Data and AI Engineer", "Data Engineer", "Analytics", "Business Analysis", "Databricks", "SQL", "Python", "Pandas", "PySpark", "Data Quality", "Knowledge Graphs", "GraphRAG", "OntoBricks", "MCP", "Applied AI"],
   openGraph: {
     title,
     description,
