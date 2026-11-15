@@ -18,7 +18,7 @@ test("public pages lead with data engineering and omit disputed claims", async (
   const positions = expectedSequence.map(label => pages[0].indexOf(label));
   assert.ok(positions.every((position, index) => position >= 0 && (!index || position > positions[index - 1])));
   assert.match(pages[0], /Data Scientist II \| Data and AI Platform Engineering/);
-  for (const page of pages) assert.doesNotMatch(page, /LangGraph|MLflow|41\.4B|3 verified|PII Masking Lab|Constraint-Aware Coding Agent|Synthetic Data and Print Recommendation/);
+  for (const page of pages) assert.doesNotMatch(page, /LangGraph|MLflow|41\.4B/);
 });
 
 test("release contains no résumé page, PDF, phone contact or full-CV data", async () => {
@@ -38,19 +38,28 @@ test("release contains no résumé page, PDF, phone contact or full-CV data", as
   assert.doesNotMatch(contact, /linkedin|github|tel:|download/i);
 });
 
-test("only the retained project is exported and linked", async () => {
+test("all portfolio projects are exported, linked and included in the sitemap", async () => {
   const html = await text("index.html");
   const sitemap = await text("sitemap.xml");
-  assert.equal((html.match(/class="project-card"/g) || []).length, 1);
-  for (const removed of ["projects/synthetic-data-print-recommendation-agent", "projects/constraint-aware-coding-agent-evals"]) {
-    assert.doesNotMatch(sitemap, new RegExp(removed));
-    await assert.rejects(access(file(removed + "/index.html")));
+  assert.equal((html.match(/class="project-card"/g) || []).length, 3);
+  for (const path of [
+    "projects/data-platform-reliability-agent",
+    "projects/synthetic-data-print-recommendation-agent",
+    "projects/constraint-aware-coding-agent-evals",
+    "learning/pii-masking-lab",
+  ]) {
+    assert.ok(html.includes('href="/' + path + '/"'), path);
+    assert.ok(sitemap.includes("https://shivanandkumar.in/" + path + "/"), path);
+    await access(file(path + "/index.html"));
   }
   assert.doesNotMatch(sitemap, /resume/);
-  assert.doesNotMatch(sitemap, /learning\/pii-masking-lab/);
-  const retired = await text("learning/pii-masking-lab/index.html");
-  assert.match(retired, /http-equiv="refresh" content="0;url=\/projects\/data-platform-reliability-agent\/"/i);
-  assert.match(retired, /href="\/projects\/data-platform-reliability-agent\/"/);
+  assert.match(await text("projects/synthetic-data-print-recommendation-agent/index.html"), /same documented synthetic policy world/);
+  assert.match(await text("projects/constraint-aware-coding-agent-evals/index.html"), /6\/6 vs 2\/6/);
+  const lab = await text("learning/pii-masking-lab/index.html");
+  assert.match(lab, /17 \/ 25/);
+  assert.match(lab, /href="\/learning\/pii-masking-lab\.zip"/);
+  await access(file("learning/pii-masking-lab.zip"));
+  await access(file("learning/synthetic_support_tickets.csv"));
   const project = await text("projects/data-platform-reliability-agent/index.html");
   assert.match(project, /AI-assisted independent project/);
   assert.match(project, /Synthetic data/);

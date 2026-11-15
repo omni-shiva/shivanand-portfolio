@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
     },
+    { url: "https://shivanandkumar.in/learning/pii-masking-lab/", changeFrequency: "monthly", priority: 0.7 },
     ...projects.map((project) => ({
       url: `https://shivanandkumar.in/projects/${project.slug}/`,
       changeFrequency: "monthly" as const,

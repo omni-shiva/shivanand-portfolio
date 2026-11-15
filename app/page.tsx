@@ -32,7 +32,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Shivanand Kumar, back to top"><img className="brand-mark" src="/shivanand-logo-180.png" alt="" /><span>{identity.name}</span></a>
-        <nav aria-label="Primary navigation"><a className="nav-mobile-link" href="#work">Work</a><a className="nav-mobile-link" href="#projects">Project</a><a className="nav-cta" href="#contact">Contact</a></nav>
+        <nav aria-label="Primary navigation"><a className="nav-mobile-link" href="#work">Work</a><a className="nav-mobile-link" href="#projects">Projects</a><a className="nav-cta" href="#contact">Contact</a></nav>
       </header>
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
@@ -50,7 +50,7 @@ export default function Home() {
           <a className="iit-chip" href="https://www.iitp.ac.in/" target="_blank" rel="noreferrer" aria-label="IIT Patna M.Tech programme, ongoing"><img src="/iit-patna-logo.png" alt="" /><span><strong>IIT Patna</strong>M.Tech · AI &amp; Data Science Engineering · Ongoing</span></a>
           <h1>Data &amp; Applied AI Engineer</h1><p className="hero-skills">Data Engineering · BI &amp; Analytics · Applied AI</p>
           <p className="hero-summary">At HP, I modernise Databricks pipelines and build ontology-backed knowledge graphs and GraphRAG retrieval for pipeline troubleshooting. At AMAZON, I built BI datasets and automated supply-chain reporting with SQL and Python.</p>
-          <div className="hero-actions"><a className="button button-primary" href="#work">Explore my work</a><a className="button button-secondary" href="#projects">View project</a></div>
+          <div className="hero-actions"><a className="button button-primary" href="#work">Explore my work</a><a className="button button-secondary" href="#projects">View projects</a></div>
         </div>
       </section>
       <section className="impact-section" id="work"><div className="section-shell">
@@ -70,8 +70,32 @@ export default function Home() {
         </aside>
       </section>
       <section className="projects-section" id="projects"><div className="section-shell">
-        <div className="section-intro"><div><p className="section-kicker">Independent project</p><h2>Data Platform Reliability Agent</h2></div><p>An AI-assisted independent build using synthetic data. The case study describes read-only decision support, source code and validation limits.</p></div>
-        <div className="project-grid single-project-grid">{projects.map(project => <article className="project-card" key={project.slug}><div className="project-card-meta"><span>Synthetic data</span><span>AI-assisted build</span></div><h3>{project.title}</h3><p>{project.summary}</p><div className="project-output-preview"><span>Decision support</span><strong>{project.outputHeadline}</strong></div><div className="project-card-actions"><Link className="button button-primary" href={"/projects/" + project.slug + "/"}>Read case study →</Link><a href={project.repoUrl} target="_blank" rel="noreferrer">Source on GitHub ↗</a></div></article>)}</div>
+        <div className="section-intro">
+          <div><p className="section-kicker">Independent projects</p><h2>From data pipelines to AI evaluation</h2></div>
+          <p>Three builds with synthetic data, reproducible experiments and source code. Each case study shows what was measured and what still needs validation.</p>
+        </div>
+        <div className="project-grid">{projects.map(project => (
+          <article className="project-card" key={project.slug}>
+            <div className="project-card-meta"><span>{project.cardLabel}</span></div>
+            <h3>{project.title}</h3>
+            <p>{project.summary}</p>
+            <div className="project-output-preview"><span>Example result</span><strong>{project.outputHeadline}</strong></div>
+            <div className="project-card-actions">
+              <Link className="button button-primary" href={"/projects/" + project.slug + "/"}>Read case study →</Link>
+              <a href={project.repoUrl} target="_blank" rel="noreferrer">Source on GitHub ↗</a>
+            </div>
+          </article>
+        ))}</div>
+        <section className="learning-projects" id="learning-projects" aria-labelledby="learning-projects-title">
+          <div className="section-intro">
+            <div><p className="section-kicker">Learning project</p><h2 id="learning-projects-title">PII Masking Lab</h2></div>
+            <p>A Python notebook that tests what a rules-based detector finds and misses in synthetic support tickets.</p>
+          </div>
+          <div className="learning-actions">
+            <Link className="button button-primary" href="/learning/pii-masking-lab/">Read the walkthrough →</Link>
+            <a href="/learning/pii-masking-lab.zip" download>Download notebook and code ↓</a>
+          </div>
+        </section>
       </div></section>
       <section className="contact-section" id="contact"><div className="section-shell contact-inner"><div><p className="section-kicker">Professional contact</p><h2>Let&apos;s connect around data.</h2><p>Data engineering, analytics and practical Applied AI.</p></div><div className="contact-actions"><a className="button button-light" href={"mailto:" + identity.email}>Email Shivanand</a></div></div></section>
       <footer><span>© 2026 {identity.name}</span><span>Data &amp; Applied AI Engineer</span></footer>
