@@ -2,8 +2,10 @@ import assert from "node:assert/strict";
 import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
+
 const file = path => new URL("../out/" + path, import.meta.url);
 const text = path => readFile(file(path), "utf8");
+
 
 test("public pages lead with data engineering and omit disputed claims", async () => {
   const pages = await Promise.all(["index.html", "projects/data-platform-reliability-agent/index.html"].map(text));
@@ -14,12 +16,19 @@ test("public pages lead with data engineering and omit disputed claims", async (
   assert.match(pages[0], /AI development tools: GitHub Copilot · Claude/);
   const person = JSON.parse(pages[0].match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.equal(person.jobTitle, "Data & Applied AI Engineer");
-  const expectedSequence = ["Pipeline modernisation", "PII protection and enrichment", "Data-aware engineering", "Pipeline migration", "Processing optimisation", "Pipeline monitoring", "Lakehouse observability"];
+  const expectedSequence = ["Pipeline modernisation", "Operational AI", "PII protection and enrichment", "Pipeline migration", "Processing optimisation", "Pipeline monitoring"];
   const positions = expectedSequence.map(label => pages[0].indexOf(label));
   assert.ok(positions.every((position, index) => position >= 0 && (!index || position > positions[index - 1])));
   assert.match(pages[0], /Data Scientist II \| Data and AI Platform Engineering/);
-  for (const page of pages) assert.doesNotMatch(page, /LangGraph|MLflow|41\.4B/);
+  assert.match(pages[0], /LangGraph/);
+  assert.match(pages[0], /MLflow tracing/);
+  assert.match(pages[0], /Machine Learning Data Associate II/);
+  assert.match(pages[0], /Jul 2023 - Jun 2024/);
+  assert.match(pages[0], /Oct 2022 - Jul 2023/);
+  assert.doesNotMatch(pages[0], /OntoBricks|RDF\/OWL|\$250K|70%.*CPT/);
+  for (const page of pages) assert.doesNotMatch(page, /41\.4B/);
 });
+
 
 test("release contains no résumé page, PDF, phone contact or full-CV data", async () => {
   for (const path of ["resume/index.html", "resume.pdf"]) await assert.rejects(access(file(path)));
@@ -37,6 +46,7 @@ test("release contains no résumé page, PDF, phone contact or full-CV data", as
   assert.match(contact, /href="mailto:kumarshivanand7@gmail.com"/);
   assert.doesNotMatch(contact, /linkedin|github|tel:|download/i);
 });
+
 
 test("all portfolio projects are exported, linked and included in the sitemap", async () => {
   const html = await text("index.html");
@@ -69,6 +79,7 @@ test("all portfolio projects are exported, linked and included in the sitemap", 
   assert.doesNotMatch(project, /Learning notebook/);
   assert.match(project, /href="mailto:kumarshivanand7@gmail.com"/);
 });
+
 
 test("canonical domain, social image and static hosting controls are intact", async () => {
   assert.equal((await text("CNAME")).trim(), "shivanandkumar.in");
