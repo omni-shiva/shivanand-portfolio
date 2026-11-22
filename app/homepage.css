@@ -436,3 +436,6 @@
 .services-home a,.services-home button,.services-home summary,.services-home select{touch-action:manipulation}
 @media(max-width:1000px){.services-home .rn-header .mobile-nav summary{min-width:44px;min-height:44px;display:list-item;line-height:44px;text-align:center}.services-home .rn-header .mobile-nav nav a{display:flex;min-height:44px;align-items:center}}
 @media(max-width:650px){.services-home #challenge-select{font-size:16px}.services-home .rn-header{gap:12px}}
+
+/* Keep the provider identity readable against the dark footer. */
+.services-home .biz-footer p{color:#b7c0b4}
