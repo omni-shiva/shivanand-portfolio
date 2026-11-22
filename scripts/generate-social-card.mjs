@@ -31,7 +31,7 @@ const card = h("div", { style: { display: "flex", flexDirection: "column", width
     h("img", { src: `data:image/jpeg;base64,${artwork.toString("base64")}`, width: 1200, height: 600, style: { position: "absolute", left: 0, top: -30, objectFit: "cover" } }),
     h("div", { style: { position: "absolute", left: 0, top: 0, width: 1200, height: 540, backgroundImage: "linear-gradient(90deg, rgba(5,13,11,0.98) 0%, rgba(5,13,11,0.94) 34%, rgba(5,13,11,0.76) 53%, rgba(5,13,11,0.06) 85%)" } }),
     h("div", { style: { display: "flex", position: "relative", color: colors.brass, fontSize: 21, marginBottom: 22 } }, "Data engineering & applied AI"),
-    h("div", { style: { display: "flex", position: "relative", flexDirection: "column", fontFamily: "DM Serif Display", fontSize: 61, lineHeight: 1.09, letterSpacing: -0.8 } },
+    h("div", { style: { display: "flex", position: "relative", flexDirection: "column", fontFamily: "DM Serif Display", fontSize: 54, lineHeight: 1.13, letterSpacing: -0.8 } },
       ...["Build reliable data", "& AI infrastructure.", "Optimize your operations."].map(line => h("div", { key: line, style: { display: "flex" } }, line)),
     ),
     h("div", { style: { display: "flex", position: "relative", marginTop: 27, maxWidth: 650, fontSize: 23, lineHeight: 1.45, color: "#d5d8ca" } }, "Connect systems. Automate work. Improve performance."),
@@ -46,9 +46,9 @@ const response = new ImageResponse(card, {
     { name: "DM Serif Display", data: serif, weight: 400, style: "normal" },
   ],
 });
-const destination = join(root, "public/og-services-2026-11-v2.png");
+const destination = join(root, "public/services/share-card.png");
 await writeFile(destination, Buffer.from(await response.arrayBuffer()));
 // Preserve previously shared image URLs while metadata uses a fresh URL.
-for (const alias of ["og-services-2026-11.png", "og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) {
+for (const alias of ["og-services-2026-11-v2.png", "og-services-2026-11.png", "og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) {
   await copyFile(destination, join(root, "public", alias));
 }
