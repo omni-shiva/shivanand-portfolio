@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
+import "../../globals.css";
 
 const title = "PII Masking Lab | Learning Notebook | Shivanand Kumar";
 const description = "A small synthetic-data learning lab: inspect sensitive-data detection, validate candidates, mask in Python and measure missed or unnecessary masking.";

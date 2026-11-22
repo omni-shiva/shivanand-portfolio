@@ -9,150 +9,31 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const require = createRequire(import.meta.url);
 const nextRoot = dirname(require.resolve("next/package.json"));
 const font = await readFile(join(nextRoot, "dist/compiled/@vercel/og/Geist-Regular.ttf"));
-const portrait = await readFile(join(root, "public/shivanand-kumar-portrait.jpg"));
-const logo = await readFile(join(root, "public/shivanand-logo-180.png"));
-const data = (mime, bytes) => `data:${mime};base64,${bytes.toString("base64")}`;
 const h = React.createElement;
-
-const dot = () => h("span", { style: { color: "#00a4c7", margin: "0 13px" } }, "•");
-const line = (...parts) =>
-  h("div", { style: { display: "flex", alignItems: "center" } }, ...parts);
-
-const card = h(
-  "div",
-  {
-    style: {
-      display: "flex",
-      width: "100%",
-      height: "100%",
-      padding: "46px 48px 42px 56px",
-      backgroundColor: "#fbf7ee",
-      backgroundImage:
-        "linear-gradient(rgba(11,40,72,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(11,40,72,.045) 1px, transparent 1px)",
-      backgroundSize: "40px 40px",
-      color: "#08264d",
-      fontFamily: "Geist",
-    },
-  },
-  h(
-    "div",
-    { style: { display: "flex", flexDirection: "column", width: "700px", height: "100%" } },
-    h(
-      "div",
-      { style: { display: "flex", alignItems: "center", fontSize: 22, color: "#37516d" } },
-      h("img", {
-        src: data("image/png", logo),
-        width: 42,
-        height: 42,
-        style: { borderRadius: 10, marginRight: 14 },
-      }),
-      "shivanandkumar.in",
-    ),
-    h(
-      "div",
-      { style: { display: "flex", flexDirection: "column", marginTop: 34 } },
-      h(
-        "div",
-        { style: { fontSize: 74, lineHeight: 0.96, letterSpacing: "-2px", fontWeight: 700 } },
-        "SHIVANAND",
-      ),
-      h(
-        "div",
-        { style: { fontSize: 74, lineHeight: 0.96, letterSpacing: "-2px", fontWeight: 700 } },
-        "KUMAR",
-      ),
-    ),
-    h("div", {
-      style: { display: "flex", width: 108, height: 6, backgroundColor: "#00a4c7", marginTop: 24 },
-    }),
-    h(
-      "div",
-      { style: { display: "flex", fontSize: 28, fontWeight: 700, marginTop: 18 } },
-      "DATA & APPLIED AI ENGINEER",
-    ),
-    h(
-      "div",
-      {
-        style: {
-          display: "flex",
-          flexDirection: "column",
-          fontSize: 25,
-          lineHeight: 1.35,
-          fontWeight: 600,
-          marginTop: 22,
-        },
-      },
-      line("DATA ENGINEERING", dot(), "ANALYTICS"),
-      line("DATABRICKS", dot(), "SPARK", dot(), "SQL", dot(), "PYTHON"),
-    ),
-    h(
-      "div",
-      { style: { display: "flex", alignItems: "center", marginTop: 23 } },
-      h(
-        "div",
-        {
-          style: {
-            display: "flex",
-            backgroundColor: "#08264d",
-            color: "#ffffff",
-            borderRadius: 999,
-            padding: "10px 18px",
-            fontSize: 22,
-            fontWeight: 700,
-            letterSpacing: ".3px",
-          },
-        },
-        "APPLIED AI",
-      ),
-    ),
+const promises = [
+  ["Build reliable data.", "Connect systems. Trust the numbers."],
+  ["Put AI to work.", "Useful answers. Better workflows."],
+  ["Improve how work runs.", "Clearer costs, plans and decisions."],
+];
+const card = h("div", { style: { display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: "48px 54px", backgroundColor: "#07110e", color: "#f8f4e9", fontFamily: "Geist" } },
+  h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 28, paddingBottom: 30, borderBottom: "1px solid #425148" } },
+    h("span", {}, "Shivanand Kumar"),
+    h("span", { style: { color: "#d2b56f", fontSize: 21 } }, "Data & AI services"),
   ),
-  h(
-    "div",
-    {
-      style: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "396px",
-        height: "100%",
-        marginLeft: 2,
-      },
-    },
-    h(
-      "div",
-      {
-        style: {
-          display: "flex",
-          width: 380,
-          height: 506,
-          padding: 8,
-          border: "2px solid rgba(0,164,199,.42)",
-          borderRadius: 34,
-          background: "rgba(255,255,255,.72)",
-          boxShadow: "0 22px 60px rgba(8,38,77,.16)",
-        },
-      },
-      h("img", {
-        src: data("image/jpeg", portrait),
-        width: 360,
-        height: 486,
-        style: { objectFit: "cover", borderRadius: 26 },
-      }),
-    ),
+  h("div", { style: { display: "flex", gap: 36, marginTop: 72, flexGrow: 1 } },
+    ...promises.map(([title, line]) => h("div", { key: title, style: { display: "flex", flexDirection: "column", width: 338 } },
+      h("div", { style: { display: "flex", fontSize: 48, lineHeight: 1.12, letterSpacing: -1.5, minHeight: 172 } }, title),
+      h("div", { style: { display: "flex", marginTop: 20, fontSize: 23, lineHeight: 1.5, color: "#c3cbbd" } }, line),
+    )),
+  ),
+  h("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 28, borderTop: "1px solid #425148", color: "#d2b56f", fontSize: 22 } },
+    h("span", {}, "Start with one business problem."),
+    h("span", {}, "shivanandkumar.in"),
   ),
 );
-
-const response = new ImageResponse(card, {
-  width: 1200,
-  height: 630,
-  fonts: [{ name: "Geist", data: font, weight: 400, style: "normal" }],
-});
-
-await writeFile(
-  join(root, "public/og-data-engineer-2026-11.png"),
-  Buffer.from(await response.arrayBuffer()),
-);
-
-for (const alias of ["og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) {
-  await copyFile(join(root, "public/og-data-engineer-2026-11.png"), join(root, "public", alias));
+const response = new ImageResponse(card, { width: 1200, height: 630, fonts: [{ name: "Geist", data: font, weight: 400, style: "normal" }] });
+const destination = join(root, "public/og-services-2026-11.png");
+await writeFile(destination, Buffer.from(await response.arrayBuffer()));
+for (const alias of ["og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) {
+  await copyFile(destination, join(root, "public", alias));
 }

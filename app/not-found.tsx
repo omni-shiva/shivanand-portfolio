@@ -2,15 +2,11 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="not-found-page">
-      <p className="section-kicker">404 · Page not found</p>
-      <h1>This route is not part of the portfolio.</h1>
-      <p>
-        Return to the homepage for experience, the independent project and professional email.
-      </p>
-      <Link className="button button-primary" href="/">
-        Back to portfolio
-      </Link>
+    <main style={{ maxWidth: 720, margin: "12vh auto", padding: 32, fontFamily: "Arial, sans-serif", color: "#132d27", lineHeight: 1.6 }}>
+      <p>404 · Page not found</p>
+      <h1>This page is not available.</h1>
+      <p>Explore services, independent projects and professional background on the homepage.</p>
+      <Link href="/" style={{ display: "inline-block", background: "#132d27", color: "#fffdf8", padding: "12px 20px" }}>Back to the homepage</Link>
     </main>
   );
 }

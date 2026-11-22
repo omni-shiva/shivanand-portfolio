@@ -1,38 +1,31 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./base.css";
 
-const title = "Shivanand Kumar | Data & Applied AI Engineer";
-const description =
-  "Data & Applied AI Engineer with HP and Amazon experience in Databricks pipelines, BI, operational AI, RAG, retrieval evaluation and data platform reliability.";
+const title = "Shivanand Kumar — Data & AI Services";
+const description = "Reliable data platforms, practical AI workflows and clearer operational decisions. Explore services, independent projects and experience at HP and Amazon.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivanandkumar.in"),
   alternates: { canonical: "/" },
   title,
   description,
-  applicationName: "Shivanand Kumar Portfolio",
-  icons: {
-    icon: [
-      { url: "/shivanand-logo-48.png", sizes: "48x48", type: "image/png" },
-      { url: "/shivanand-logo-32.png", sizes: "32x32", type: "image/png" },
-    ],
-    shortcut: "/shivanand-logo-48.png",
-    apple: [{ url: "/shivanand-logo-180.png", sizes: "180x180", type: "image/png" }],
-  },
+  applicationName: "Shivanand Kumar — Portfolio & Services",
   authors: [{ name: "Shivanand Kumar", url: "https://shivanandkumar.in/" }],
   verification: { google: "o0qvKwbp99kYmQG3wkL8xT5ofg_MDeba9eRAPCvGZtg" },
-  keywords: ["Shivanand Kumar", "Data and AI Engineer", "Data Engineer", "Analytics", "Business Analysis", "Databricks", "SQL", "Python", "Pandas", "PySpark", "Data Quality", "LangGraph", "RAG", "Retrieval Evaluation", "MLflow", "MCP", "Applied AI"],
-  openGraph: {
-    title,
-    description,
-    type: "website",
-    url: "https://shivanandkumar.in",
-    siteName: "Shivanand Kumar Portfolio",
-    images: [{ url: "/og-data-engineer-2026-11.png", width: 1200, height: 630, alt: "Shivanand Kumar, Data and AI Engineer" }],
+  icons: {
+    icon: [{ url: "/services/favicon.svg", type: "image/svg+xml" }, { url: "/shivanand-logo-32.png", sizes: "32x32", type: "image/png" }],
+    shortcut: "/services/favicon.svg",
+    apple: [{ url: "/shivanand-logo-180.png", sizes: "180x180", type: "image/png" }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/og-data-engineer-2026-11.png"] },
+  keywords: ["Shivanand Kumar", "Data engineering", "Applied AI", "Workflow automation", "Data platforms", "Operational analytics", "Supply chain analytics", "Databricks", "Data quality"],
+  openGraph: {
+    title, description, type: "website", url: "https://shivanandkumar.in/",
+    siteName: "Shivanand Kumar — Portfolio & Services",
+    images: [{ url: "/og-services-2026-11.png", width: 1200, height: 630, alt: "Build reliable data. Put AI to work. Improve how work runs. Data and AI services by Shivanand Kumar." }],
+  },
+  twitter: { card: "summary_large_image", title, description, images: ["/og-services-2026-11.png"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (<html lang="en"><body>{children}</body></html>);
+  return <html lang="en"><body>{children}</body></html>;
 }

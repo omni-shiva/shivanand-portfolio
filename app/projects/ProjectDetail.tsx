@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
+import "../globals.css";
 import type { PortfolioProject } from "./project-data";
 
 export default function ProjectDetail({ project }: { project: PortfolioProject }) {
