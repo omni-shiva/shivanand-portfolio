@@ -2,35 +2,25 @@ import assert from "node:assert/strict";
 import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-
 const file = path => new URL("../out/" + path, import.meta.url);
 const text = path => readFile(file(path), "utf8");
 
-
-test("public pages lead with data engineering and omit disputed claims", async () => {
-  const pages = await Promise.all(["index.html", "projects/data-platform-reliability-agent/index.html"].map(text));
-  assert.match(pages[0], /<h1>Data &amp; Applied AI Engineer<\/h1>/);
-  assert.match(pages[0], /Data Engineering · BI &amp; Analytics · Applied AI/);
-  assert.match(pages[0], /href="#work"/);
-  assert.equal((pages[0].match(/href="https:\/\/chatgpt.com\/u\/kumarshivanand7"/g) || []).length, 1);
-  assert.match(pages[0], /AI development tools: GitHub Copilot · Claude/);
-  const person = JSON.parse(pages[0].match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+test("homepage presents services and keeps professional and independent work distinct", async () => {
+  const html = await text("index.html");
+  assert.equal((html.match(/<h1\b/g) || []).length, 1);
+  for (const promise of ["Build reliable data.", "Put AI to work.", "Improve how work runs."]) assert.ok(html.includes(promise));
+  const person = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.equal(person.jobTitle, "Data & Applied AI Engineer");
-  const expectedSequence = ["Pipeline modernisation", "Operational AI", "PII protection and enrichment", "Pipeline migration", "Processing optimisation", "Pipeline monitoring"];
-  const positions = expectedSequence.map(label => pages[0].indexOf(label));
-  assert.ok(positions.every((position, index) => position >= 0 && (!index || position > positions[index - 1])));
-  assert.match(pages[0], /Data Scientist II \| Data and AI Platform Engineering/);
-  assert.match(pages[0], /LangGraph/);
-  assert.match(pages[0], /MLflow tracing/);
-  assert.match(pages[0], /Machine Learning Data Associate II/);
-  assert.match(pages[0], /Jul 2023 - Jun 2024/);
-  assert.match(pages[0], /Oct 2022 - Jul 2023/);
-  assert.doesNotMatch(pages[0], /OntoBricks|RDF\/OWL|\$250K|70%.*CPT/);
-  for (const page of pages) assert.doesNotMatch(page, /41\.4B/);
+  assert.match(html, /Data Engineer - 2/);
+  assert.match(html, /Business Analyst · Supply Chain Analytics/);
+  assert.match(html, /independent projects using synthetic data/);
+  assert.match(html, /Professional experience at HP and Amazon is described separately/);
+  assert.doesNotMatch(html, /Data Scientist|41\.4B|OntoBricks|RDF\/OWL/);
+  assert.doesNotMatch(html, /<meta[^>]*name="robots"[^>]*content="[^"]*noindex/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/shivanandkumar\.in\/"/);
 });
 
-
-test("release contains no résumé page, PDF, phone contact or full-CV data", async () => {
+test("release contains no resume page, PDF, phone contact or full-CV data", async () => {
   for (const path of ["resume/index.html", "resume.pdf"]) await assert.rejects(access(file(path)));
   const inspect = async path => {
     for (const entry of await readdir(file(path), { withFileTypes: true })) {
@@ -40,24 +30,15 @@ test("release contains no résumé page, PDF, phone contact or full-CV data", as
     }
   };
   await inspect("");
-  const home = await text("index.html");
-  const contact = home.match(/<section class="contact-section"[\s\S]*?<\/section>/)[0];
-  assert.equal((contact.match(/<a /g) || []).length, 1);
-  assert.match(contact, /href="mailto:kumarshivanand7@gmail.com"/);
-  assert.doesNotMatch(contact, /linkedin|github|tel:|download/i);
+  const contact = (await text("index.html")).match(/<section[^>]*id="contact"[\s\S]*?<\/section>/)[0];
+  assert.match(contact, /href="mailto:partner@hetanorai\.com/);
+  assert.doesNotMatch(contact, /href="tel:|<form/);
 });
 
-
-test("all portfolio projects are exported, linked and included in the sitemap", async () => {
+test("all existing project pages and learning downloads remain available", async () => {
   const html = await text("index.html");
   const sitemap = await text("sitemap.xml");
-  assert.equal((html.match(/class="project-card"/g) || []).length, 3);
-  for (const path of [
-    "projects/data-platform-reliability-agent",
-    "projects/synthetic-data-print-recommendation-agent",
-    "projects/constraint-aware-coding-agent-evals",
-    "learning/pii-masking-lab",
-  ]) {
+  for (const path of ["projects/data-platform-reliability-agent", "projects/synthetic-data-print-recommendation-agent", "projects/constraint-aware-coding-agent-evals", "learning/pii-masking-lab"]) {
     assert.ok(html.includes('href="/' + path + '/"'), path);
     assert.ok(sitemap.includes("https://shivanandkumar.in/" + path + "/"), path);
     await access(file(path + "/index.html"));
@@ -73,20 +54,30 @@ test("all portfolio projects are exported, linked and included in the sitemap", 
   const project = await text("projects/data-platform-reliability-agent/index.html");
   assert.match(project, /AI-assisted independent project/);
   assert.match(project, /Synthetic data/);
-  assert.match(project, /execution_performed/);
   assert.match(project, /does not execute remediation/);
   assert.match(project, /do not evaluate the optional LLM planner/);
-  assert.doesNotMatch(project, /Learning notebook/);
-  assert.match(project, /href="mailto:kumarshivanand7@gmail.com"/);
 });
 
+test("homepage navigation, tabs and published assets resolve", async () => {
+  const html = await text("index.html");
+  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length, "IDs must be unique");
+  for (const match of html.matchAll(/href="#([^"]+)"|aria-controls="([^"]+)"/g)) assert.ok(ids.includes(match[1] || match[2]), match[0]);
+  assert.equal((html.match(/data-solution-tab="/g) || []).length, 6);
+  assert.equal((html.match(/data-work-tab="/g) || []).length, 4);
+  for (const match of html.matchAll(/(?:src|href)="(\/(?!\/)[^"?#]+)(?:[?#][^"]*)?"/g)) {
+    const path = match[1].slice(1);
+    await access(file(path.endsWith("/") ? path + "index.html" : path));
+  }
+});
 
 test("canonical domain, social image and static hosting controls are intact", async () => {
   assert.equal((await text("CNAME")).trim(), "shivanandkumar.in");
   assert.match(await text("robots.txt"), /https:\/\/shivanandkumar.in\/sitemap.xml/);
-  const image = await readFile(file("og-data-engineer-2026-11.png"));
+  const image = await readFile(file("og-services-2026-11.png"));
   assert.equal(image.readUInt32BE(16), 1200);
   assert.equal(image.readUInt32BE(20), 630);
-  for (const alias of ["og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) assert.deepEqual(await readFile(file(alias)), image);
+  for (const alias of ["og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) assert.deepEqual(await readFile(file(alias)), image);
+  await access(file("services/favicon.svg"));
   await access(file(".nojekyll"));
 });

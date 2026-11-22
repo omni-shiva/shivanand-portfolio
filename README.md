@@ -1,34 +1,38 @@
-# Shivanand Kumar - Portfolio
+# Shivanand Kumar — services and portfolio
 
-Source for the existing portfolio at [shivanandkumar.in](https://shivanandkumar.in/).
-Data & AI Engineer. Data engineering and analytics lead the presentation, with practical Applied AI
-as an additional capability. Employer experience and the AI-assisted independent
-project are presented separately.
-The work section links to the public Codex activity profile as a tooling reference.
+Source for [shivanandkumar.in](https://shivanandkumar.in/). The homepage starts with
+business challenges, describes data and AI services, and links to independent
+project evidence. Professional experience at HP and Amazon is presented separately.
 
-## Pages
+## Homepage
 
-- `/`: data engineering, analytics, experience, education and contact
-- `/projects/data-platform-reliability-agent/`: the single independent project,
-  using synthetic data and read-only decision support
+The approved editorial layout lives in `app/homepage.html`, with scoped styles in
+`app/homepage.css`. `app/page.tsx` renders the complete content during static export;
+`app/components/HomeInteractions.tsx` adds accessible tabs, enquiry selection,
+mobile navigation and animation controls. Images are served from `public/services`.
+No form submission or tracking service is introduced. The contact button opens an
+email draft in the visitor's email application.
 
-The previous learning notebook is replaced by a redirect to the retained project;
-its learning UI and downloads are removed. Retired entries are absent from the
-catalogue and sitemap. Legacy social-image URLs serve the new card. Claims about specialist production AI,
-LangGraph, unsupported numerical outcomes and professional certifications are
-excluded from this revision.
-Selected experience and outcomes follow the owner's final approved wording;
-the website contains no public résumé, résumé data file, PDF download or phone.
+## Project pages
 
-## Local checks
+- `/projects/data-platform-reliability-agent/`
+- `/projects/synthetic-data-print-recommendation-agent/`
+- `/projects/constraint-aware-coding-agent-evals/`
+- `/learning/pii-masking-lab/`, including existing notebook and CSV downloads
 
-Next.js static export, React, TypeScript and pnpm. Requires Node.js 22.13 or newer.
+Project pages retain their styles and documented evidence boundaries. The public
+site includes no resume download, private CV data or telephone number.
 
-```bash
+## Checks and publication
+
+Next.js static export, React, TypeScript and pnpm. Node.js 22.13 or newer.
+
+```sh
 pnpm install --frozen-lockfile
 pnpm run build
-node --test tests/*.test.mjs
+node --experimental-strip-types --test tests/*.test.mjs
 ```
 
-The existing GitHub Pages workflow remains the publication mechanism. A local
-build or preview does not establish publication. Review the public copy before any approved release. Professional contact is by email only.
+The build generates the 1200×630 social card and retains older image URLs as aliases.
+The existing GitHub Pages workflow builds and checks changes to `main`, then deploys
+the `out/` artifact. Domain and DNS configuration remain unchanged.
