@@ -29,7 +29,7 @@ export default function HomeInteractions() {
     function updateEnquiry() {
       const label = labels[select.value] || "An opportunity to improve our data or operations";
       const body = `Hello Shivanand,\n\nI would like to discuss: ${label}.\n\nOur business / team:\nThe workflow we want to improve:\nOur current tools or data:\nWhat a useful result would look like:\n\nBest time to talk:\n`;
-      email.href = `mailto:partner@hetanorai.com?subject=${encodeURIComponent("Project enquiry: " + label)}&body=${encodeURIComponent(body)}`;
+      email.href = `mailto:kumarshivanand7@gmail.com?subject=${encodeURIComponent("Project enquiry: " + label)}&body=${encodeURIComponent(body)}`;
       status.textContent = select.value ? `Your email draft will include: ${label}.` : "Opens your email app with a few prompts to describe the challenge.";
     }
 
