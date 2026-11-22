@@ -8,7 +8,8 @@ const text = path => readFile(file(path), "utf8");
 test("homepage presents services and keeps professional and independent work distinct", async () => {
   const html = await text("index.html");
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
-  for (const promise of ["Build reliable data.", "Put AI to work.", "Improve how work runs."]) assert.ok(html.includes(promise));
+  const visibleText = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
+  for (const promise of ["Build reliable data.", "Put AI to work.", "Improve how work runs."]) assert.ok(visibleText.includes(promise));
   const person = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.equal(person.jobTitle, "Data & Applied AI Engineer");
   assert.match(html, /Data Engineer - 2/);
@@ -74,11 +75,11 @@ test("homepage navigation, tabs and published assets resolve", async () => {
 test("canonical domain, social image and static hosting controls are intact", async () => {
   assert.equal((await text("CNAME")).trim(), "shivanandkumar.in");
   assert.match(await text("robots.txt"), /https:\/\/shivanandkumar.in\/sitemap.xml/);
-  const image = await readFile(file("og-services-2026-11-v2.png"));
+  const image = await readFile(file("services/share-card.png"));
   assert.equal(image.readUInt32BE(16), 1200);
   assert.equal(image.readUInt32BE(20), 630);
-  for (const alias of ["og-services-2026-11.png", "og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) assert.deepEqual(await readFile(file(alias)), image);
-  assert.match(await text("index.html"), /property="og:image" content="https:\/\/shivanandkumar.in\/og-services-2026-11-v2.png"/);
+  for (const alias of ["og-services-2026-11-v2.png", "og-services-2026-11.png", "og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) assert.deepEqual(await readFile(file(alias)), image);
+  assert.match(await text("index.html"), /property="og:image" content="https:\/\/shivanandkumar.in\/services\/share-card.png"/);
   await access(file("brand/sk-mark.svg"));
   assert.match(await text("index.html"), /class="brand-symbol" src="\/brand\/sk-mark.svg"/);
   for (const size of [32, 48, 180, 512]) {

@@ -60,7 +60,7 @@ export default function HomeInteractions() {
       const solutionLink = element.closest<HTMLElement>("[data-open-solution]");
       if (solutionLink) {
         const targetTab = solutions.find(item => item.dataset.solutionTab === solutionLink.dataset.openSolution);
-        if (targetTab) activate(solutions, targetTab);
+        if (targetTab) activate(solutions, targetTab, true);
       }
       const enquiryLink = element.closest<HTMLElement>("[data-discuss-solution]");
       if (enquiryLink) { select.value = enquiryLink.dataset.discussSolution!; updateEnquiry(); }
