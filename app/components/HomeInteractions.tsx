@@ -77,10 +77,20 @@ export default function HomeInteractions() {
         if (!target) return;
         event.preventDefault();
         target.scrollIntoView({ behavior: "instant", block: "start" });
-        if (anchor!.classList.contains("skip-link")) {
-          target.setAttribute("tabindex", "-1");
-          target.focus({ preventScroll: true });
+        // Keep keyboard focus in the visible destination after an in-page jump.
+        let destination: HTMLElement = target;
+        if (target.id === "contact") {
+          destination = select;
+        } else if (target.id === "solutions" || target.id === "projects") {
+          const tabs = target.id === "solutions" ? solutions : projects;
+          destination = tabs.find(tab => tab.getAttribute("aria-selected") === "true") || target;
+        } else if (!anchor!.classList.contains("skip-link")) {
+          destination = target.querySelector<HTMLElement>("h2,h3") || target;
         }
+        if (!destination.matches("a,button,input,select,textarea,[tabindex]")) {
+          destination.tabIndex = -1;
+        }
+        destination.focus({ preventScroll: true });
       }
     }, options);
 
