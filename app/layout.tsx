@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   openGraph: {
     title, description, type: "website", url: "https://shivanandkumar.in/",
     siteName: "Shivanand Kumar — Portfolio & Services",
-    images: [{ url: "/services/share-card.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Build reliable data and AI infrastructure. Optimize your operations. Shivanand Kumar." }],
+    images: [{ url: "/services/circular-explorer.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Reliable data. Practical AI. Better operations. Shivanand Kumar — Data & Applied AI Engineer." }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/services/share-card.jpg"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/services/circular-explorer.jpg"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

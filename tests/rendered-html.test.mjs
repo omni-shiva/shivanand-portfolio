@@ -9,7 +9,7 @@ test("homepage presents services and keeps professional and independent work dis
   const html = await text("index.html");
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   const visibleText = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
-  for (const promise of ["Build reliable data.", "Put AI to work.", "Improve how work runs."]) assert.ok(visibleText.includes(promise));
+  for (const promise of ["Reliable data.", "Practical AI.", "Better operations."]) assert.ok(visibleText.includes(promise));
   const person = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
   assert.equal(person.jobTitle, "Data & Applied AI Engineer");
   assert.match(html, /Data Engineer - 2/);
@@ -64,7 +64,7 @@ test("homepage navigation, tabs and published assets resolve", async () => {
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length, "IDs must be unique");
   for (const match of html.matchAll(/href="#([^"]+)"|aria-controls="([^"]+)"/g)) assert.ok(ids.includes(match[1] || match[2]), match[0]);
-  assert.equal((html.match(/data-solution-tab="/g) || []).length, 6);
+  assert.equal((html.match(/data-orbit="/g) || []).length, 6);
   assert.equal((html.match(/data-work-tab="/g) || []).length, 4);
   for (const match of html.matchAll(/(?:src|href)="(\/(?!\/)[^"?#]+)(?:[?#][^"]*)?"/g)) {
     const path = match[1].slice(1);
@@ -79,16 +79,31 @@ test("canonical domain, social image and static hosting controls are intact", as
   assert.equal(image.readUInt32BE(16), 1200);
   assert.equal(image.readUInt32BE(20), 630);
   for (const alias of ["og-services-2026-11-v2.png", "og-services-2026-11.png", "og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) assert.deepEqual(await readFile(file(alias)), image);
-  assert.match(await text("index.html"), /property="og:image" content="https:\/\/shivanandkumar.in\/services\/share-card.jpg"/);
+  assert.match(await text("index.html"), /property="og:image" content="https:\/\/shivanandkumar.in\/services\/circular-explorer.jpg"/);
   const sharingJpeg = await readFile(file("services/share-card.jpg"));
   assert.equal(sharingJpeg.readUInt16BE(0), 0xffd8);
   assert.ok(sharingJpeg.length < 600000, "WhatsApp sharing image must remain under 600 KB");
   await access(file("brand/sk-mark.svg"));
-  assert.match(await text("index.html"), /class="brand-symbol" src="\/brand\/sk-mark.svg"/);
+  assert.match(await text("index.html"), /src="\/brand\/sk-mark.svg"/);
   for (const size of [32, 48, 180, 512]) {
     const icon = await readFile(file(`brand/sk-mark-${size}.png`));
     assert.equal(icon.readUInt32BE(16), size);
     assert.equal(icon.readUInt32BE(20), size);
   }
   await access(file(".nojekyll"));
+});
+
+
+test("circular challenges start collapsed and the sharing URL has no parameters", async () => {
+  const html = await text("index.html");
+  const challenges = [...html.matchAll(/<button[^>]*data-orbit="([^"]+)"[^>]*>/g)];
+  assert.deepEqual(challenges.map(match => match[1]), ["data", "design", "process", "cost", "capacity", "support"]);
+  for (const challenge of challenges) assert.match(challenge[0], /aria-expanded="false"/);
+  assert.match(html, /id="challenge-summary"[^>]*hidden=""/);
+  assert.doesNotMatch(html, /<dialog[^>]*\bopen[= >]/);
+  for (const property of ["og:url", "og:image"]) {
+    const value = html.match(new RegExp('property="' + property + '" content="([^"]+)"'))[1];
+    assert.equal(new URL(value).search, "");
+  }
+  assert.deepEqual(await readFile(file("services/share-card.jpg")), await readFile(file("services/circular-explorer.jpg")));
 });

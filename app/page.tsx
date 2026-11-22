@@ -1,11 +1,15 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import HomeInteractions from "./components/HomeInteractions";
+import CircularHomepage from "./components/CircularHomepage";
 import "./homepage.css";
+import "./circular-homepage.css";
 
-// Static editorial markup retains the approved layout. Next exports the full
-// content for search engines, while the small client component wires controls.
+// The approved circular interface is server rendered. Existing project and
+// experience content remains static, with client-side controls for exploration.
 const homeMarkup = readFileSync(join(process.cwd(), "app/homepage.html"), "utf8");
+const footerStart = homeMarkup.indexOf("<footer");
+const legacyMarkup = homeMarkup.slice(0, footerStart);
+const footerMarkup = homeMarkup.slice(footerStart);
 const person = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -21,8 +25,8 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
-      <div className="services-home final-site" dangerouslySetInnerHTML={{ __html: homeMarkup }} />
-      <HomeInteractions />
+      <link rel="preload" as="image" href="/assets/circular/hero-forest.webp" />
+      <CircularHomepage legacyMarkup={legacyMarkup} footerMarkup={footerMarkup} />
     </>
   );
 }
