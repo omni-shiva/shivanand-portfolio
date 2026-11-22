@@ -31,7 +31,7 @@ This is a data engineering and applied AI services site for manufacturing, suppl
 
 Keep employer experience separate from independent synthetic-data demonstrations. Preserve project limits and public source links.
 
-Share `https://shivanandkumar.in/` as the canonical address. Open Graph points to `https://shivanandkumar.in/services/share-card.png`. A new deployment changes live content; a client may retain an earlier preview in its own cache or an already-sent message.
+Share `https://shivanandkumar.in/` as the canonical address. Open Graph points to `https://shivanandkumar.in/services/share-card.jpg`. A new deployment changes live content; a client may retain an earlier preview in its own cache or an already-sent message.
 
 ## References
 
