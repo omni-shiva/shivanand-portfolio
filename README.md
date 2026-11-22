@@ -33,6 +33,6 @@ pnpm run build
 node --experimental-strip-types --test tests/*.test.mjs
 ```
 
-The build generates the 1200×630 social card and retains older image URLs as aliases.
+The build generates the SK icon sizes and the 1200×630 social card, retaining older image URLs as aliases. The vector mark lives in `public/brand/sk-mark.svg`. The card uses the existing services artwork and a local DM Serif Display font, licensed under the OFL in `public/fonts/dm-serif-display`.
 The existing GitHub Pages workflow builds and checks changes to `main`, then deploys
 the `out/` artifact. Domain and DNS configuration remain unchanged.

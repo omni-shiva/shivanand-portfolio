@@ -375,3 +375,9 @@
 }
 
 .services-home{min-height:100vh}
+
+/* The monogram shares the brass and forest palette of the services artwork. */
+.services-home .rn-brand{display:inline-flex;align-items:center;gap:11px}
+.services-home .brand-symbol{display:block;width:36px;height:36px;flex:none}
+@media(max-width:650px){.services-home .rn-brand{gap:9px;font-size:22px}.services-home .brand-symbol{width:32px;height:32px}}
+@media(max-width:360px){.services-home .rn-brand{font-size:20px}}

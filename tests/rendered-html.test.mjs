@@ -74,10 +74,17 @@ test("homepage navigation, tabs and published assets resolve", async () => {
 test("canonical domain, social image and static hosting controls are intact", async () => {
   assert.equal((await text("CNAME")).trim(), "shivanandkumar.in");
   assert.match(await text("robots.txt"), /https:\/\/shivanandkumar.in\/sitemap.xml/);
-  const image = await readFile(file("og-services-2026-11.png"));
+  const image = await readFile(file("og-services-2026-11-v2.png"));
   assert.equal(image.readUInt32BE(16), 1200);
   assert.equal(image.readUInt32BE(20), 630);
-  for (const alias of ["og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) assert.deepEqual(await readFile(file(alias)), image);
-  await access(file("services/favicon.svg"));
+  for (const alias of ["og-services-2026-11.png", "og-data-engineer-2026-11.png", "og-data-applied-ai-2026-11.png", "og-data-applied-ai-2026-3-projects.png", "og-data-applied-ai-2026.png", "og-data-applied-ai.png", "og-projects.png", "og-v2.png", "og.png"]) assert.deepEqual(await readFile(file(alias)), image);
+  assert.match(await text("index.html"), /property="og:image" content="https:\/\/shivanandkumar.in\/og-services-2026-11-v2.png"/);
+  await access(file("brand/sk-mark.svg"));
+  assert.match(await text("index.html"), /class="brand-symbol" src="\/brand\/sk-mark.svg"/);
+  for (const size of [32, 48, 180, 512]) {
+    const icon = await readFile(file(`brand/sk-mark-${size}.png`));
+    assert.equal(icon.readUInt32BE(16), size);
+    assert.equal(icon.readUInt32BE(20), size);
+  }
   await access(file(".nojekyll"));
 });
