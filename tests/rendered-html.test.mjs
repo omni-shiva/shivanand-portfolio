@@ -27,12 +27,12 @@ test("release contains no resume page, PDF, phone contact or full-CV data", asyn
     for (const entry of await readdir(file(path), { withFileTypes: true })) {
       const next = path + entry.name;
       if (entry.isDirectory()) await inspect(next + "/");
-      else if (/\.(html|js|json|xml|txt|css)$/.test(next)) assert.doesNotMatch(await text(next), /\/resume\/|\/resume\.pdf|href="tel:|"telephone"|resume\/content\.json/);
+      else if (/\.(html|js|json|xml|txt|css)$/.test(next)) assert.doesNotMatch(await text(next), /\/resume\/|\/resume\.pdf|href="tel:|"telephone"|resume\/content\.json|hetanor|hatenor|partner@|private limited/i);
     }
   };
   await inspect("");
   const contact = (await text("index.html")).match(/<section[^>]*id="contact"[\s\S]*?<\/section>/)[0];
-  assert.match(contact, /href="mailto:partner@hetanorai\.com/);
+  assert.match(contact, /href="mailto:kumarshivanand7@gmail\.com/);
   assert.doesNotMatch(contact, /href="tel:|<form/);
 });
 
