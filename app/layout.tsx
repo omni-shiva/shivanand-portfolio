@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./base.css";
 
 const title = "Shivanand Kumar — Data & AI Services";
-const description = "Build reliable data and AI infrastructure, connect systems and improve operations. Data engineering and applied AI services for manufacturing, supply chain and service teams.";
+const description = "Connect fragmented systems, automate routine work and make operational decisions clearer. Data engineering and applied AI services for manufacturing, supply chain and service teams.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shivanandkumar.in"),
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   openGraph: {
     title, description, type: "website", url: "https://shivanandkumar.in/",
     siteName: "Shivanand Kumar — Portfolio & Services",
-    images: [{ url: "/services/circular-explorer.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Reliable data. Practical AI. Better operations. Shivanand Kumar — Data & Applied AI Engineer." }],
+    images: [{ url: "/services/data-ai-services.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Reliable data. Practical AI. Better operations. Shivanand Kumar — Data & Applied AI Engineer." }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/services/circular-explorer.jpg"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/services/data-ai-services.jpg"] },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
