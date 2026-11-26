@@ -11,6 +11,7 @@
   color: var(--oe-ink);
   background: var(--oe-paper);
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 .orbit-site .oe-shell { width: calc(100% - 9vw); max-width: 1320px; }
 .orbit-site :is(section[id], [id=solutions]) { scroll-margin-top: 116px; }
