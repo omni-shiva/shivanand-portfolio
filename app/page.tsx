@@ -3,6 +3,7 @@ import { join } from "node:path";
 import CircularHomepage from "./components/CircularHomepage";
 import "./homepage.css";
 import "./circular-homepage.css";
+import "./mature-homepage.css";
 
 // The approved circular interface is server rendered. Existing project and
 // experience content remains static, with client-side controls for exploration.

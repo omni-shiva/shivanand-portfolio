@@ -62,7 +62,7 @@ export default function CircularHomepage({legacyMarkup,footerMarkup}) {
   function closeApproach() { dialogRef.current?.close();setApproach(null);requestAnimationFrame(()=>openerRef.current?.focus({preventScroll:true})); }
   function discuss(id) { closeApproach();requestAnimationFrame(()=>{updateEnquiry(id);jump('contact');}); }
 
-  useEffect(()=>{updateEnquiry();rootRef.current.querySelectorAll('[data-evaluation-motion]').forEach(board=>{board.classList.add('is-paused');const b=board.querySelector('.evaluation-motion-toggle');if(b){b.textContent='Play';b.setAttribute('aria-label','Play workflow animation');b.setAttribute('aria-pressed','true');}});},[]);
+  useEffect(()=>{updateEnquiry();rootRef.current.querySelectorAll('[data-evaluation-motion]').forEach(board=>{board.classList.add('is-paused');const b=board.querySelector('.evaluation-motion-toggle');if(b){b.textContent='Play';b.setAttribute('aria-label','Play workflow animation');b.setAttribute('title','Play workflow animation');b.removeAttribute('aria-pressed');}});},[]);
   useEffect(()=>{if(approach&&dialogRef.current&&!dialogRef.current.open)dialogRef.current.showModal();},[approach]);
   useEffect(()=>{if(selected){updateEnquiry(selected);const summary=document.getElementById('challenge-summary');if(summary&&summary.getBoundingClientRect().bottom>window.innerHeight-16)summary.scrollIntoView({behavior:'instant',block:'nearest'});}},[selected]);
 
@@ -71,7 +71,7 @@ export default function CircularHomepage({legacyMarkup,footerMarkup}) {
     const tab=el.closest('[data-work-tab]');
     if(tab){rootRef.current.querySelectorAll('[data-work-tab]').forEach(item=>{const active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1;document.getElementById(item.getAttribute('aria-controls')).hidden=!active;});}
     const motion=el.closest('.evaluation-motion-toggle');
-    if(motion){const board=motion.closest('[data-evaluation-motion]'),paused=!board.classList.contains('is-paused');board.classList.toggle('is-paused',paused);motion.textContent=paused?'Play':'Pause';motion.setAttribute('aria-label',paused?'Play workflow animation':'Pause workflow animation');motion.setAttribute('aria-pressed',String(paused));}
+    if(motion){const board=motion.closest('[data-evaluation-motion]'),paused=!board.classList.contains('is-paused');board.classList.toggle('is-paused',paused);motion.textContent=paused?'Play':'Pause';const label=paused?'Play workflow animation':'Pause workflow animation';motion.setAttribute('aria-label',label);motion.setAttribute('title',label);motion.removeAttribute('aria-pressed');}
     const link=el.closest('a[href^="#"]');
     if(link){const id=link.getAttribute('href').slice(1);if(document.getElementById(id)){event.preventDefault();if(menuRef.current)menuRef.current.open=false;jump(id);}}
   }
@@ -84,23 +84,24 @@ export default function CircularHomepage({legacyMarkup,footerMarkup}) {
     <a className="skip-link" href="#main-content">Skip to main content</a>
     <header className="oe-header">
       <a className="oe-brand" href="#top" aria-label="Shivanand Kumar home"><img src="/brand/sk-mark.svg" width="56" height="56" alt=""/><span className="oe-brand-copy"><span className="oe-name">Shivanand Kumar</span><span className="oe-role">Data &amp; Applied AI Engineer</span><span className="oe-credentials">HP R&amp;D <span aria-hidden="true">|</span> ex-Amazon</span></span></a>
-      <nav className="oe-navigation" aria-label="Primary navigation"><a href="#projects">Projects</a><a href="#about">About</a><a className="oe-header-contact" href="#contact">Discuss your challenge</a></nav>
-      <details className="oe-mobile-menu" ref={menuRef}><summary aria-label="Open navigation"><ListIcon size={24}/></summary><nav aria-label="Mobile navigation"><a href="#solutions">Explore challenges</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Discuss your challenge</a></nav></details>
+      <nav className="oe-navigation" aria-label="Primary navigation"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#about">About</a><a className="oe-header-contact" href="#contact">Discuss your challenge</a></nav>
+      <details className="oe-mobile-menu" ref={menuRef}><summary aria-label="Navigation menu"><ListIcon size={24}/></summary><nav aria-label="Mobile navigation"><a href="#solutions">Explore challenges</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Discuss your challenge</a></nav></details>
     </header>
     <main id="main-content" tabIndex={-1}>
       <section className="oe-hero" id="top" aria-labelledby="hero-title">
         <div className="oe-stage oe-shell">
-          <div className="oe-copy"><h1 className="oe-heading" id="hero-title" tabIndex={-1}><span>Reliable data.</span><span>Practical AI.</span><span>Better operations.</span></h1><p className="oe-intro">Connect your systems. Improve the work.</p><div className="oe-actions"><a className="oe-primary" href="#contact">Discuss your challenge</a><a className="oe-text-link" href="#projects">Explore my work</a></div></div>
+          <div className="oe-copy"><h1 className="oe-heading" id="hero-title" tabIndex={-1}><span>Reliable data.</span><span>Practical AI.</span><span>Better operations.</span></h1><p className="oe-intro">Connect fragmented systems, automate routine work and make operational decisions clearer.</p><div className="oe-actions"><a className="oe-primary" href="#contact">Discuss your challenge</a><a className="oe-text-link" href="#projects">Explore my work</a></div></div>
           <div className="oe-orbit-column" id="solutions" aria-label="Explore a business challenge">
-            <div className="oe-orbit" role="group" aria-label="Business challenges">
-              <img className="oe-track" src="/assets/circular/orbit-track.png" alt="" aria-hidden="true"/>
-              <div className="oe-orbit-centre"><FactoryIcon size={48} weight="light" aria-hidden="true"/><strong>Your<br/>operations</strong><span>Choose a challenge</span></div>
-              {topics.map((topic,index)=>{const Icon=topic.icon;return <button key={topic.id} type="button" className="oe-orbit-button" data-orbit={topic.id} style={{left:`${topic.position[0]}%`,top:`${topic.position[1]}%`}} aria-expanded={selected===topic.id} aria-controls="challenge-summary" onClick={()=>choose(topic.id)} onKeyDown={e=>focusAround(e,index)}><Icon size={28} weight="light" aria-hidden="true"/><span>{topic.label}</span></button>;})}
+            <p className="oe-orbit-instruction" id="challenge-help">Choose where work gets stuck</p>
+            <div className="oe-orbit" role="group" aria-label="Business challenges" aria-describedby="challenge-help">
+              <div className="oe-orbit-material" aria-hidden="true"><div className="oe-core-plinth"/><div className="oe-rim-side"/><div className="oe-rim-face"/><div className="oe-rim-seam"/></div>
+              <div className="oe-orbit-centre"><img className="oe-hub-model" src="/assets/circular/operations-hub.webp" width="640" height="302" alt="" aria-hidden="true"/><strong>Your<br/>operations</strong><span>Data, AI &amp; analytics</span></div>
+              {topics.map((topic,index)=>{const Icon=topic.icon;return <button key={topic.id} type="button" className="oe-orbit-button" data-orbit={topic.id} style={{left:`${topic.position[0]}%`,top:`${topic.position[1]}%`}} aria-expanded={selected===topic.id} aria-controls="challenge-summary" onClick={()=>choose(topic.id)} onKeyDown={e=>focusAround(e,index)}><Icon size={28} weight="duotone" aria-hidden="true"/><span>{topic.label}</span></button>;})}
             </div>
             <div className="oe-summary-slot"><div id="challenge-summary" className="oe-summary" hidden={!selectedTopic} aria-live="polite" aria-atomic="true">{selectedTopic&&<><div className="oe-summary-heading"><h2>{selectedTopic.pain}</h2><button className="oe-icon-button" aria-label="Close challenge details" onClick={collapseChallenge}><XIcon size={18}/></button></div><p>{selectedTopic.summary}</p><button className="oe-text-link" onClick={e=>openApproach(selected,e)}>View approach <ArrowRightIcon size={19} aria-hidden="true"/></button></>}</div></div>
           </div>
         </div>
-        <div className="oe-trust oe-shell"><span>Shivanand Kumar</span><p>Data platforms at HP. Supply chain analytics at Amazon.</p></div>
+        <div className="oe-trust oe-shell"><p>Data platforms at HP. Supply chain analytics at Amazon.</p><p>For manufacturing, supply chain and service teams.</p></div>
       </section>
       <section className="oe-services" id="services" aria-label="Services"><div className="oe-service-grid oe-shell">{[{icon:DatabaseIcon,title:'Data platforms',text:'Bring your systems and data together.',id:'data'},{icon:CpuIcon,title:'Applied AI',text:'Find answers. Support better decisions.',id:'design'},{icon:FactoryIcon,title:'Operations',text:'Reduce delays. Understand capacity.',id:'process'}].map(service=>{const Icon=service.icon;return <button key={service.id} className="oe-service" onClick={e=>openApproach(service.id,e)} aria-haspopup="dialog"><Icon size={48} weight="light" aria-hidden="true"/><span className="oe-service-title">{service.title}</span><span className="oe-service-description">{service.text}</span><span className="oe-service-action">Explore <ArrowRightIcon size={17} aria-hidden="true"/></span></button>;})}</div></section>
       <LegacySections markup={legacyMarkup}/>
