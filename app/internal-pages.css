@@ -1,0 +1,154 @@
+/* Keep case studies and the learning notebook in the approved site theme.
+   Scope every override so returning to the homepage preserves its design. */
+:is(.project-page, .learning-detail-page) {
+  --font-geist-sans: "Geist";
+  --font-geist-mono: "Geist Mono";
+  --max: 1180px;
+  --ink: #1c3029;
+  --ink-2: #16352c;
+  --paper: #f6f5ef;
+  --white: #fffdf7;
+  --muted: #536158;
+  --blue: #7b6236;
+  --cyan: #d9c596;
+  --line: rgba(28, 48, 41, .16);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+  font-family: Geist, Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+:is(.project-page, .learning-detail-page) [id] { scroll-margin-top: 110px; }
+:is(.project-page, .learning-detail-page) :is(a, [tabindex]):focus-visible {
+  outline: 3px solid #7b6236;
+  outline-offset: 5px;
+}
+:is(.project-page, .learning-detail-page) .internal-skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: #fffdf7;
+  color: #1c3029;
+  transform: translateY(-180%);
+}
+:is(.project-page, .learning-detail-page) .internal-skip:focus { transform: translateY(0); }
+:is(.project-page, .learning-detail-page) .site-header {
+  min-height: 84px;
+  height: auto;
+  padding-block: 14px;
+  background: #f6f5ef;
+  border-bottom: 1px solid #d5dacf;
+  color: #1c3029;
+  backdrop-filter: none;
+  gap: 18px;
+}
+:is(.project-page, .learning-detail-page) .brand { min-width: 0; gap: 12px; }
+:is(.project-page, .learning-detail-page) .brand-mark {
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  flex-shrink: 0;
+}
+:is(.project-page, .learning-detail-page) .brand > span {
+  display: inline;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+:is(.project-page, .learning-detail-page) .site-header nav { gap: 18px; }
+:is(.project-page, .learning-detail-page) .site-header nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+:is(.project-page, .learning-detail-page) .nav-cta {
+  border: 1px solid #a99a78;
+  border-radius: 4px;
+  background: transparent;
+  color: #1c3029;
+  padding: 10px 16px;
+}
+:is(.project-page, .learning-detail-page) .nav-cta:hover { background: #ececdf; }
+:is(.project-page, .learning-detail-page) .button {
+  border-radius: 4px;
+  min-height: 48px;
+  font-weight: 600;
+}
+:is(.project-page, .learning-detail-page) .section-kicker { color: #596a57; }
+.project-page :is(.project-hero, .project-output-section) { background: #0b211b; }
+.project-page .project-hero::after {
+  background: radial-gradient(circle, #bca16a17, transparent 64%);
+}
+.project-page .project-hero-inner { max-width: 1180px; }
+.project-page .project-hero h1 {
+  font-size: clamp(2rem, 5.5vw, 4.5rem);
+  font-weight: 550;
+  line-height: 1.1;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.project-page :is(.back-link, .project-status, .project-lede, .project-output-copy > p:not(.section-kicker)) { color: #cdd7ce; }
+.project-page .back-link { min-height: 44px; margin-bottom: 22px; font-size: 13px; }
+.project-page .project-status { font-size: 10px; line-height: 1.6; }
+.project-page .project-status span { flex-shrink: 0; box-shadow: 0 0 0 4px #bca16a1f; }
+.project-page :is(.project-hero, .project-output-copy) .section-kicker { color: #d9c596; }
+.project-page .button-project-primary { background: #d9c596; color: #13291f; }
+.project-page .button-project-primary:hover { background: #e5d5b2; }
+.project-page .button-project-secondary:hover { background: #254438; }
+.project-page :is(.project-hero, .project-output-section) a:focus-visible { outline-color: #f0deaf; }
+.project-page :is(.project-metric-band, .project-boundary-section) { background: #eeecdf; }
+.project-page .project-metric-inner > div { min-width: 0; }
+.project-page .project-metric-inner span { color: #536158; font-size: 10px; line-height: 1.5; }
+.project-page :is(.project-story-copy h2, .project-output-copy h2, .project-capabilities h2, .project-boundary-inner h2, .project-limitations h2) {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 550;
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.project-page :is(.project-story-columns p, .project-capabilities li, .project-limitations li, .project-boundary-inner > p) { font-size: 15px; line-height: 1.7; }
+.project-page :is(.project-story-columns span, .architecture-heading span, .next-project span, .project-boundary-inner > p) { color: #536158; }
+.project-page :is(.project-story-columns span, .architecture-heading span, .next-project span) { font-size: 10px; }
+.project-page .project-output-copy > p:not(.section-kicker) { font-size: 15px; }
+.project-page .project-resource-links a { color: #e2cf9f; font-size: 12px; min-height: 44px; display: inline-flex; align-items: center; }
+.project-page .output-console { background: #16352c; border-color: #7d8d7366; border-radius: 9px; box-shadow: 0 18px 40px #04130c40; min-width: 0; }
+.project-page .output-console-bar strong { color: #bdcbbb; font-size: 10px; }
+.project-page .output-console pre { color: #e3e8d8; max-width: 100%; overscroll-behavior-inline: contain; }
+.project-page .output-console pre:focus-visible { outline-color: #f0deaf; outline-offset: -5px; }
+.project-page .project-architecture { background: #efeee5; border-radius: 9px; }
+.project-page .architecture-heading { flex-wrap: wrap; gap: 12px; }
+.project-page .architecture-heading a { color: #365c48; font-size: 12px; min-height: 44px; display: inline-flex; align-items: center; }
+.project-page .project-architecture p { color: #536158; font-size: 14px; line-height: 1.6; }
+.project-page .next-project b,
+.project-page .project-capabilities li::before,
+.project-page .project-limitations li::before { color: #5c714c; }
+.project-page footer { background: #0b211b; color: #bdcbbb; font-size: 10px; }
+.learning-detail-page .learning-detail-shell { padding-top: 64px; }
+.learning-detail-page .learning-status { background: #e9ecdf; color: #36543c; border-color: #bac5ac; }
+.learning-detail-page .learning-detail-intro > p.learning-definition { background: #efecdf; }
+.learning-detail-page .learning-evidence { background: #0b211b; }
+.learning-detail-page .learning-caveat { color: #cdd7ce; }
+.learning-detail-page .learning-table-scroll { border-color: #b6bfad; }
+.learning-detail-page .learning-type-table :is(th, td) { border-color: #d5dacf; }
+.learning-detail-page .learning-type-table thead th { background: #eeecdf; color: #1c3029; }
+.learning-detail-page .learning-type-table tbody tr:nth-child(even) { background: #eff1e8; }
+.learning-detail-page :is(.learning-back-link, .learning-actions > a:not(.button)) { color: #365c48; min-height: 44px; display: inline-flex; align-items: center; }
+.learning-detail-page :is(.learning-breadcrumb, .learning-detail-intro h1) { overflow-wrap: anywhere; }
+.learning-detail-page .button-primary:hover { background: #31503e; }
+@media (max-width: 720px) {
+  :is(.project-page, .learning-detail-page) .site-header { padding: 12px 18px; gap: 12px; flex-wrap: wrap; }
+  :is(.project-page, .learning-detail-page) .brand > span { font-size: 21px; }
+  :is(.project-page, .learning-detail-page) .brand-mark { width: 36px; height: 36px; }
+  :is(.project-page, .learning-detail-page) .site-header nav { flex-wrap: wrap; gap: 14px; }
+  :is(.project-page, .learning-detail-page) [id] { scroll-margin-top: 160px; }
+  .project-page .project-hero { padding: 42px 0; }
+  .project-page .project-hero h1 { font-size: clamp(2rem, 8.5vw, 2.875rem); }
+  .project-page .project-resource-links { gap: 8px 18px; }
+  .project-page .output-console pre { font-size: 11px; padding: 18px; }
+}

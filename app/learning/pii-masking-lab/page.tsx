@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
-import "../../globals.css";
+import "../../internal-base.css";
+import "../../internal-pages.css";
 
 const title = "PII Masking Lab | Learning Notebook | Shivanand Kumar";
 const description = "A small synthetic-data learning lab: inspect sensitive-data detection, validate candidates, mask in Python and measure missed or unnecessary masking.";
@@ -26,21 +27,22 @@ const entityTypes = [
 export default function PiiMaskingLab() {
   return (
     <main className="learning-detail-page">
+      <a className="internal-skip" href="#learning-content">Skip to main content</a>
       <header className="site-header">
         <Link className="brand" href="/" aria-label="Shivanand Kumar, portfolio home">
-          <img className="brand-mark" src="/shivanand-logo-180.png" alt="" />
+          <img className="brand-mark" src="/brand/sk-mark.svg" width={42} height={42} alt="" />
           <span>Shivanand Kumar</span>
         </Link>
         <nav aria-label="Primary navigation">
           <Link className="nav-mobile-link" href="/#projects">Projects</Link>
-          <Link className="nav-cta" href="/#learning-projects">Learning projects</Link>
+          <Link className="nav-cta" href="/#contact">Discuss a project</Link>
         </nav>
       </header>
 
-      <div className="section-shell learning-detail-shell">
+      <div className="section-shell learning-detail-shell" id="learning-content" tabIndex={-1}>
         <nav className="learning-breadcrumb" aria-label="Breadcrumb">
+          <Link href="/">Home</Link><span aria-hidden="true">/</span>
           <Link href="/#projects">Projects</Link><span aria-hidden="true">/</span>
-          <Link href="/#learning-projects">Learning projects</Link><span aria-hidden="true">/</span>
           <span aria-current="page">PII Masking Lab</span>
         </nav>
 
@@ -114,7 +116,7 @@ export default function PiiMaskingLab() {
           </ol>
           <p>Optional model calls require explicit opt-in, a model choice and an API key, and may incur charges. Use only the synthetic samples. Never send real personal data to a service that is not approved to process it.</p>
           <p className="learning-detail-boundary">Built with AI assistance for learning. No employer or client data. No model training, production deployment or privacy certification. Masking is not encryption, and a clean pattern re-scan is not proof of privacy.</p>
-          <Link className="learning-back-link" href="/#learning-projects">← Back to learning projects</Link>
+          <Link className="learning-back-link" href="/#projects">← Back to projects</Link>
         </section>
       </div>
     </main>

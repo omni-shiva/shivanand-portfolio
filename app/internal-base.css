@@ -1,0 +1,1048 @@
+/* Existing internal-page foundation, scoped to prevent styles leaking into the homepage. */
+@font-face {
+  font-display: swap;
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/fonts/geist-sans-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/fonts/geist-mono-latin.woff2") format("woff2");
+}
+
+:where(.project-page, .learning-detail-page), :where(.project-page, .learning-detail-page) * {
+  box-sizing: border-box;
+}
+
+:where(.project-page, .learning-detail-page) {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+}
+
+:where(.project-page, .learning-detail-page) a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(.project-page, .learning-detail-page) a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+:where(.project-page, .learning-detail-page) ::selection {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+:where(.project-page, .learning-detail-page) .section-shell {
+  margin: 0 auto;
+  max-width: var(--max);
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+:where(.project-page, .learning-detail-page) .site-header {
+  align-items: center;
+  backdrop-filter: blur(18px);
+  background: rgba(245, 242, 234, 0.9);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  height: 68px;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 max(28px, calc((100vw - var(--max)) / 2));
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+:where(.project-page, .learning-detail-page) .brand {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  font-weight: 730;
+  gap: 11px;
+  letter-spacing: -0.02em;
+}
+
+:where(.project-page, .learning-detail-page) .brand-mark {
+  height: 34px;
+  object-fit: contain;
+  width: 34px;
+}
+
+:where(.project-page, .learning-detail-page) nav {
+  align-items: center;
+  display: flex;
+  gap: 26px;
+}
+
+:where(.project-page, .learning-detail-page) nav a {
+  font-size: 13px;
+  font-weight: 650;
+}
+
+:where(.project-page, .learning-detail-page) .nav-cta {
+  background: var(--ink);
+  border-radius: 999px;
+  color: var(--white);
+  padding: 10px 17px;
+}
+
+:where(.project-page, .learning-detail-page) .section-kicker {
+  color: #295271;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  font-weight: 740;
+  letter-spacing: 0.11em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .button {
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 730;
+  justify-content: center;
+  min-height: 45px;
+  padding: 0 20px;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+:where(.project-page, .learning-detail-page) .button:hover {
+  transform: translateY(-2px);
+}
+
+:where(.project-page, .learning-detail-page) .button-primary {
+  background: var(--ink);
+  color: var(--white);
+}
+
+:where(.project-page, .learning-detail-page) .button-secondary {
+  background: rgba(255, 255, 255, 0.54);
+  border-color: rgba(7, 24, 40, 0.18);
+}
+
+:where(.project-page, .learning-detail-page) .project-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 16px;
+}
+
+:where(.project-page, .learning-detail-page) .project-collection-heading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+:where(.project-page, .learning-detail-page) .project-collection-heading h3 { font-size: 18px; margin: 0; }
+:where(.project-page, .learning-detail-page) .project-collection-heading a { color: #285b82; font-size: 14px; font-weight: 650; }
+
+:where(.project-page, .learning-detail-page) .learning-projects {
+  border-top: 1px solid var(--line);
+  margin-top: 40px;
+  padding-top: 32px;
+  scroll-margin-top: 90px;
+}
+
+:where(.project-page, .learning-detail-page) .learning-heading-row { align-items: center; display: flex; gap: 24px; justify-content: space-between; margin-bottom: 20px; }
+:where(.project-page, .learning-detail-page) .learning-heading-row h3 { font-size: clamp(28px, 3.5vw, 38px); letter-spacing: -.045em; line-height: 1.1; margin: 8px 0; }
+:where(.project-page, .learning-detail-page) .learning-heading-row p:not(.section-kicker) { color: var(--muted); font-size: 16px; line-height: 1.5; margin: 0; }
+:where(.project-page, .learning-detail-page) .learning-heading-row .section-kicker { font-size: 12px; margin: 0; }
+:where(.project-page, .learning-detail-page) .learning-controls { align-items: center; display: flex; flex-shrink: 0; gap: 8px; }
+:where(.project-page, .learning-detail-page) .learning-count { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; margin-right: 8px; white-space: nowrap; }
+:where(.project-page, .learning-detail-page) .learning-controls button { align-items: center; background: var(--white); border: 1px solid var(--line); border-radius: 50%; color: var(--ink); cursor: pointer; display: flex; font-size: 24px; height: 48px; justify-content: center; width: 48px; }
+:where(.project-page, .learning-detail-page) .learning-controls button:last-child { background: var(--ink); color: var(--white); }
+:where(.project-page, .learning-detail-page) .learning-controls button:hover { background: var(--cyan); color: var(--ink); }
+:where(.project-page, .learning-detail-page) .learning-controls button:disabled { cursor: default; opacity: .4; }
+:where(.project-page, .learning-detail-page) .learning-projects button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+:where(.project-page, .learning-detail-page) .learning-slide { background: var(--white); border: 1px solid var(--line); border-radius: 22px; display: grid; grid-template-columns: 1.15fr 1fr; overflow: hidden; }
+:where(.project-page, .learning-detail-page) .learning-slide[hidden] { display: none; }
+:where(.project-page, .learning-detail-page) .learning-copy { padding: 30px; }
+:where(.project-page, .learning-detail-page) .learning-status { background: #e2f1ed; border: 1px solid #badbd0; border-radius: 99px; color: #214d43; display: inline-block; font-size: 14px; line-height: 1.4; padding: 6px 12px; }
+:where(.project-page, .learning-detail-page) .learning-topic { color: var(--muted); font-size: 14px; margin: 24px 0 8px; }
+:where(.project-page, .learning-detail-page) .learning-copy h4 { font-size: clamp(28px, 3vw, 36px); letter-spacing: -.045em; line-height: 1.1; margin: 0 0 14px; }
+:where(.project-page, .learning-detail-page) .learning-summary { color: var(--muted); font-size: 16px; line-height: 1.6; margin: 0; }
+:where(.project-page, .learning-detail-page) .learning-skills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 20px 0; padding: 0; }
+:where(.project-page, .learning-detail-page) .learning-skills li { border: 1px solid var(--line); border-radius: 6px; font-size: 14px; padding: 5px 8px; }
+:where(.project-page, .learning-detail-page) .learning-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 16px; }
+:where(.project-page, .learning-detail-page) .learning-actions a { font-size: 14px; font-weight: 650; }
+:where(.project-page, .learning-detail-page) .learning-actions a:not(.button) { color: #285b82; }
+:where(.project-page, .learning-detail-page) .learning-note,
+:where(.project-page, .learning-detail-page) .learning-pending { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 18px 0 0; }
+:where(.project-page, .learning-detail-page) .learning-pending { color: var(--ink); font-weight: 650; }
+:where(.project-page, .learning-detail-page) .learning-evidence { background: var(--ink); color: var(--white); display: flex; flex-direction: column; justify-content: center; padding: 30px; }
+:where(.project-page, .learning-detail-page) .learning-panel-label { color: var(--cyan); font-size: 14px; font-weight: 650; margin: 0 0 22px; }
+:where(.project-page, .learning-detail-page) .learning-example { background: rgba(255,255,255,.04); border: 1px solid #334a5a; border-radius: 10px; display: grid; gap: 10px; padding: 16px; }
+:where(.project-page, .learning-detail-page) .learning-example span { color: #b4c6d3; font-size: 14px; }
+:where(.project-page, .learning-detail-page) .learning-example code { font-family: var(--font-geist-mono), monospace; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
+:where(.project-page, .learning-detail-page) .learning-example-output { border-color: #407c77; }
+:where(.project-page, .learning-detail-page) .learning-example-output code { color: #8ae8dc; }
+:where(.project-page, .learning-detail-page) .learning-flow { align-items: center; display: flex; flex-wrap: wrap; font-size: 14px; gap: 10px; justify-content: center; padding: 14px 0; }
+:where(.project-page, .learning-detail-page) .learning-flow b { color: var(--cyan); font-weight: 400; }
+:where(.project-page, .learning-detail-page) .learning-result { align-items: center; border-top: 1px solid #334a5a; display: flex; gap: 18px; margin-top: 24px; padding-top: 20px; }
+:where(.project-page, .learning-detail-page) .learning-result strong { color: var(--cyan); flex-shrink: 0; font-size: 28px; font-weight: 650; letter-spacing: -.04em; }
+:where(.project-page, .learning-detail-page) .learning-result p { color: #d0dce5; font-size: 14px; line-height: 1.5; margin: 0; }
+:where(.project-page, .learning-detail-page) .learning-caveat { color: #b4c6d3; font-size: 14px; line-height: 1.5; margin: 18px 0 0; }
+:where(.project-page, .learning-detail-page) .learning-checklist { display: grid; gap: 26px; list-style: none; margin: 0; padding: 0; }
+:where(.project-page, .learning-detail-page) .learning-checklist li { display: flex; gap: 16px; }
+:where(.project-page, .learning-detail-page) .learning-checklist li > span { color: var(--cyan); font-family: var(--font-geist-mono); font-size: 14px; padding-top: 3px; }
+:where(.project-page, .learning-detail-page) .learning-checklist strong { font-size: 16px; font-weight: 650; }
+:where(.project-page, .learning-detail-page) .learning-checklist p { color: #b4c6d3; font-size: 14px; line-height: 1.5; margin: 6px 0 0; }
+:where(.project-page, .learning-detail-page) .learning-pagination { display: flex; justify-content: center; margin-top: 8px; }
+:where(.project-page, .learning-detail-page) .learning-pagination button { align-items: center; background: transparent; border: 0; cursor: pointer; display: flex; height: 44px; justify-content: center; width: 44px; }
+:where(.project-page, .learning-detail-page) .learning-pagination span { background: #728294; border-radius: 99px; height: 6px; width: 6px; }
+:where(.project-page, .learning-detail-page) .learning-pagination [aria-current] span { background: var(--ink); width: 24px; }
+:where(.project-page, .learning-detail-page) .learning-sr-only { clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
+
+:where(.project-page, .learning-detail-page) .learning-copy h4 a:hover { color: #285b82; }
+:where(.project-page, .learning-detail-page) .learning-detail-page { background: var(--paper); min-height: 100vh; }
+:where(.project-page, .learning-detail-page) .learning-detail-shell { max-width: 1140px; padding-top: 100px; padding-bottom: 44px; }
+:where(.project-page, .learning-detail-page) .learning-breadcrumb { align-items: center; color: var(--muted); display: flex; flex-wrap: wrap; font-size: .875rem; gap: 10px; margin-bottom: 30px; }
+:where(.project-page, .learning-detail-page) .learning-breadcrumb a:hover,
+:where(.project-page, .learning-detail-page) .learning-back-link:hover { text-decoration: underline; }
+:where(.project-page, .learning-detail-page) .learning-detail-intro h1 { font-size: clamp(2.5rem, 5.5vw, 4rem); letter-spacing: -.055em; line-height: 1.05; margin: 12px 0 16px; }
+:where(.project-page, .learning-detail-page) .learning-detail-intro > p:not(.section-kicker) { color: var(--muted); font-size: 1.125rem; line-height: 1.6; max-width: 800px; }
+:where(.project-page, .learning-detail-page) .learning-detail-intro .section-kicker { font-size: .875rem; }
+:where(.project-page, .learning-detail-page) .learning-detail-intro .learning-actions { margin: 24px 0; }
+:where(.project-page, .learning-detail-page) .learning-detail-intro > p.learning-detail-scope { font-size: 1rem; }
+:where(.project-page, .learning-detail-page) .learning-detail-intro > p.learning-definition { background: #e9eef6; border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; color: var(--ink); font-size: 1rem; margin-top: 22px; max-width: none; padding: 16px 20px; }
+:where(.project-page, .learning-detail-page) .learning-definition strong { display: block; margin-bottom: 5px; }
+:where(.project-page, .learning-detail-page) .learning-detail-section { border-top: 1px solid var(--line); margin-top: 32px; padding-top: 28px; scroll-margin-top: 90px; }
+:where(.project-page, .learning-detail-page) .learning-detail-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -.035em; line-height: 1.25; margin: 0 0 16px; }
+:where(.project-page, .learning-detail-page) .learning-detail-section > p,
+:where(.project-page, .learning-detail-page) .learning-practice-section li { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 900px; }
+:where(.project-page, .learning-detail-page) .learning-detail-section code,
+:where(.project-page, .learning-detail-page) .learning-detail-scope code { font-family: var(--font-geist-mono), monospace; font-size: .875em; overflow-wrap: anywhere; }
+:where(.project-page, .learning-detail-page) .learning-walkthrough-grid { display: grid; gap: 0; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 18px; margin-top: 24px; overflow: hidden; }
+:where(.project-page, .learning-detail-page) .learning-detail-panel { background: var(--white); padding: 28px; }
+:where(.project-page, .learning-detail-page) .learning-detail-panel h3 { align-items: center; display: flex; font-size: 1rem; font-weight: 650; gap: 10px; margin: 0 0 18px; }
+:where(.project-page, .learning-detail-page) .learning-walkthrough-grid .learning-panel-label { align-items: center; display: flex; gap: 10px; }
+:where(.project-page, .learning-detail-page) .learning-example-number { border: 1px solid currentColor; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font-geist-mono), monospace; font-size: .75rem; height: 30px; width: 30px; }
+:where(.project-page, .learning-detail-page) .learning-quoted-example { font-size: 1rem; line-height: 1.8; margin: 0; overflow-wrap: anywhere; }
+:where(.project-page, .learning-detail-page) .learning-evidence .learning-quoted-example code { color: var(--cyan); }
+:where(.project-page, .learning-detail-page) .learning-table-heading { font-size: 1.25rem; font-weight: 700; margin: 28px 0 8px; }
+:where(.project-page, .learning-detail-page) .learning-detail-section > p.learning-table-description { font-size: 1rem; margin: 0 0 16px; }
+:where(.project-page, .learning-detail-page) .learning-table-scroll { background: var(--white); border: 1px solid #cbd4df; border-radius: 12px; overflow-x: auto; overscroll-behavior-inline: contain; }
+:where(.project-page, .learning-detail-page) .learning-table-scroll:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+:where(.project-page, .learning-detail-page) .learning-type-table { border-collapse: separate; border-spacing: 0; font-size: 1rem; line-height: 1.55; min-width: 790px; table-layout: fixed; width: 100%; }
+:where(.project-page, .learning-detail-page) .learning-type-table caption { background: var(--white); caption-side: bottom; color: var(--muted); font-size: .875rem; padding: 14px 18px; text-align: left; }
+:where(.project-page, .learning-detail-page) .learning-type-table th,
+:where(.project-page, .learning-detail-page) .learning-type-table td { border-bottom: 1px solid #d6dee6; padding: 18px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+:where(.project-page, .learning-detail-page) .learning-type-table th:not(:last-child),
+:where(.project-page, .learning-detail-page) .learning-type-table td:not(:last-child) { border-right: 1px solid #e0e6ed; }
+:where(.project-page, .learning-detail-page) .learning-type-table thead th { background: #e5edf5; color: #19364d; font-size: .875rem; font-weight: 700; padding-bottom: 14px; padding-top: 14px; }
+:where(.project-page, .learning-detail-page) .learning-type-table tbody th { color: var(--ink); font-weight: 650; }
+:where(.project-page, .learning-detail-page) .learning-type-table tbody tr:nth-child(even) { background: #f2f6f9; }
+:where(.project-page, .learning-detail-page) .learning-type-table tbody tr:last-child th,
+:where(.project-page, .learning-detail-page) .learning-type-table tbody tr:last-child td { border-bottom: 0; }
+:where(.project-page, .learning-detail-page) .learning-col-entity { width: 15%; }
+:where(.project-page, .learning-detail-page) .learning-col-meaning { width: 33%; }
+:where(.project-page, .learning-detail-page) .learning-col-example { width: 30%; }
+:where(.project-page, .learning-detail-page) .learning-col-mask { width: 22%; }
+:where(.project-page, .learning-detail-page) .learning-type-boundary { color: var(--muted); display: block; font-size: .875rem; margin-top: 8px; }
+:where(.project-page, .learning-detail-page) .learning-original-value { font-family: var(--font-geist-mono), monospace; font-size: .875rem; }
+:where(.project-page, .learning-detail-page) .learning-detail-section code.learning-mask-token { background: #dcefe9; border: 1px solid #b9d9cd; border-radius: 5px; color: #174c3e; display: inline-block; font-size: .875rem; padding: 4px 6px; white-space: nowrap; }
+:where(.project-page, .learning-detail-page) .learning-detail-section > p.learning-table-mobile-hint { color: var(--muted); display: none; font-size: .875rem; margin: 0 0 10px; }
+:where(.project-page, .learning-detail-page) .learning-measurements { background: var(--white); border: 1px solid var(--line); border-radius: 14px; display: grid; gap: 24px; grid-template-columns: repeat(3, 1fr); margin: 20px 0; padding: 24px; }
+:where(.project-page, .learning-detail-page) .learning-measurements div { display: grid; gap: 6px; }
+:where(.project-page, .learning-detail-page) .learning-measurements strong { font-size: 2rem; letter-spacing: -.04em; }
+:where(.project-page, .learning-detail-page) .learning-measurements span { color: var(--muted); font-size: .875rem; line-height: 1.5; }
+:where(.project-page, .learning-detail-page) .learning-practice-section ol { list-style: decimal; padding-left: 22px; }
+:where(.project-page, .learning-detail-page) .learning-practice-section li { padding-left: 6px; margin: 12px 0; }
+:where(.project-page, .learning-detail-page) .learning-detail-section > p.learning-detail-boundary { border-left: 3px solid var(--blue); color: var(--ink); font-size: .875rem; padding-left: 16px; }
+:where(.project-page, .learning-detail-page) .learning-back-link { color: #285b82; display: inline-block; font-size: 1rem; font-weight: 650; margin-top: 12px; }
+
+@media (max-width: 900px) {
+  :where(.project-page, .learning-detail-page) .learning-detail-section > p.learning-table-mobile-hint { display: block; }
+}
+
+@media (max-width: 700px) {
+  :where(.project-page, .learning-detail-page) .learning-walkthrough-grid { grid-template-columns: 1fr; }
+  :where(.project-page, .learning-detail-page) .learning-detail-panel { padding: 22px; }
+  :where(.project-page, .learning-detail-page) .learning-measurements { grid-template-columns: 1fr; gap: 18px; }
+}
+
+@media (max-width: 800px) {
+  :where(.project-page, .learning-detail-page) .learning-slide { grid-template-columns: 1fr; }
+  :where(.project-page, .learning-detail-page) .learning-copy,
+:where(.project-page, .learning-detail-page) .learning-evidence { padding: 24px; }
+}
+
+@media (max-width: 520px) {
+  :where(.project-page, .learning-detail-page) .learning-heading-row { align-items: flex-start; flex-direction: column; gap: 16px; }
+  :where(.project-page, .learning-detail-page) .learning-controls { align-self: flex-end; }
+  :where(.project-page, .learning-detail-page) .learning-copy,
+:where(.project-page, .learning-detail-page) .learning-evidence { padding: 20px; }
+  :where(.project-page, .learning-detail-page) .learning-result { align-items: flex-start; flex-direction: column; gap: 10px; }
+}
+
+:where(.project-page, .learning-detail-page) .project-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 18px 60px rgba(7, 24, 40, 0.07);
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  overflow: hidden;
+  padding: 25px;
+  position: relative;
+}
+
+:where(.project-page, .learning-detail-page) .project-card::before {
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-card-meta {
+  color: #61788b;
+  display: flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  justify-content: space-between;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .project-card h3 {
+  font-size: clamp(29px, 3vw, 40px);
+  letter-spacing: -0.052em;
+  line-height: 1;
+  margin: 34px 0 13px;
+  max-width: 530px;
+}
+
+:where(.project-page, .learning-detail-page) .project-card > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-output-preview {
+  background: var(--ink);
+  border-radius: 14px;
+  display: grid;
+  gap: 7px;
+  margin-top: 24px;
+  padding: 16px;
+}
+
+:where(.project-page, .learning-detail-page) .project-output-preview span {
+  color: var(--cyan);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .project-output-preview strong {
+  color: #e9f2f8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+:where(.project-page, .learning-detail-page) .project-metrics {
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 18px;
+}
+
+:where(.project-page, .learning-detail-page) .project-metrics div {
+  display: grid;
+  gap: 3px;
+  padding: 14px 8px 14px 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-metrics div:not(:last-child) {
+  border-right: 1px solid var(--line);
+  margin-right: 10px;
+}
+
+:where(.project-page, .learning-detail-page) .project-metrics strong {
+  font-size: 20px;
+  letter-spacing: -0.04em;
+}
+
+:where(.project-page, .learning-detail-page) .project-metrics span {
+  color: #667c8d;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 7px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .project-card-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+:where(.project-page, .learning-detail-page) .project-card-actions > a:not(.button) {
+  color: #285b82;
+  font-size: 11px;
+  font-weight: 720;
+}
+
+:where(.project-page, .learning-detail-page) .project-boundary-note {
+  color: #5e7384;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  line-height: 1.6;
+  margin: 20px 0 0;
+  max-width: 840px;
+}
+
+:where(.project-page, .learning-detail-page) .section-intro.dark .section-kicker {
+  color: #8ea6ba;
+}
+
+:where(.project-page, .learning-detail-page) .project-note {
+  padding: 20px;
+}
+
+:where(.project-page, .learning-detail-page) .project-note span {
+  color: #5e7486;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .project-note {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 7px;
+  margin-top: auto;
+}
+
+:where(.project-page, .learning-detail-page) .project-note strong {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+:where(.project-page, .learning-detail-page) .project-note:hover strong {
+  color: #155a92;
+}
+
+:where(.project-page, .learning-detail-page) .project-page {
+  background: var(--paper);
+  min-height: 100vh;
+}
+
+:where(.project-page, .learning-detail-page) .project-site-header {
+  background: rgba(7, 24, 40, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+:where(.project-page, .learning-detail-page) .project-site-header .brand-mark {
+  background: var(--white);
+  color: var(--ink);
+}
+
+:where(.project-page, .learning-detail-page) .project-site-header .nav-cta {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+:where(.project-page, .learning-detail-page) .project-hero {
+  background: var(--ink);
+  color: var(--white);
+  isolation: isolate;
+  overflow: hidden;
+  padding: 84px 0 76px;
+  position: relative;
+}
+
+:where(.project-page, .learning-detail-page) .project-hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+  inset: 0;
+  mask-image: linear-gradient(to bottom right, black, transparent 78%);
+  position: absolute;
+  z-index: -1;
+}
+
+:where(.project-page, .learning-detail-page) .project-hero::after {
+  background: radial-gradient(circle, rgba(87, 215, 204, 0.19), transparent 64%);
+  content: "";
+  height: 520px;
+  position: absolute;
+  right: -160px;
+  top: -190px;
+  width: 520px;
+  z-index: -1;
+}
+
+:where(.project-page, .learning-detail-page) .project-hero-inner {
+  max-width: 1020px;
+}
+
+:where(.project-page, .learning-detail-page) .back-link {
+  color: #a6b8c6;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 680;
+  margin-bottom: 45px;
+}
+
+:where(.project-page, .learning-detail-page) .project-status {
+  align-items: center;
+  color: #9db0bf;
+  display: flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  gap: 9px;
+  letter-spacing: 0.07em;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .project-status span {
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(87, 215, 204, 0.13);
+  height: 7px;
+  width: 7px;
+}
+
+:where(.project-page, .learning-detail-page) .project-hero .section-kicker {
+  color: var(--cyan);
+}
+
+:where(.project-page, .learning-detail-page) .project-hero h1 {
+  font-size: clamp(52px, 7.5vw, 96px);
+  font-weight: 690;
+  letter-spacing: -0.064em;
+  line-height: 0.94;
+  margin: 18px 0 0;
+  max-width: 1050px;
+}
+
+:where(.project-page, .learning-detail-page) .project-lede {
+  color: #b6c6d2;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.55;
+  margin: 28px 0 0;
+  max-width: 790px;
+}
+
+:where(.project-page, .learning-detail-page) .project-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+:where(.project-page, .learning-detail-page) .button-project-primary {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+:where(.project-page, .learning-detail-page) .button-project-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+:where(.project-page, .learning-detail-page) .project-metric-band {
+  background: #dfe9fb;
+  border-bottom: 1px solid var(--line);
+}
+
+:where(.project-page, .learning-detail-page) .project-metric-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+:where(.project-page, .learning-detail-page) .project-metric-inner > div {
+  display: grid;
+  gap: 4px;
+  padding: 24px 18px 24px 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-metric-inner > div:not(:last-child) {
+  border-right: 1px solid var(--line);
+  margin-right: 18px;
+}
+
+:where(.project-page, .learning-detail-page) .project-metric-inner strong {
+  font-size: 26px;
+  letter-spacing: -0.045em;
+}
+
+:where(.project-page, .learning-detail-page) .project-metric-inner span {
+  color: #5d7385;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .project-story {
+  display: grid;
+  gap: 60px;
+  grid-template-columns: 0.85fr 1.15fr;
+  padding-bottom: 76px;
+  padding-top: 76px;
+}
+
+:where(.project-page, .learning-detail-page) .project-story-copy h2,
+:where(.project-page, .learning-detail-page) .project-output-copy h2,
+:where(.project-page, .learning-detail-page) .project-capabilities h2,
+:where(.project-page, .learning-detail-page) .project-boundary-inner h2 {
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 680;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  margin: 14px 0 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-story-columns {
+  display: grid;
+  gap: 15px;
+}
+
+:where(.project-page, .learning-detail-page) .project-story-columns article {
+  border-top: 1px solid var(--line);
+  padding: 18px 0 12px;
+}
+
+:where(.project-page, .learning-detail-page) .project-story-columns span,
+:where(.project-page, .learning-detail-page) .architecture-heading span {
+  color: #547086;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .project-story-columns p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 12px 0 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-output-section {
+  background: var(--ink);
+  color: var(--white);
+  padding: 72px 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-output-grid {
+  align-items: center;
+  display: grid;
+  gap: 62px;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+:where(.project-page, .learning-detail-page) .project-output-copy .section-kicker {
+  color: var(--cyan);
+}
+
+:where(.project-page, .learning-detail-page) .project-output-copy > p:not(.section-kicker) {
+  color: #a9bbc9;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 18px 0 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-resource-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+:where(.project-page, .learning-detail-page) .project-resource-links a {
+  color: #c7f5f1;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+:where(.project-page, .learning-detail-page) .output-console {
+  background: #0c263a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+}
+
+:where(.project-page, .learning-detail-page) .output-console-bar {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  display: flex;
+  gap: 6px;
+  padding: 12px 15px;
+}
+
+:where(.project-page, .learning-detail-page) .output-console-bar span {
+  background: #678096;
+  border-radius: 50%;
+  height: 7px;
+  width: 7px;
+}
+
+:where(.project-page, .learning-detail-page) .output-console-bar span:first-child {
+  background: #ed6b65;
+}
+
+:where(.project-page, .learning-detail-page) .output-console-bar span:nth-child(2) {
+  background: #e6ba56;
+}
+
+:where(.project-page, .learning-detail-page) .output-console-bar span:nth-child(3) {
+  background: #54c58a;
+}
+
+:where(.project-page, .learning-detail-page) .output-console-bar strong {
+  color: #8298a9;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+:where(.project-page, .learning-detail-page) .output-console pre {
+  color: #d9f1ef;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0;
+  overflow-x: auto;
+  padding: 26px;
+}
+
+:where(.project-page, .learning-detail-page) .project-build-section {
+  display: grid;
+  gap: 70px;
+  grid-template-columns: 0.9fr 1.1fr;
+  padding-bottom: 82px;
+  padding-top: 82px;
+}
+
+:where(.project-page, .learning-detail-page) .project-limitations {
+  align-items: start;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 70px;
+  grid-template-columns: 0.9fr 1.1fr;
+  padding-bottom: 70px;
+  padding-top: 58px;
+}
+
+:where(.project-page, .learning-detail-page) .project-limitations h2 {
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 680;
+  letter-spacing: -0.052em;
+  line-height: 1;
+  margin: 14px 0 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-limitations ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-limitations li {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 14px 0 14px 24px;
+  position: relative;
+}
+
+:where(.project-page, .learning-detail-page) .project-limitations li::before {
+  color: #295271;
+  content: "—";
+  left: 0;
+  position: absolute;
+}
+
+:where(.project-page, .learning-detail-page) .project-capabilities ul {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-capabilities li {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 13px 0 13px 24px;
+  position: relative;
+}
+
+:where(.project-page, .learning-detail-page) .project-capabilities li::before {
+  color: #178a7f;
+  content: "✓";
+  font-weight: 800;
+  left: 0;
+  position: absolute;
+}
+
+:where(.project-page, .learning-detail-page) .project-architecture {
+  background: #ebe6db;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+:where(.project-page, .learning-detail-page) .architecture-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+:where(.project-page, .learning-detail-page) .architecture-heading a {
+  color: #285b82;
+  font-size: 9px;
+  font-weight: 720;
+}
+
+:where(.project-page, .learning-detail-page) .project-architecture ol {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-architecture li {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 34px 1fr;
+  padding: 13px 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-architecture li > span {
+  align-items: center;
+  background: var(--ink);
+  border-radius: 50%;
+  color: var(--cyan);
+  display: flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+
+:where(.project-page, .learning-detail-page) .project-architecture p {
+  color: #405a6f;
+  font-size: 11px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-boundary-section {
+  background: #dfe9fb;
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  padding: 48px 0;
+}
+
+:where(.project-page, .learning-detail-page) .project-boundary-inner {
+  align-items: end;
+  display: grid;
+  gap: 55px;
+  grid-template-columns: 1fr 1fr;
+}
+
+:where(.project-page, .learning-detail-page) .project-boundary-inner > p {
+  color: #466276;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+:where(.project-page, .learning-detail-page) .next-project {
+  padding-bottom: 68px;
+  padding-top: 68px;
+}
+
+:where(.project-page, .learning-detail-page) .next-project > a {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 130px 1fr auto;
+  margin-top: 18px;
+  padding: 24px 0;
+}
+
+:where(.project-page, .learning-detail-page) .next-project span {
+  color: #61788b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+:where(.project-page, .learning-detail-page) .next-project strong {
+  font-size: clamp(20px, 3vw, 34px);
+  letter-spacing: -0.04em;
+}
+
+:where(.project-page, .learning-detail-page) .next-project b {
+  color: #155a92;
+  font-size: 28px;
+}
+
+:where(.project-page, .learning-detail-page) .button-light {
+  background: var(--ink);
+  color: var(--white);
+}
+
+:where(.project-page, .learning-detail-page) footer {
+  background: var(--ink);
+  color: #7890a3;
+  display: flex;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 8px;
+  justify-content: space-between;
+  letter-spacing: 0.05em;
+  padding: 16px max(28px, calc((100vw - var(--max)) / 2));
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+
+  :where(.project-page, .learning-detail-page) .project-grid,
+:where(.project-page, .learning-detail-page) .project-story,
+:where(.project-page, .learning-detail-page) .project-output-grid,
+:where(.project-page, .learning-detail-page) .project-build-section,
+:where(.project-page, .learning-detail-page) .project-limitations,
+:where(.project-page, .learning-detail-page) .project-boundary-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  :where(.project-page, .learning-detail-page) .site-header {
+    height: 62px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  :where(.project-page, .learning-detail-page) .brand > span:last-child,
+:where(.project-page, .learning-detail-page) .site-header nav > a:not(.nav-cta):not(.nav-mobile-link) {
+    display: none;
+  }
+
+  :where(.project-page, .learning-detail-page) nav {
+    gap: 14px;
+  }
+
+  :where(.project-page, .learning-detail-page) .nav-mobile-link {
+    display: inline-flex;
+  }
+
+  :where(.project-page, .learning-detail-page) .section-shell {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  :where(.project-page, .learning-detail-page) .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  :where(.project-page, .learning-detail-page) .project-card {
+    min-height: 0;
+  }
+
+  :where(.project-page, .learning-detail-page) .project-card h3 {
+    font-size: 34px;
+  }
+
+  :where(.project-page, .learning-detail-page) .project-metric-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  :where(.project-page, .learning-detail-page) .project-metric-inner > div {
+    border-bottom: 1px solid var(--line);
+  }
+
+  :where(.project-page, .learning-detail-page) .project-story,
+:where(.project-page, .learning-detail-page) .project-output-grid,
+:where(.project-page, .learning-detail-page) .project-build-section,
+:where(.project-page, .learning-detail-page) .project-limitations,
+:where(.project-page, .learning-detail-page) .project-boundary-inner {
+    gap: 34px;
+  }
+
+  :where(.project-page, .learning-detail-page) .project-hero {
+    padding: 55px 0;
+  }
+
+  :where(.project-page, .learning-detail-page) .project-hero h1 {
+    font-size: 46px;
+  }
+
+  :where(.project-page, .learning-detail-page) .output-console pre {
+    font-size: 10px;
+    padding: 18px;
+  }
+
+  :where(.project-page, .learning-detail-page) .next-project > a {
+    align-items: start;
+    grid-template-columns: 1fr auto;
+  }
+
+  :where(.project-page, .learning-detail-page) .next-project span {
+    grid-column: 1 / -1;
+  }
+
+  :where(.project-page, .learning-detail-page) footer {
+    gap: 8px;
+    padding: 18px;
+  }
+
+  :where(.project-page, .learning-detail-page) footer span:last-child {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+
+  :where(.project-page, .learning-detail-page) .button {
+    transition: none;
+  }
+}
