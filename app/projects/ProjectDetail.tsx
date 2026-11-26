@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
-import "../globals.css";
+import "../internal-base.css";
+import "../internal-pages.css";
 import type { PortfolioProject } from "./project-data";
 
 export default function ProjectDetail({ project }: { project: PortfolioProject }) {
@@ -22,13 +23,14 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
 
   return (
     <main className="project-page">
+      <a className="internal-skip" href="#project-content">Skip to main content</a>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <header className="site-header project-site-header">
         <Link className="brand" href="/" aria-label="Shivanand Kumar portfolio home">
-          <img className="brand-mark" src="/shivanand-logo-180.png" alt="" />
+          <img className="brand-mark" src="/brand/sk-mark.svg" width={42} height={42} alt="" />
           <span>Shivanand Kumar</span>
         </Link>
         <nav aria-label="Project navigation">
@@ -39,7 +41,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
         </nav>
       </header>
 
-      <section className="project-hero">
+      <section className="project-hero" id="project-content" tabIndex={-1}>
         <div className="project-hero-grid" aria-hidden="true" />
         <div className="section-shell project-hero-inner">
           <Link className="back-link" href="/#projects">
@@ -129,7 +131,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
               <span />
               <strong>verified-output.json</strong>
             </div>
-            <pre>{project.output}</pre>
+            <pre tabIndex={0} aria-label="Example JSON output; scroll horizontally if needed">{project.output}</pre>
           </div>
         </div>
       </section>

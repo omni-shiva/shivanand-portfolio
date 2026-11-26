@@ -107,3 +107,21 @@ test("circular challenges start collapsed and the sharing URL has no parameters"
   }
   assert.deepEqual(await readFile(file("services/share-card.jpg")), await readFile(file("services/data-ai-services.jpg")));
 });
+
+
+test("internal navigation resolves across exported pages", async () => {
+  const pages = ["index.html", "projects/data-platform-reliability-agent/index.html", "projects/synthetic-data-print-recommendation-agent/index.html", "projects/constraint-aware-coding-agent-evals/index.html", "learning/pii-masking-lab/index.html"];
+  for (const page of pages) {
+    const html = await text(page);
+    for (const match of html.matchAll(/href="([/#][^"<>]*)"/g)) {
+      const url = new URL(match[1], "https://shivanandkumar.in/" + page);
+      if (url.origin !== "https://shivanandkumar.in") continue;
+      const destination = url.pathname.slice(1) + (url.pathname.endsWith("/") ? "index.html" : "");
+      await access(file(destination));
+      if (url.hash) {
+        const id = decodeURIComponent(url.hash.slice(1));
+        assert.ok((await text(destination)).includes('id="' + id + '"'), page + " -> " + match[1]);
+      }
+    }
+  }
+});
