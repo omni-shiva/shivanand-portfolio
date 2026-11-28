@@ -132,7 +132,7 @@ test("projects index is a shareable portfolio route with all four evidence desti
   assert.match(html, /rel="canonical" href="https:\/\/shivanandkumar.in\/projects\/"/);
   assert.match(html, /property="og:url" content="https:\/\/shivanandkumar.in\/projects\/"/);
   assert.match(html, /property="og:site_name" content="Shivanand Kumar"/);
-  assert.match(html, /property="og:image" content="https:\/\/shivanandkumar.in\/projects\/portfolio-card.jpg"/);
+  assert.match(html, /property="og:image" content="https:\/\/shivanandkumar.in\/projects\/engineering-portfolio.jpg"/);
   assert.doesNotMatch(html, /Data &amp; AI Services|Portfolio &amp; Services/);
   assert.match(html, /Independent projects using synthetic data/);
   assert.match(html, /24 teaching fixtures/);
@@ -144,7 +144,7 @@ test("projects index is a shareable portfolio route with all four evidence desti
   assert.equal(items.itemListElement.length, 4);
   assert.ok((await text("sitemap.xml")).includes("https://shivanandkumar.in/projects/"));
   assert.ok((await text("index.html")).includes('href="/projects/"'));
-  const card = await readFile(file("projects/portfolio-card.jpg"));
+  const card = await readFile(file("projects/engineering-portfolio.jpg"));
   assert.equal(card.readUInt16BE(0), 0xffd8);
   assert.ok(card.length < 600000);
 });
