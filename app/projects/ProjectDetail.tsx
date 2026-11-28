@@ -44,7 +44,7 @@ export default function ProjectDetail({ project }: { project: PortfolioProject }
       <section className="project-hero" id="project-content" tabIndex={-1}>
         <div className="project-hero-grid" aria-hidden="true" />
         <div className="section-shell project-hero-inner">
-          <Link className="back-link" href="/#projects">
+          <Link className="back-link" href="/projects/">
             ← Back to public work
           </Link>
           <p className="project-status">

@@ -110,7 +110,7 @@ test("circular challenges start collapsed and the sharing URL has no parameters"
 
 
 test("internal navigation resolves across exported pages", async () => {
-  const pages = ["index.html", "projects/data-platform-reliability-agent/index.html", "projects/synthetic-data-print-recommendation-agent/index.html", "projects/constraint-aware-coding-agent-evals/index.html", "learning/pii-masking-lab/index.html"];
+  const pages = ["index.html", "projects/index.html", "projects/data-platform-reliability-agent/index.html", "projects/synthetic-data-print-recommendation-agent/index.html", "projects/constraint-aware-coding-agent-evals/index.html", "learning/pii-masking-lab/index.html"];
   for (const page of pages) {
     const html = await text(page);
     for (const match of html.matchAll(/href="([/#][^"<>]*)"/g)) {
@@ -124,4 +124,27 @@ test("internal navigation resolves across exported pages", async () => {
       }
     }
   }
+});
+
+test("projects index is a shareable portfolio route with all four evidence destinations", async () => {
+  const html = await text("projects/index.html");
+  assert.equal((html.match(/<h1\b/g) || []).length, 1);
+  assert.match(html, /rel="canonical" href="https:\/\/shivanandkumar.in\/projects\/"/);
+  assert.match(html, /property="og:url" content="https:\/\/shivanandkumar.in\/projects\/"/);
+  assert.match(html, /property="og:site_name" content="Shivanand Kumar"/);
+  assert.match(html, /property="og:image" content="https:\/\/shivanandkumar.in\/projects\/portfolio-card.jpg"/);
+  assert.doesNotMatch(html, /Data &amp; AI Services|Portfolio &amp; Services/);
+  assert.match(html, /Independent projects using synthetic data/);
+  assert.match(html, /24 teaching fixtures/);
+  for (const path of ["projects/data-platform-reliability-agent", "projects/synthetic-data-print-recommendation-agent", "projects/constraint-aware-coding-agent-evals", "learning/pii-masking-lab"]) {
+    assert.ok(html.includes('href="/' + path + '/"'), path);
+    await access(file(path + "/index.html"));
+  }
+  const items = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert.equal(items.itemListElement.length, 4);
+  assert.ok((await text("sitemap.xml")).includes("https://shivanandkumar.in/projects/"));
+  assert.ok((await text("index.html")).includes('href="/projects/"'));
+  const card = await readFile(file("projects/portfolio-card.jpg"));
+  assert.equal(card.readUInt16BE(0), 0xffd8);
+  assert.ok(card.length < 600000);
 });

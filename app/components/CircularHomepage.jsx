@@ -84,8 +84,8 @@ export default function CircularHomepage({legacyMarkup,footerMarkup}) {
     <a className="skip-link" href="#main-content">Skip to main content</a>
     <header className="oe-header">
       <a className="oe-brand" href="#top" aria-label="Shivanand Kumar home"><img src="/brand/sk-mark.svg" width="56" height="56" alt=""/><span className="oe-brand-copy"><span className="oe-name">Shivanand Kumar</span><span className="oe-role">Data &amp; Applied AI Engineer</span><span className="oe-credentials">HP R&amp;D <span aria-hidden="true">|</span> ex-Amazon</span></span></a>
-      <nav className="oe-navigation" aria-label="Primary navigation"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#about">About</a><a className="oe-header-contact" href="#contact">Discuss your challenge</a></nav>
-      <details className="oe-mobile-menu" ref={menuRef}><summary aria-label="Navigation menu"><ListIcon size={24}/></summary><nav aria-label="Mobile navigation"><a href="#solutions">Explore challenges</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Discuss your challenge</a></nav></details>
+      <nav className="oe-navigation" aria-label="Primary navigation"><a href="#services">Services</a><a href="/projects/">Projects</a><a href="#about">About</a><a className="oe-header-contact" href="#contact">Discuss your challenge</a></nav>
+      <details className="oe-mobile-menu" ref={menuRef}><summary aria-label="Navigation menu"><ListIcon size={24}/></summary><nav aria-label="Mobile navigation"><a href="#solutions">Explore challenges</a><a href="#services">Services</a><a href="/projects/">Projects</a><a href="#about">About</a><a href="#contact">Discuss your challenge</a></nav></details>
     </header>
     <main id="main-content" tabIndex={-1}>
       <section className="oe-hero" id="top" aria-labelledby="hero-title">

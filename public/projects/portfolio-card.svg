@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b211b"/>
+  <rect width="1200" height="102" fill="#f6f5ef"/>
+  <rect x="48" y="24" width="54" height="54" rx="10" fill="#263a2d" stroke="#a39160" stroke-width="2"/>
+  <rect x="54" y="30" width="42" height="42" rx="6" fill="none" stroke="#a39160"/>
+  <text x="75" y="61" text-anchor="middle" fill="#d9c596" font-family="Georgia,serif" font-size="29">SK</text>
+  <text x="120" y="46" fill="#1c3029" font-family="Georgia,serif" font-size="28">Shivanand Kumar</text>
+  <text x="120" y="73" fill="#536158" font-family="Arial,sans-serif" font-size="17">Data &amp; Applied AI Engineer</text>
+  <text x="1150" y="57" text-anchor="end" fill="#536158" font-family="Arial,sans-serif" font-size="17">shivanandkumar.in/projects/</text>
+  <text x="56" y="179" fill="#d9c596" font-family="Arial,sans-serif" font-size="20">Engineering portfolio</text>
+  <text x="52" y="264" fill="#f6f5ef" font-family="Arial,sans-serif" font-size="63" letter-spacing="-2">Data engineering.</text>
+  <text x="52" y="340" fill="#f6f5ef" font-family="Arial,sans-serif" font-size="63" letter-spacing="-2">Applied AI.</text>
+  <text x="56" y="397" fill="#cdd7ce" font-family="Arial,sans-serif" font-size="22">The problem. The implementation.</text>
+  <text x="56" y="430" fill="#cdd7ce" font-family="Arial,sans-serif" font-size="22">The evidence behind the work.</text>
+  <g fill="#16352c" stroke="#66755b">
+    <rect x="724" y="166" width="420" height="75" rx="6"/>
+    <rect x="724" y="257" width="420" height="75" rx="6"/>
+    <rect x="724" y="348" width="420" height="75" rx="6"/>
+    <rect x="724" y="439" width="420" height="75" rx="6"/>
+  </g>
+  <g stroke="#d9c596" stroke-width="2" fill="none">
+    <path d="M752 191h27v25h-27zM757 199h17m-17 9h12"/>
+    <path d="M752 282h27v25h-27zM757 290h17m-17 9h12"/>
+    <path d="M752 373h27v25h-27zM757 381h17m-17 9h12"/>
+    <path d="M752 464h27v25h-27zM757 472h17m-17 9h12"/>
+  </g>
+  <g fill="#f6f5ef" font-family="Arial,sans-serif" font-size="25">
+    <text x="803" y="213">Data reliability</text>
+    <text x="803" y="304">Synthetic data</text>
+    <text x="803" y="395">AI evaluation</text>
+    <text x="803" y="486">PII masking</text>
+  </g>
+  <path d="M56 557h1088" stroke="#536158"/>
+  <text x="56" y="593" fill="#cdd7ce" font-family="Arial,sans-serif" font-size="18">Independent builds · Synthetic data · Code &amp; results</text>
+  <text x="1144" y="593" text-anchor="end" fill="#d9c596" font-family="Arial,sans-serif" font-size="18">HP R&amp;D | ex-Amazon</text>
+</svg>
