@@ -30,6 +30,8 @@
     <text x="803" y="395">AI evaluation</text>
     <text x="803" y="486">PII masking</text>
   </g>
+  <text x="56" y="490" fill="#d9c596" font-family="Arial,sans-serif" font-size="26" font-weight="600">100B+ tokens · Codex &amp; Claude Code</text>
+  <text x="56" y="525" fill="#cdd7ce" font-family="Arial,sans-serif" font-size="18">Across personal &amp; professional work</text>
   <path d="M56 557h1088" stroke="#536158"/>
   <text x="56" y="593" fill="#cdd7ce" font-family="Arial,sans-serif" font-size="18">Independent builds · Synthetic data · Code &amp; results</text>
   <text x="1144" y="593" text-anchor="end" fill="#d9c596" font-family="Arial,sans-serif" font-size="18">HP R&amp;D | ex-Amazon</text>

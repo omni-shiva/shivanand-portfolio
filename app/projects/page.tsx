@@ -5,10 +5,10 @@ import "../internal-base.css";
 import "./projects-index.css";
 import { projects } from "./project-data";
 
-const title = "Data Engineering & Applied AI Portfolio | Shivanand Kumar";
-const description = "Explore Shivanand Kumar's independent engineering projects in data reliability, synthetic data, AI evaluation and PII masking, with code, results and documented limits.";
+const title = "Data & Applied AI Portfolio | 100B+ Tokens with Codex & Claude Code";
+const description = "Explore Shivanand Kumar's engineering projects in data reliability, synthetic data, AI evaluation and PII masking. Experience includes 100B+ tokens with Codex and Claude Code across personal and professional engineering work.";
 const url = "https://shivanandkumar.in/projects/";
-const image = { url: "/projects/portfolio-card.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Shivanand Kumar — Data Engineering & Applied AI Portfolio. Data reliability, synthetic data, AI evaluation and PII masking." };
+const image = { url: "/projects/engineering-portfolio.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "Shivanand Kumar — Data & Applied AI Portfolio. 100B+ tokens with Codex and Claude Code across personal and professional work. Data reliability, synthetic data, AI evaluation and PII masking." };
 
 export const metadata: Metadata = {
   title,
@@ -71,6 +71,7 @@ export default function ProjectsPage() {
             <p className="pi-background">Data Engineer - 2 at HP. Previously, analytics at Amazon.</p>
             <h1 id="portfolio-title">Data engineering<br />&amp; applied AI projects.</h1>
             <p className="pi-intro">The problem, the implementation and the evidence behind each build.</p>
+            <p className="pi-usage"><strong>100B+ tokens with Codex &amp; Claude Code</strong><span>Across personal and professional engineering work.</span></p>
             <a className="pi-hero-link" href="#project-list">Explore the projects</a>
           </div>
         </section>
