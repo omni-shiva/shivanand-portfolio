@@ -34,7 +34,7 @@ export default function PiiMaskingLab() {
           <span>Shivanand Kumar</span>
         </Link>
         <nav aria-label="Primary navigation">
-          <Link className="nav-mobile-link" href="/#projects">Projects</Link>
+          <Link className="nav-mobile-link" href="/projects/">Projects</Link>
           <Link className="nav-cta" href="/#contact">Discuss a project</Link>
         </nav>
       </header>
@@ -42,7 +42,7 @@ export default function PiiMaskingLab() {
       <div className="section-shell learning-detail-shell" id="learning-content" tabIndex={-1}>
         <nav className="learning-breadcrumb" aria-label="Breadcrumb">
           <Link href="/">Home</Link><span aria-hidden="true">/</span>
-          <Link href="/#projects">Projects</Link><span aria-hidden="true">/</span>
+          <Link href="/projects/">Projects</Link><span aria-hidden="true">/</span>
           <span aria-current="page">PII Masking Lab</span>
         </nav>
 
@@ -116,7 +116,7 @@ export default function PiiMaskingLab() {
           </ol>
           <p>Optional model calls require explicit opt-in, a model choice and an API key, and may incur charges. Use only the synthetic samples. Never send real personal data to a service that is not approved to process it.</p>
           <p className="learning-detail-boundary">Built with AI assistance for learning. No employer or client data. No model training, production deployment or privacy certification. Masking is not encryption, and a clean pattern re-scan is not proof of privacy.</p>
-          <Link className="learning-back-link" href="/#projects">← Back to projects</Link>
+          <Link className="learning-back-link" href="/projects/">← Back to projects</Link>
         </section>
       </div>
     </main>
